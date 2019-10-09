@@ -1,4 +1,4 @@
-﻿Public Class home
+﻿Public Class home ''kenan
     Dim mysql As MySql.Data.MySqlClient.MySqlConnection
     ‘’‘处理窗体移动，panel2_mousedown as function ,handles panel2_mousedown as return
     Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" _
@@ -175,5 +175,7 @@
 
     End Sub
 
+    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
 
+    End Sub
 End Class
