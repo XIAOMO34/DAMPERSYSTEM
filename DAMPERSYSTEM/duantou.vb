@@ -70,7 +70,7 @@
         Try ''异常处理,给出弹窗提示并且暂停
             mysqlconnect.Open()
             MessageBox.Show("连接服务器成功")
-            Readdata() ''读取数据库数据并且赋值，关键函数
+            Readdata() ''读取数据库数据并且赋值，关键函数k
             mysqlconnect.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
