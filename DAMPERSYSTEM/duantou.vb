@@ -66,7 +66,7 @@
         ''sql数据库
         mysqlconnect = New MySql.Data.MySqlClient.MySqlConnection ''定义连接字符串
         mysqlconnect.ConnectionString =
-            "server=52.76.27.242;userid=sql12306337;password=mCA9M9cAsb;database=sql12306337" ''登录命令
+            "server=52.76.27.242;userid=sql12307948;password=W38GxxRxLI;database=sql12307948" ''登录命令
         Try ''异常处理,给出弹窗提示并且暂停
             mysqlconnect.Open()
             MessageBox.Show("连接服务器成功")
@@ -88,7 +88,7 @@
             rows = reader.GetDouble(reader.GetOrdinal("count(*)"))
         End While
         reader.Close()
-        query = "select * from sql12306337.damper" ''sql语言，读取表格数据，给数据流reader
+        query = "select * from sql12307948.damper" ''sql语言，读取表格数据，给数据流reader
         mycommand = New MySql.Data.MySqlClient.MySqlCommand(query, mysqlconnect)
         reader = mycommand.ExecuteReader
         While reader.Read
