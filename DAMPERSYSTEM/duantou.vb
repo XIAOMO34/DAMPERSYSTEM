@@ -1,26 +1,29 @@
-﻿Public Class duantou
+﻿Imports MySql.Data.MySqlClient
+Imports Microsoft.Office.Interop.Excel
+Imports SldWorks ''命名空间
+Public Class duantou
     '模块级变量
-    Dim mysqlconnect As MySql.Data.MySqlClient.MySqlConnection ''定义mysql连接
-    Dim mycommand As MySql.Data.MySqlClient.MySqlCommand ''定义mysql命令
-    Dim reader As MySql.Data.MySqlClient.MySqlDataReader ''定义数据流
+    Dim mysqlconnect As MySqlConnection ''定义mysql连接
+    Dim mycommand As MySqlCommand ''定义mysql命令
+    Dim reader As MySqlDataReader ''定义数据流
     Dim query As String ''定义命令流
     Dim rows As Double ''定义表格列数（即参数数目）
     Dim a() As Double ''参数
     Dim swapp As SldWorks.SldWorks ''声明变量
-    Dim part As SldWorks.ModelDoc2
-    Dim sketch As SldWorks.SketchManager
-    Dim circle1 As SldWorks.SketchSegment
-    Dim feature As SldWorks.FeatureManager
+    Dim part As ModelDoc2
+    Dim sketch As SketchManager
+    Dim circle1 As SketchSegment
+    Dim feature As FeatureManager
     Dim lashen1 As Object
-    Dim line1 As SldWorks.SketchSegment
-    Dim dis As SldWorks.DisplayDimension
-    Dim dimension As SldWorks.Dimension
+    Dim line1 As SketchSegment
+    Dim dis As DisplayDimension
+    Dim dimension As Dimension
     Dim line2 As Object
     Dim circle As Object
-    Dim kong As SldWorks.Feature ''注意命名空间
-    Dim xlapp As Microsoft.Office.Interop.Excel.Application ''引用Microsoft excel和Microsoft office类型库
-    Dim xlBook As Microsoft.Office.Interop.Excel.Workbook
-    Dim xlSheet As Microsoft.Office.Interop.Excel.Worksheet ''然后创建对象
+    Dim kong As Feature ''注意命名空间
+    Dim xlapp As Application ''引用Microsoft excel和Microsoft office类型库
+    Dim xlBook As Workbook
+    Dim xlSheet As Worksheet ''然后创建对象
     Dim pi As Double = 3.1415926535898
     ''移动窗口代码
     Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As IntPtr,
@@ -297,5 +300,9 @@
 
     Private Sub BunifuFlatButton5_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton5.Click
         Createlatou()
+    End Sub
+
+    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
+
     End Sub
 End Class

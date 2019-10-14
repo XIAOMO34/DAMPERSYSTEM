@@ -178,4 +178,8 @@
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
 
     End Sub
+
+    Private Sub assemblepanel_Paint(sender As Object, e As PaintEventArgs) Handles assemblepanel.Paint
+
+    End Sub
 End Class
