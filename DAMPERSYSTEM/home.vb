@@ -34,15 +34,19 @@ Public Class home ''kenan
         'mysqlconnect = New MySqlConnection ''定义连接字符串
         'mysqlconnect.ConnectionString =
         '    "server=52.76.27.242;userid=sql12307948;password=W38GxxRxLI;database=sql12307948" ''登录命令
-        'Try ''异常处理,给出弹窗提示并且暂停
-        '    mysqlconnect.Open()
-        '    Label2.Text = "服务器状态：已连接"
-        '    mysqlconnect.Close()
-        'Catch ex As Exception
-        '    Label2.Text = "服务器状态：未连接"
-        'Finally
-        '    mysqlconnect.Dispose() ''中断sql
-        'End Try
+        'mysqlconnect.Open()
+        'If mysqlconnect.State = 1 Then
+        '    MessageBox.Show("1")
+        'End If
+        ''Try ''异常处理,给出弹窗提示并且暂停
+        ''    mysqlconnect.Open()
+        ''    Label2.Text = "服务器状态：已连接"
+        ''    mysqlconnect.Close()
+        ''Catch ex As Exception
+        ''    Label2.Text = "服务器状态：未连接"
+        ''Finally
+        ''    mysqlconnect.Dispose() ''中断sql
+        ''End Try
     End Sub
     Private Sub Label1_Click(sender As Object, e As EventArgs)
 
