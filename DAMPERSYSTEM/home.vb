@@ -3,7 +3,7 @@ Imports Microsoft.Office.Interop.Excel
 Imports MySql.Data.MySqlClient
 
 Public Class home ''kenan
-    Dim mysql As MySql.Data.MySqlClient.MySqlConnection
+    Dim mysql As MySqlConnection
     Dim swapp As SldWorks.SldWorks
     Dim part As ModelDoc2
     Dim asm As AssemblyDoc
@@ -31,7 +31,7 @@ Public Class home ''kenan
         SendMessage(Me.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0)
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        mysqlconnect = New MySql.Data.MySqlClient.MySqlConnection ''定义连接字符串
+        mysqlconnect = New MySqlConnection ''定义连接字符串
         mysqlconnect.ConnectionString =
             "server=52.76.27.242;userid=sql12307948;password=W38GxxRxLI;database=sql12307948" ''登录命令
         Try ''异常处理,给出弹窗提示并且暂停
@@ -229,7 +229,7 @@ Public Class home ''kenan
         Addcomponent(datouduangai)
         Addcomponent(xiaotouduangai)
         swapp.OpenDoc6(latou, 1, 32, "", 2, 2)
-        asm.AddComponent5(latou, 0, "", False, "", 0, 0, 0)
+        asm.AddComponent5(latou, 0, "", False, "", 1, 0, 0)
         swapp.CloseDoc(latou)
         Addcomponent(jietou)
         part.Extension.SelectByID2("右视基准面@大头端盖-1@" & title, "PLANE", 0, 0, 0, False, 0, Nothing, 0)
@@ -241,6 +241,11 @@ Public Class home ''kenan
         part.Extension.SelectByID2("", "FACE", -0.153, 0.054, 0, True, 0, Nothing, 0)
         asm.AddMate5(0, 0, False, 0, 0, 0, 0, 0, 0,
                      0, 0, False, False, 0, 0)
+        part.Extension.SelectByID2("", "FACE", 0.153, 0.05, 0, False, 0, Nothing, 0)
+        part.ShowNamedView2("*左视", 3)
+        part.Extension.SelectByID2("", "FACE", 1 - 0.28, 0.035, 0, True, 0, Nothing, 0)
+        part.ShowNamedView2("*", 7)
+        asm.AddMate5(0, 1, False, 0.001, 0.001, 0.001, 0.001, 0.001, 0, 0, 0, False, False, 0, 1)
     End Sub
     Function Addcomponent(a As String)
         swapp.OpenDoc6(a, 1, 32, "", 2, 2)
