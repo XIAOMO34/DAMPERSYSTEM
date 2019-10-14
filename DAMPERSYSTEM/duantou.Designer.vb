@@ -24,6 +24,7 @@ Partial Class duantou
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(duantou))
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.BunifuFlatButton6 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuFlatButton3 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuFlatButton2 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -37,7 +38,6 @@ Partial Class duantou
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.BunifuFlatButton1 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.BunifuFlatButton6 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -57,6 +57,39 @@ Partial Class duantou
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(400, 560)
         Me.Panel2.TabIndex = 3
+        '
+        'BunifuFlatButton6
+        '
+        Me.BunifuFlatButton6.Activecolor = System.Drawing.SystemColors.Highlight
+        Me.BunifuFlatButton6.BackColor = System.Drawing.Color.White
+        Me.BunifuFlatButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BunifuFlatButton6.BorderRadius = 0
+        Me.BunifuFlatButton6.ButtonText = ""
+        Me.BunifuFlatButton6.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BunifuFlatButton6.DisabledColor = System.Drawing.Color.Gray
+        Me.BunifuFlatButton6.Iconcolor = System.Drawing.Color.Transparent
+        Me.BunifuFlatButton6.Iconimage = Nothing
+        Me.BunifuFlatButton6.Iconimage_right = Nothing
+        Me.BunifuFlatButton6.Iconimage_right_Selected = Nothing
+        Me.BunifuFlatButton6.Iconimage_Selected = Nothing
+        Me.BunifuFlatButton6.IconMarginLeft = 0
+        Me.BunifuFlatButton6.IconMarginRight = 0
+        Me.BunifuFlatButton6.IconRightVisible = True
+        Me.BunifuFlatButton6.IconRightZoom = 0R
+        Me.BunifuFlatButton6.IconVisible = True
+        Me.BunifuFlatButton6.IconZoom = 90.0R
+        Me.BunifuFlatButton6.IsTab = False
+        Me.BunifuFlatButton6.Location = New System.Drawing.Point(43, 270)
+        Me.BunifuFlatButton6.Name = "BunifuFlatButton6"
+        Me.BunifuFlatButton6.Normalcolor = System.Drawing.Color.White
+        Me.BunifuFlatButton6.OnHovercolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton6.OnHoverTextColor = System.Drawing.Color.Black
+        Me.BunifuFlatButton6.selected = False
+        Me.BunifuFlatButton6.Size = New System.Drawing.Size(150, 30)
+        Me.BunifuFlatButton6.TabIndex = 9
+        Me.BunifuFlatButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BunifuFlatButton6.Textcolor = System.Drawing.Color.Black
+        Me.BunifuFlatButton6.TextFont = New System.Drawing.Font("宋体", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         '
         'BunifuFlatButton3
         '
@@ -309,39 +342,6 @@ Partial Class duantou
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'BunifuFlatButton6
-        '
-        Me.BunifuFlatButton6.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.BunifuFlatButton6.BackColor = System.Drawing.Color.White
-        Me.BunifuFlatButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuFlatButton6.BorderRadius = 0
-        Me.BunifuFlatButton6.ButtonText = ""
-        Me.BunifuFlatButton6.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BunifuFlatButton6.DisabledColor = System.Drawing.Color.Gray
-        Me.BunifuFlatButton6.Iconcolor = System.Drawing.Color.Transparent
-        Me.BunifuFlatButton6.Iconimage = Nothing
-        Me.BunifuFlatButton6.Iconimage_right = Nothing
-        Me.BunifuFlatButton6.Iconimage_right_Selected = Nothing
-        Me.BunifuFlatButton6.Iconimage_Selected = Nothing
-        Me.BunifuFlatButton6.IconMarginLeft = 0
-        Me.BunifuFlatButton6.IconMarginRight = 0
-        Me.BunifuFlatButton6.IconRightVisible = True
-        Me.BunifuFlatButton6.IconRightZoom = 0R
-        Me.BunifuFlatButton6.IconVisible = True
-        Me.BunifuFlatButton6.IconZoom = 90.0R
-        Me.BunifuFlatButton6.IsTab = False
-        Me.BunifuFlatButton6.Location = New System.Drawing.Point(43, 270)
-        Me.BunifuFlatButton6.Name = "BunifuFlatButton6"
-        Me.BunifuFlatButton6.Normalcolor = System.Drawing.Color.White
-        Me.BunifuFlatButton6.OnHovercolor = System.Drawing.Color.Silver
-        Me.BunifuFlatButton6.OnHoverTextColor = System.Drawing.Color.Black
-        Me.BunifuFlatButton6.selected = False
-        Me.BunifuFlatButton6.Size = New System.Drawing.Size(150, 30)
-        Me.BunifuFlatButton6.TabIndex = 9
-        Me.BunifuFlatButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BunifuFlatButton6.Textcolor = System.Drawing.Color.Black
-        Me.BunifuFlatButton6.TextFont = New System.Drawing.Font("宋体", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         '
         'duantou
         '

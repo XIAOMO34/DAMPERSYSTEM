@@ -1,5 +1,16 @@
-﻿Public Class home ''kenan
+﻿Imports SldWorks
+Imports Microsoft.Office.Interop.Excel
+Imports MySql.Data.MySqlClient
+
+Public Class home ''kenan
     Dim mysql As MySql.Data.MySqlClient.MySqlConnection
+    Dim swapp As SldWorks.SldWorks
+    Dim part As ModelDoc2
+    Dim asm As AssemblyDoc
+    Dim mysqlconnect As MySqlConnection ''定义mysql连接
+    Dim mycommand As MySqlCommand ''定义mysql命令
+    Dim reader As MySqlDataReader ''定义数据流
+
     ‘’‘处理窗体移动，panel2_mousedown as function ,handles panel2_mousedown as return
     Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" _
         (ByVal hwnd As IntPtr,
@@ -13,13 +24,25 @@
     Public Const SC_MOVE = &HF010&
 
     Public Const HTCAPTION = 2
+
     Private Sub Panel2_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) _
         Handles Panel2.MouseDown
         ReleaseCapture()
         SendMessage(Me.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0)
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        mysqlconnect = New MySql.Data.MySqlClient.MySqlConnection ''定义连接字符串
+        mysqlconnect.ConnectionString =
+            "server=52.76.27.242;userid=sql12307948;password=W38GxxRxLI;database=sql12307948" ''登录命令
+        Try ''异常处理,给出弹窗提示并且暂停
+            mysqlconnect.Open()
+            Label2.Text = "服务器状态：已连接"
+            mysqlconnect.Close()
+        Catch ex As Exception
+            Label2.Text = "服务器状态：未连接"
+        Finally
+            mysqlconnect.Dispose() ''中断sql
+        End Try
     End Sub
     Private Sub Label1_Click(sender As Object, e As EventArgs)
 
@@ -81,9 +104,7 @@
         drawingpanel.Visible = False
     End Sub
 
-    Private Sub BunifuFlatButton5_Click_1(sender As Object, e As EventArgs) Handles BunifuFlatButton5.Click
-        Me.Hide()
-    End Sub
+
 
 
     Private Sub Buttonduantou_Click_1(sender As Object, e As EventArgs) Handles Buttonduantou.Click
@@ -140,8 +161,6 @@
     End Sub
     ''工程图生成
     Private Sub BunifuFlatButton17_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton17.Click
-        Dim swapp As SldWorks.SldWorks
-        Dim part As SldWorks.ModelDoc2
         Dim ZhuView As Object
         Dim ZhuoView As Object
         Dim FuView As Object
@@ -182,4 +201,51 @@
     Private Sub assemblepanel_Paint(sender As Object, e As PaintEventArgs) Handles assemblepanel.Paint
 
     End Sub
+    Private Sub BunifuFlatButton5_Click_1(sender As Object, e As EventArgs) Handles BunifuFlatButton5.Click
+        'Me.Hide()
+        Dim featruemgr As FeatureManager
+        Dim datouduangai As String =
+            "C:\Users\LJX\Desktop\装配练习2019-10-14\大头端盖.SLDPRT"
+        Dim xiaotouduangai As String =
+            "C:\Users\LJX\Desktop\装配练习2019-10-14\小头端盖.SLDPRT"
+        Dim latou As String =
+            "C:\Users\LJX\Desktop\装配练习2019-10-14\拉头.SLDPRT"
+        Dim jietou As String =
+            "C:\Users\LJX\Desktop\装配练习2019-10-14\接头.SLDPRT"
+        Dim waitong As String =
+            "C:\Users\LJX\Desktop\装配练习2019-10-14\外筒.SLDPRT"
+        Dim huosaigan As String =
+            "C:\Users\LJX\Desktop\装配练习2019-10-14\活塞杆.SLDPRT"
+        Dim title As String
+        swapp = CreateObject("Sldworks.Application")
+        swapp.CloseAllDocuments(True)
+        swapp.Visible = True
+        part = swapp.NewDocument("C:\ProgramData\SolidWorks\SOLIDWORKS 2018\templates\gb_assembly.asmdot", 0,
+                                 0, 0)
+        title = part.GetTitle
+        asm = part
+        Addcomponent(waitong)
+        Addcomponent(huosaigan)
+        Addcomponent(datouduangai)
+        Addcomponent(xiaotouduangai)
+        swapp.OpenDoc6(latou, 1, 32, "", 2, 2)
+        asm.AddComponent5(latou, 0, "", False, "", 0, 0, 0)
+        swapp.CloseDoc(latou)
+        Addcomponent(jietou)
+        part.Extension.SelectByID2("右视基准面@大头端盖-1@" & title, "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+        part.Extension.SelectByID2("右视基准面@外筒-1@" & title, "PLANE", 0, 0, 0, True, 0, Nothing, 0)
+        asm.AddMate5(0, 0, False, 0, 0, 0, 0, 0, 0,
+                     0, 0, False, False, 0, 0)
+        part.ShowNamedView2("*左视", 3)
+        part.Extension.SelectByID2("右视基准面@接头-1@" & title, "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+        part.Extension.SelectByID2("", "FACE", -0.153, 0.054, 0, True, 0, Nothing, 0)
+        asm.AddMate5(0, 0, False, 0, 0, 0, 0, 0, 0,
+                     0, 0, False, False, 0, 0)
+    End Sub
+    Function Addcomponent(a As String)
+        swapp.OpenDoc6(a, 1, 32, "", 2, 2)
+        asm.AddComponent5(a, 0, "", False, "", 0, 0, 0)
+        swapp.CloseDoc(a)
+        Return 0
+    End Function
 End Class

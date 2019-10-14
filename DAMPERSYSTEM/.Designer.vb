@@ -55,6 +55,7 @@ Partial Class home
         Me.drawingpanel = New System.Windows.Forms.Panel()
         Me.BunifuFlatButton17 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.PictureBox12 = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -317,6 +318,7 @@ Partial Class home
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.BunifuImageButton1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(200, 0)
@@ -534,6 +536,7 @@ Partial Class home
         Me.assemblepanel.Controls.Add(Me.BunifuFlatButton5)
         Me.assemblepanel.Controls.Add(Me.PictureBox3)
         Me.assemblepanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.assemblepanel.ForeColor = System.Drawing.Color.White
         Me.assemblepanel.Location = New System.Drawing.Point(200, 40)
         Me.assemblepanel.Name = "assemblepanel"
         Me.assemblepanel.Size = New System.Drawing.Size(600, 560)
@@ -745,6 +748,15 @@ Partial Class home
         Me.PictureBox12.TabIndex = 0
         Me.PictureBox12.TabStop = False
         '
+        'Label2
+        '
+        Me.Label2.Location = New System.Drawing.Point(-2, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(150, 40)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "连接服务器中..."
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -817,4 +829,5 @@ Partial Class home
     Friend WithEvents drawingpanel As Panel
     Friend WithEvents BunifuFlatButton17 As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents PictureBox12 As PictureBox
+    Friend WithEvents Label2 As Label
 End Class
