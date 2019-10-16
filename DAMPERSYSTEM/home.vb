@@ -11,7 +11,7 @@ Public Class home ''kenan
     Dim mycommand As MySqlCommand ''定义mysql命令
     Dim reader As MySqlDataReader ''定义数据流
 
-    ‘’‘处理窗体移动，panel2_mousedown as function ,handles panel2_mousedown as return
+    ''处理窗体移动，panel2_mousedown as function ,handles panel2_mousedown as return
     Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" _
         (ByVal hwnd As IntPtr,
          ByVal wMsg As Integer,
