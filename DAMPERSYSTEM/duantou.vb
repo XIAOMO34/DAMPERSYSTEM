@@ -65,7 +65,7 @@ Public Class duantou
         home.Show()
     End Sub
     ''网络数据库数据调用
-    Private Sub BunifuFlatButton3_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton3.Click
+    Private Sub BunifuFlatButton3_Click(sender As Object, e As EventArgs) 
         ''sql数据库
         mysqlconnect = New MySql.Data.MySqlClient.MySqlConnection ''定义连接字符串
         mysqlconnect.ConnectionString =
@@ -298,7 +298,7 @@ Public Class duantou
         Createlatou = 0
     End Function
 
-    Private Sub BunifuFlatButton5_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton5.Click
+    Private Sub BunifuFlatButton5_Click(sender As Object, e As EventArgs) 
         Createlatou()
     End Sub
 
