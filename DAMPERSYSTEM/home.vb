@@ -257,4 +257,8 @@ Public Class home ''kenan
         swapp.CloseDoc(a)
         Return 0
     End Function
+
+    Private Sub partpanel_Paint(sender As Object, e As PaintEventArgs) Handles partpanel.Paint
+
+    End Sub
 End Class
