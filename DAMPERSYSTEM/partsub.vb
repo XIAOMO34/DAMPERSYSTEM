@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports Microsoft.Office.Interop.Excel
 Imports SldWorks ''命名空间
-Public Class duantou
+Public Class partsub
     '模块级变量
     Dim mysqlconnect As MySqlConnection ''定义mysql连接
     Dim mycommand As MySqlCommand ''定义mysql命令
@@ -65,7 +65,7 @@ Public Class duantou
         home.Show()
     End Sub
     ''网络数据库数据调用
-    Private Sub BunifuFlatButton3_Click(sender As Object, e As EventArgs) 
+    Private Sub BunifuFlatButton3_Click(sender As Object, e As EventArgs)
         ''sql数据库
         mysqlconnect = New MySql.Data.MySqlClient.MySqlConnection ''定义连接字符串
         mysqlconnect.ConnectionString =
@@ -210,11 +210,9 @@ Public Class duantou
     End Function
     Public Function Useexcel() As Integer ''调用EXCEL参数函数
         xlapp = CreateObject("Excel.Application") ''创建EXCEL对象
-        ''打开已经存在的EXCEL工件簿文件
-        xlBook = xlapp.Workbooks.Open(OpenFileDialog1.FileName)
+        xlBook = xlapp.Workbooks.Open(OpenFileDialog1.FileName) ''打开已经存在的EXCEL工件簿文件
         xlSheet = xlBook.Worksheets("sheet1")
-        ''运用数组存数据方便实用（都是double）
-        Dim a() As Double
+        Dim a() As Double ''运用数组存数据方便实用（都是double）
         ReDim a(1)
         Dim i As Integer
         For i = 0 To a.Length - 1
@@ -298,7 +296,7 @@ Public Class duantou
         Createlatou = 0
     End Function
 
-    Private Sub BunifuFlatButton5_Click(sender As Object, e As EventArgs) 
+    Private Sub BunifuFlatButton5_Click(sender As Object, e As EventArgs)
         Createlatou()
     End Sub
 
@@ -307,6 +305,24 @@ Public Class duantou
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+
+
+    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub BunifuCustomLabel1_Click(sender As Object, e As EventArgs) Handles BunifuCustomLabel1.Click
+
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
 
     End Sub
 End Class

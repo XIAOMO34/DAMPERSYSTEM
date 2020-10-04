@@ -113,7 +113,7 @@ Public Class home ''kenan
 
     Private Sub Buttonduantou_Click_1(sender As Object, e As EventArgs) Handles Buttonduantou.Click
         Me.Hide()
-        duantou.Show()
+        partsub.Show()
     End Sub
 
 
@@ -195,6 +195,10 @@ Public Class home ''kenan
     End Sub
 
     Private Sub Buttonzunitong_Click(sender As Object, e As EventArgs) Handles Buttonzunitong.Click
+        partsub.Label1.Text = "外筒生成子程序"
+        partsub.PictureBox3.Load("D: \CODEPROJECT\DAMPERSYSTEM\wt.png")
+        Me.Hide()
+        partsub.Show()
 
     End Sub
 
@@ -259,6 +263,14 @@ Public Class home ''kenan
     End Function
 
     Private Sub partpanel_Paint(sender As Object, e As PaintEventArgs) Handles partpanel.Paint
+
+    End Sub
+
+    Private Sub BunifuFlatButton4_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton4.Click
+
+    End Sub
+
+    Private Sub PictureBox9_Click(sender As Object, e As EventArgs) Handles PictureBox9.Click
 
     End Sub
 End Class

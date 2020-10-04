@@ -89,10 +89,10 @@
       <DependentUpon>home.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="duantou.Designer.vb">
-      <DependentUpon>duantou.vb</DependentUpon>
+    <Compile Include="partsub.Designer.vb">
+      <DependentUpon>partsub.vb</DependentUpon>
     </Compile>
-    <Compile Include="duantou.vb">
+    <Compile Include="partsub.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -115,8 +115,8 @@
     <EmbeddedResource Include="home.resx">
       <DependentUpon>home.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="duantou.resx">
-      <DependentUpon>duantou.vb</DependentUpon>
+    <EmbeddedResource Include="partsub.resx">
+      <DependentUpon>partsub.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
