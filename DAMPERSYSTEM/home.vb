@@ -187,16 +187,22 @@ Public Class home ''kenan
     End Sub
 
     Private Sub Buttonhuosaigan_Click(sender As Object, e As EventArgs) Handles Buttonhuosaigan.Click
-
+        partsub.Label1.Text = "小头端盖生成子程序"
+        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\xtdg.JPG")
+        Me.Hide()
+        partsub.Show()
     End Sub
 
     Private Sub Buttonneitong_Click(sender As Object, e As EventArgs) Handles Buttonneitong.Click
-
+        partsub.Label1.Text = "大头端盖生成子程序"
+        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\dtdg1.JPG")
+        Me.Hide()
+        partsub.Show()
     End Sub
 
     Private Sub Buttonzunitong_Click(sender As Object, e As EventArgs) Handles Buttonzunitong.Click
         partsub.Label1.Text = "外筒生成子程序"
-        partsub.PictureBox3.Load("D: \CODEPROJECT\DAMPERSYSTEM\wt.png")
+        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\wt方形.png")
         Me.Hide()
         partsub.Show()
 
@@ -267,10 +273,20 @@ Public Class home ''kenan
     End Sub
 
     Private Sub BunifuFlatButton4_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton4.Click
-
+        partsub.Label1.Text = "活塞杆生成子程序"
+        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\hsg.JPG")
+        Me.Hide()
+        partsub.Show()
     End Sub
 
     Private Sub PictureBox9_Click(sender As Object, e As EventArgs) Handles PictureBox9.Click
 
+    End Sub
+
+    Private Sub BunifuFlatButton7_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton7.Click
+        partsub.Label1.Text = "拉头生成子程序"
+        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\lt.JPG")
+        Me.Hide()
+        partsub.Show()
     End Sub
 End Class

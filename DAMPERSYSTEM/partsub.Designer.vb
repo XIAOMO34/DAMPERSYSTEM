@@ -31,20 +31,14 @@ Partial Class partsub
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.BunifuCustomLabel3 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.BunifuCustomLabel5 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.BunifuCustomLabel7 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.BunifuCustomLabel4 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.BunifuCustomLabel6 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.BunifuCustomLabel8 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.BunifuCustomLabel9 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.BunifuCustomLabel11 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.BunifuCustomLabel13 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.BunifuCustomLabel15 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.BunifuCustomLabel10 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
@@ -57,14 +51,20 @@ Partial Class partsub
         Me.TextBox16 = New System.Windows.Forms.TextBox()
         Me.BunifuCustomLabel16 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.TextBox17 = New System.Windows.Forms.TextBox()
-        Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel4 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel6 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel8 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel9 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel11 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel13 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel15 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.BunifuCustomLabel7 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.BunifuCustomLabel5 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.BunifuCustomLabel3 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel1.SuspendLayout()
         CType(Me.BunifuImageButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -207,7 +207,6 @@ Partial Class partsub
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.Transparent
-        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel3.Controls.Add(Me.BunifuCustomLabel2)
         Me.Panel3.Controls.Add(Me.BunifuCustomLabel4)
         Me.Panel3.Controls.Add(Me.BunifuCustomLabel6)
@@ -251,144 +250,77 @@ Partial Class partsub
         Me.Panel3.Size = New System.Drawing.Size(800, 550)
         Me.Panel3.TabIndex = 5
         '
-        'PictureBox3
+        'BunifuCustomLabel2
         '
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(300, 300)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 10
-        Me.PictureBox3.TabStop = False
+        Me.BunifuCustomLabel2.AutoSize = True
+        Me.BunifuCustomLabel2.Location = New System.Drawing.Point(541, 462)
+        Me.BunifuCustomLabel2.Name = "BunifuCustomLabel2"
+        Me.BunifuCustomLabel2.Size = New System.Drawing.Size(31, 15)
+        Me.BunifuCustomLabel2.TabIndex = 49
+        Me.BunifuCustomLabel2.Text = "X16"
         '
-        'OpenFileDialog1
+        'BunifuCustomLabel4
         '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.BunifuCustomLabel4.AutoSize = True
+        Me.BunifuCustomLabel4.Location = New System.Drawing.Point(541, 406)
+        Me.BunifuCustomLabel4.Name = "BunifuCustomLabel4"
+        Me.BunifuCustomLabel4.Size = New System.Drawing.Size(31, 15)
+        Me.BunifuCustomLabel4.TabIndex = 48
+        Me.BunifuCustomLabel4.Text = "X15"
         '
-        'TextBox2
+        'BunifuCustomLabel6
         '
-        Me.TextBox2.BackColor = System.Drawing.Color.White
-        Me.TextBox2.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(390, 59)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(144, 36)
-        Me.TextBox2.TabIndex = 11
+        Me.BunifuCustomLabel6.AutoSize = True
+        Me.BunifuCustomLabel6.Location = New System.Drawing.Point(541, 350)
+        Me.BunifuCustomLabel6.Name = "BunifuCustomLabel6"
+        Me.BunifuCustomLabel6.Size = New System.Drawing.Size(31, 15)
+        Me.BunifuCustomLabel6.TabIndex = 47
+        Me.BunifuCustomLabel6.Text = "X14"
         '
-        'BunifuCustomLabel1
+        'BunifuCustomLabel8
         '
-        Me.BunifuCustomLabel1.AutoSize = True
-        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(337, 68)
-        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
-        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel1.TabIndex = 12
-        Me.BunifuCustomLabel1.Text = "X1"
+        Me.BunifuCustomLabel8.AutoSize = True
+        Me.BunifuCustomLabel8.Location = New System.Drawing.Point(541, 294)
+        Me.BunifuCustomLabel8.Name = "BunifuCustomLabel8"
+        Me.BunifuCustomLabel8.Size = New System.Drawing.Size(31, 15)
+        Me.BunifuCustomLabel8.TabIndex = 46
+        Me.BunifuCustomLabel8.Text = "X13"
         '
-        'TextBox3
+        'BunifuCustomLabel9
         '
-        Me.TextBox3.BackColor = System.Drawing.Color.White
-        Me.TextBox3.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(585, 59)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.ReadOnly = True
-        Me.TextBox3.Size = New System.Drawing.Size(144, 36)
-        Me.TextBox3.TabIndex = 13
+        Me.BunifuCustomLabel9.AutoSize = True
+        Me.BunifuCustomLabel9.Location = New System.Drawing.Point(541, 238)
+        Me.BunifuCustomLabel9.Name = "BunifuCustomLabel9"
+        Me.BunifuCustomLabel9.Size = New System.Drawing.Size(31, 15)
+        Me.BunifuCustomLabel9.TabIndex = 45
+        Me.BunifuCustomLabel9.Text = "X12"
         '
-        'BunifuCustomLabel3
+        'BunifuCustomLabel11
         '
-        Me.BunifuCustomLabel3.AutoSize = True
-        Me.BunifuCustomLabel3.Location = New System.Drawing.Point(337, 124)
-        Me.BunifuCustomLabel3.Name = "BunifuCustomLabel3"
-        Me.BunifuCustomLabel3.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel3.TabIndex = 16
-        Me.BunifuCustomLabel3.Text = "X1"
+        Me.BunifuCustomLabel11.AutoSize = True
+        Me.BunifuCustomLabel11.Location = New System.Drawing.Point(541, 182)
+        Me.BunifuCustomLabel11.Name = "BunifuCustomLabel11"
+        Me.BunifuCustomLabel11.Size = New System.Drawing.Size(31, 15)
+        Me.BunifuCustomLabel11.TabIndex = 44
+        Me.BunifuCustomLabel11.Text = "X11"
         '
-        'TextBox4
+        'BunifuCustomLabel13
         '
-        Me.TextBox4.BackColor = System.Drawing.Color.White
-        Me.TextBox4.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(390, 115)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.ReadOnly = True
-        Me.TextBox4.Size = New System.Drawing.Size(144, 36)
-        Me.TextBox4.TabIndex = 15
+        Me.BunifuCustomLabel13.AutoSize = True
+        Me.BunifuCustomLabel13.Location = New System.Drawing.Point(541, 126)
+        Me.BunifuCustomLabel13.Name = "BunifuCustomLabel13"
+        Me.BunifuCustomLabel13.Size = New System.Drawing.Size(31, 15)
+        Me.BunifuCustomLabel13.TabIndex = 43
+        Me.BunifuCustomLabel13.Text = "X10"
         '
-        'TextBox5
+        'BunifuCustomLabel15
         '
-        Me.TextBox5.BackColor = System.Drawing.Color.White
-        Me.TextBox5.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(585, 115)
-        Me.TextBox5.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.ReadOnly = True
-        Me.TextBox5.Size = New System.Drawing.Size(144, 36)
-        Me.TextBox5.TabIndex = 17
-        '
-        'BunifuCustomLabel5
-        '
-        Me.BunifuCustomLabel5.AutoSize = True
-        Me.BunifuCustomLabel5.Location = New System.Drawing.Point(337, 180)
-        Me.BunifuCustomLabel5.Name = "BunifuCustomLabel5"
-        Me.BunifuCustomLabel5.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel5.TabIndex = 20
-        Me.BunifuCustomLabel5.Text = "X1"
-        '
-        'TextBox6
-        '
-        Me.TextBox6.BackColor = System.Drawing.Color.White
-        Me.TextBox6.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(390, 171)
-        Me.TextBox6.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.ReadOnly = True
-        Me.TextBox6.Size = New System.Drawing.Size(144, 36)
-        Me.TextBox6.TabIndex = 19
-        '
-        'TextBox7
-        '
-        Me.TextBox7.BackColor = System.Drawing.Color.White
-        Me.TextBox7.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(585, 171)
-        Me.TextBox7.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.ReadOnly = True
-        Me.TextBox7.Size = New System.Drawing.Size(144, 36)
-        Me.TextBox7.TabIndex = 21
-        '
-        'BunifuCustomLabel7
-        '
-        Me.BunifuCustomLabel7.AutoSize = True
-        Me.BunifuCustomLabel7.Location = New System.Drawing.Point(337, 236)
-        Me.BunifuCustomLabel7.Name = "BunifuCustomLabel7"
-        Me.BunifuCustomLabel7.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel7.TabIndex = 24
-        Me.BunifuCustomLabel7.Text = "X1"
-        '
-        'TextBox8
-        '
-        Me.TextBox8.BackColor = System.Drawing.Color.White
-        Me.TextBox8.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(390, 227)
-        Me.TextBox8.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.ReadOnly = True
-        Me.TextBox8.Size = New System.Drawing.Size(144, 36)
-        Me.TextBox8.TabIndex = 23
-        '
-        'TextBox9
-        '
-        Me.TextBox9.BackColor = System.Drawing.Color.White
-        Me.TextBox9.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TextBox9.Location = New System.Drawing.Point(585, 227)
-        Me.TextBox9.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.ReadOnly = True
-        Me.TextBox9.Size = New System.Drawing.Size(144, 36)
-        Me.TextBox9.TabIndex = 25
+        Me.BunifuCustomLabel15.AutoSize = True
+        Me.BunifuCustomLabel15.Location = New System.Drawing.Point(541, 70)
+        Me.BunifuCustomLabel15.Name = "BunifuCustomLabel15"
+        Me.BunifuCustomLabel15.Size = New System.Drawing.Size(23, 15)
+        Me.BunifuCustomLabel15.TabIndex = 42
+        Me.BunifuCustomLabel15.Text = "X9"
         '
         'TextBox10
         '
@@ -408,7 +340,7 @@ Partial Class partsub
         Me.BunifuCustomLabel10.Name = "BunifuCustomLabel10"
         Me.BunifuCustomLabel10.Size = New System.Drawing.Size(23, 15)
         Me.BunifuCustomLabel10.TabIndex = 40
-        Me.BunifuCustomLabel10.Text = "X1"
+        Me.BunifuCustomLabel10.Text = "X8"
         '
         'TextBox11
         '
@@ -439,7 +371,7 @@ Partial Class partsub
         Me.BunifuCustomLabel12.Name = "BunifuCustomLabel12"
         Me.BunifuCustomLabel12.Size = New System.Drawing.Size(23, 15)
         Me.BunifuCustomLabel12.TabIndex = 36
-        Me.BunifuCustomLabel12.Text = "X1"
+        Me.BunifuCustomLabel12.Text = "X7"
         '
         'TextBox13
         '
@@ -470,7 +402,7 @@ Partial Class partsub
         Me.BunifuCustomLabel14.Name = "BunifuCustomLabel14"
         Me.BunifuCustomLabel14.Size = New System.Drawing.Size(23, 15)
         Me.BunifuCustomLabel14.TabIndex = 32
-        Me.BunifuCustomLabel14.Text = "X1"
+        Me.BunifuCustomLabel14.Text = "X6"
         '
         'TextBox15
         '
@@ -501,7 +433,7 @@ Partial Class partsub
         Me.BunifuCustomLabel16.Name = "BunifuCustomLabel16"
         Me.BunifuCustomLabel16.Size = New System.Drawing.Size(23, 15)
         Me.BunifuCustomLabel16.TabIndex = 28
-        Me.BunifuCustomLabel16.Text = "X1"
+        Me.BunifuCustomLabel16.Text = "X5"
         '
         'TextBox17
         '
@@ -514,77 +446,144 @@ Partial Class partsub
         Me.TextBox17.Size = New System.Drawing.Size(144, 36)
         Me.TextBox17.TabIndex = 27
         '
-        'BunifuCustomLabel2
+        'TextBox9
         '
-        Me.BunifuCustomLabel2.AutoSize = True
-        Me.BunifuCustomLabel2.Location = New System.Drawing.Point(541, 462)
-        Me.BunifuCustomLabel2.Name = "BunifuCustomLabel2"
-        Me.BunifuCustomLabel2.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel2.TabIndex = 49
-        Me.BunifuCustomLabel2.Text = "X1"
+        Me.TextBox9.BackColor = System.Drawing.Color.White
+        Me.TextBox9.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox9.Location = New System.Drawing.Point(585, 227)
+        Me.TextBox9.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.ReadOnly = True
+        Me.TextBox9.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox9.TabIndex = 25
         '
-        'BunifuCustomLabel4
+        'BunifuCustomLabel7
         '
-        Me.BunifuCustomLabel4.AutoSize = True
-        Me.BunifuCustomLabel4.Location = New System.Drawing.Point(541, 406)
-        Me.BunifuCustomLabel4.Name = "BunifuCustomLabel4"
-        Me.BunifuCustomLabel4.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel4.TabIndex = 48
-        Me.BunifuCustomLabel4.Text = "X1"
+        Me.BunifuCustomLabel7.AutoSize = True
+        Me.BunifuCustomLabel7.Location = New System.Drawing.Point(337, 236)
+        Me.BunifuCustomLabel7.Name = "BunifuCustomLabel7"
+        Me.BunifuCustomLabel7.Size = New System.Drawing.Size(23, 15)
+        Me.BunifuCustomLabel7.TabIndex = 24
+        Me.BunifuCustomLabel7.Text = "X4"
         '
-        'BunifuCustomLabel6
+        'TextBox8
         '
-        Me.BunifuCustomLabel6.AutoSize = True
-        Me.BunifuCustomLabel6.Location = New System.Drawing.Point(541, 350)
-        Me.BunifuCustomLabel6.Name = "BunifuCustomLabel6"
-        Me.BunifuCustomLabel6.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel6.TabIndex = 47
-        Me.BunifuCustomLabel6.Text = "X1"
+        Me.TextBox8.BackColor = System.Drawing.Color.White
+        Me.TextBox8.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox8.Location = New System.Drawing.Point(390, 227)
+        Me.TextBox8.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.ReadOnly = True
+        Me.TextBox8.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox8.TabIndex = 23
         '
-        'BunifuCustomLabel8
+        'TextBox7
         '
-        Me.BunifuCustomLabel8.AutoSize = True
-        Me.BunifuCustomLabel8.Location = New System.Drawing.Point(541, 294)
-        Me.BunifuCustomLabel8.Name = "BunifuCustomLabel8"
-        Me.BunifuCustomLabel8.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel8.TabIndex = 46
-        Me.BunifuCustomLabel8.Text = "X1"
+        Me.TextBox7.BackColor = System.Drawing.Color.White
+        Me.TextBox7.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox7.Location = New System.Drawing.Point(585, 171)
+        Me.TextBox7.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.ReadOnly = True
+        Me.TextBox7.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox7.TabIndex = 21
         '
-        'BunifuCustomLabel9
+        'BunifuCustomLabel5
         '
-        Me.BunifuCustomLabel9.AutoSize = True
-        Me.BunifuCustomLabel9.Location = New System.Drawing.Point(541, 238)
-        Me.BunifuCustomLabel9.Name = "BunifuCustomLabel9"
-        Me.BunifuCustomLabel9.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel9.TabIndex = 45
-        Me.BunifuCustomLabel9.Text = "X1"
+        Me.BunifuCustomLabel5.AutoSize = True
+        Me.BunifuCustomLabel5.Location = New System.Drawing.Point(337, 180)
+        Me.BunifuCustomLabel5.Name = "BunifuCustomLabel5"
+        Me.BunifuCustomLabel5.Size = New System.Drawing.Size(23, 15)
+        Me.BunifuCustomLabel5.TabIndex = 20
+        Me.BunifuCustomLabel5.Text = "X3"
         '
-        'BunifuCustomLabel11
+        'TextBox6
         '
-        Me.BunifuCustomLabel11.AutoSize = True
-        Me.BunifuCustomLabel11.Location = New System.Drawing.Point(541, 182)
-        Me.BunifuCustomLabel11.Name = "BunifuCustomLabel11"
-        Me.BunifuCustomLabel11.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel11.TabIndex = 44
-        Me.BunifuCustomLabel11.Text = "X1"
+        Me.TextBox6.BackColor = System.Drawing.Color.White
+        Me.TextBox6.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox6.Location = New System.Drawing.Point(390, 171)
+        Me.TextBox6.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.ReadOnly = True
+        Me.TextBox6.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox6.TabIndex = 19
         '
-        'BunifuCustomLabel13
+        'TextBox5
         '
-        Me.BunifuCustomLabel13.AutoSize = True
-        Me.BunifuCustomLabel13.Location = New System.Drawing.Point(541, 126)
-        Me.BunifuCustomLabel13.Name = "BunifuCustomLabel13"
-        Me.BunifuCustomLabel13.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel13.TabIndex = 43
-        Me.BunifuCustomLabel13.Text = "X1"
+        Me.TextBox5.BackColor = System.Drawing.Color.White
+        Me.TextBox5.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox5.Location = New System.Drawing.Point(585, 115)
+        Me.TextBox5.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.ReadOnly = True
+        Me.TextBox5.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox5.TabIndex = 17
         '
-        'BunifuCustomLabel15
+        'BunifuCustomLabel3
         '
-        Me.BunifuCustomLabel15.AutoSize = True
-        Me.BunifuCustomLabel15.Location = New System.Drawing.Point(541, 70)
-        Me.BunifuCustomLabel15.Name = "BunifuCustomLabel15"
-        Me.BunifuCustomLabel15.Size = New System.Drawing.Size(23, 15)
-        Me.BunifuCustomLabel15.TabIndex = 42
-        Me.BunifuCustomLabel15.Text = "X1"
+        Me.BunifuCustomLabel3.AutoSize = True
+        Me.BunifuCustomLabel3.Location = New System.Drawing.Point(337, 124)
+        Me.BunifuCustomLabel3.Name = "BunifuCustomLabel3"
+        Me.BunifuCustomLabel3.Size = New System.Drawing.Size(23, 15)
+        Me.BunifuCustomLabel3.TabIndex = 16
+        Me.BunifuCustomLabel3.Text = "X2"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.BackColor = System.Drawing.Color.White
+        Me.TextBox4.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(390, 115)
+        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.ReadOnly = True
+        Me.TextBox4.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox4.TabIndex = 15
+        '
+        'TextBox3
+        '
+        Me.TextBox3.BackColor = System.Drawing.Color.White
+        Me.TextBox3.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox3.Location = New System.Drawing.Point(585, 59)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.ReadOnly = True
+        Me.TextBox3.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox3.TabIndex = 13
+        '
+        'BunifuCustomLabel1
+        '
+        Me.BunifuCustomLabel1.AutoSize = True
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(337, 68)
+        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
+        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(23, 15)
+        Me.BunifuCustomLabel1.TabIndex = 12
+        Me.BunifuCustomLabel1.Text = "X1"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.White
+        Me.TextBox2.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(390, 59)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.ReadOnly = True
+        Me.TextBox2.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox2.TabIndex = 11
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(300, 300)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 10
+        Me.PictureBox3.TabStop = False
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'partsub
         '
