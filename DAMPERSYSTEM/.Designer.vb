@@ -1035,8 +1035,8 @@ Partial Class home
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1067, 750)
-        Me.Controls.Add(Me.assemblepanel)
         Me.Controls.Add(Me.partpanel)
+        Me.Controls.Add(Me.assemblepanel)
         Me.Controls.Add(Me.setdamper)
         Me.Controls.Add(Me.drawingpanel)
         Me.Controls.Add(Me.morepanel)

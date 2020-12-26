@@ -10,7 +10,6 @@ Public Class home ''kenan
     Dim mysqlconnect As MySqlConnection ''定义mysql连接
     Dim mycommand As MySqlCommand ''定义mysql命令
     Dim reader As MySqlDataReader ''定义数据流
-
     ''处理窗体移动，panel2_mousedown as function ,handles panel2_mousedown as return
     Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" _
         (ByVal hwnd As IntPtr,
@@ -113,6 +112,7 @@ Public Class home ''kenan
 
     Private Sub Buttonduantou_Click_1(sender As Object, e As EventArgs) Handles Buttonduantou.Click
         Me.Hide()
+        partsub.parttype = 1
         partsub.Show()
     End Sub
 
@@ -190,6 +190,7 @@ Public Class home ''kenan
         partsub.Label1.Text = "小头端盖生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\xtdg.JPG")
         Me.Hide()
+        partsub.parttype = 4
         partsub.Show()
     End Sub
 
@@ -197,6 +198,7 @@ Public Class home ''kenan
         partsub.Label1.Text = "大头端盖生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\dtdg1.JPG")
         Me.Hide()
+        partsub.parttype = 3
         partsub.Show()
     End Sub
 
@@ -204,8 +206,8 @@ Public Class home ''kenan
         partsub.Label1.Text = "外筒生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\wt方形.png")
         Me.Hide()
+        partsub.parttype = 2
         partsub.Show()
-
     End Sub
 
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
@@ -276,6 +278,7 @@ Public Class home ''kenan
         partsub.Label1.Text = "活塞杆生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\hsg.JPG")
         Me.Hide()
+        partsub.parttype = 5
         partsub.Show()
     End Sub
 
@@ -287,6 +290,7 @@ Public Class home ''kenan
         partsub.Label1.Text = "拉头生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\lt.JPG")
         Me.Hide()
+        partsub.parttype = 6
         partsub.Show()
     End Sub
 End Class

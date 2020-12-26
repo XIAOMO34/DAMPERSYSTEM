@@ -1,8 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports Microsoft.Office.Interop.Excel
-Imports SldWorks ''命名空间
+Imports SldWorks ''命名空间 
 Public Class partsub
     '模块级变量
+    Public parttype As Single
     Dim mysqlconnect As MySqlConnection ''定义mysql连接
     Dim mycommand As MySqlCommand ''定义mysql命令
     Dim reader As MySqlDataReader ''定义数据流
@@ -48,7 +49,12 @@ Public Class partsub
             MsgBox("未选择文件！")
         Else
             Useexcel()
-            Createduantou()
+            Select Case parttype
+                Case 1
+                    MsgBox("1")
+                Case 2
+                    MsgBox("2")
+            End Select
         End If
     End Sub
     ''参数表显示
@@ -207,6 +213,17 @@ Public Class partsub
         part.SketchManager.InsertSketch(True)
         MsgBox("建模成功！")
         Createduantou = 0
+    End Function
+    Public Function createwaitong()
+        MsgBox("数据已经读取，准备建立模型!")
+        ''创建进程可视化
+        swapp = CreateObject("Sldworks.Application")
+        swapp.CloseAllDocuments(True)
+        ''创建新零件
+        part = swapp.NewDocument("C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2018\templates\gb_part.prtdot", 0, 0, 0)
+        part = swapp.ActiveDoc
+        swapp.Visible = True
+        MsgBox("调用SOLIDWORKS进程成功!")
     End Function
     Public Function Useexcel() As Integer ''调用EXCEL参数函数
         xlapp = CreateObject("Excel.Application") ''创建EXCEL对象
