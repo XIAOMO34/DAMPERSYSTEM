@@ -48,12 +48,18 @@ Public Class partsub
         If OpenFileDialog1.FileName = "OpenFileDialog1" Then
             MsgBox("未选择文件！")
         Else
-            Useexcel()
+            'Useexcel()
             Select Case parttype
                 Case 1
-                    MsgBox("1")
+                    Createduantou()
                 Case 2
-                    MsgBox("2")
+                    createwaitong()
+                Case 3
+                    createXIAOTOUDUANGAI()
+                Case 4
+                    createhuosaigan()
+                Case 5
+                    Createlatou()
             End Select
         End If
     End Sub
@@ -215,15 +221,38 @@ Public Class partsub
         Createduantou = 0
     End Function
     Public Function createwaitong()
-        MsgBox("数据已经读取，准备建立模型!")
+        'MsgBox("数据已经读取，准备建立模型!")
         ''创建进程可视化
         swapp = CreateObject("Sldworks.Application")
         swapp.CloseAllDocuments(True)
         ''创建新零件
-        part = swapp.NewDocument("C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2018\templates\gb_part.prtdot", 0, 0, 0)
-        part = swapp.ActiveDoc
         swapp.Visible = True
-        MsgBox("调用SOLIDWORKS进程成功!")
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cylinder tube.SLDPRT", 1, 0, "", 0, 0)
+        part = swapp.ActiveDoc
+    End Function
+    Public Function createdatouduangai()
+        swapp = CreateObject("Sldworks.Application")
+        swapp.CloseAllDocuments(True)
+        ''创建新零件
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\筒-头装配\dtdg.SLDPRT", 1, 0, "", 0, 0)
+        part = swapp.ActiveDoc
+    End Function
+    Public Function createXIAOTOUDUANGAI()
+        swapp = CreateObject("Sldworks.Application")
+        swapp.CloseAllDocuments(True)
+        ''创建新零件
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\筒-头装配\xtdg.SLDPRT", 1, 0, "", 0, 0)
+        part = swapp.ActiveDoc
+    End Function
+    Public Function createhuosaigan()
+        swapp = CreateObject("Sldworks.Application")
+        swapp.CloseAllDocuments(True)
+        ''创建新零件
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\筒-头装配\hsg.SLDPRT", 1, 0, "", 0, 0)
+        part = swapp.ActiveDoc
     End Function
     Public Function Useexcel() As Integer ''调用EXCEL参数函数
         xlapp = CreateObject("Excel.Application") ''创建EXCEL对象
@@ -340,6 +369,36 @@ Public Class partsub
     End Sub
 
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+
+    End Sub
+
+    Private Sub BunifuFlatButton2_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton2.Click
+        ''创建进程可视化
+        swapp = CreateObject("Sldworks.Application")
+        swapp.CloseAllDocuments(True)
+        ''创建新零件
+        part = swapp.NewDocument("C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2018\templates\gb_part.prtdot", 0, 0, 0)
+        part = swapp.ActiveDoc
+        swapp.Visible = True
+        part = swapp.ActiveDoc
+        part.Extension.SelectByID2("前视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+        part.SketchManager.InsertSketch(True)
+        part.ClearSelection2(True)
+        part.SketchManager.CreateCircle(0#, 0#, 0#, 0.06, 0, 0#)
+        part.SketchManager.CreateCircle(0#, 0#, 0#, 0.08, 0, 0#)
+        part.FeatureManager.FeatureExtrusion3(True, True, False, 0, 0,
+                                                0.2, 0, False, False, False,
+                                                False, 0, 0, True, True,
+                                                False, False, True, False, False,
+                                                0, 0, 0)
+        part.ClearSelection2(True)
+        part.Extension.SelectByID2("", "FACE", 0.07, 0, 0.2, False, 0, Nothing, 0)
+        part.SketchManager.InsertSketch(True)
+        part.ClearSelection2(True)
+        part.SketchManager.CreateCircle(0, 0, 0.2, 0.07, 0, 0.2)
+        part.FeatureManager.FeatureCut4(True, True, False, 0, 0, 0.02, 0, 0, False, False, False,
+                                        0, 0, False, False, False, False, False, False, False,
+                                        False, False, False, 0, 0, False, False)
 
     End Sub
 End Class

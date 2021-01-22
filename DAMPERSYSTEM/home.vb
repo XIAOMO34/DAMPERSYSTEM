@@ -10,6 +10,7 @@ Public Class home ''kenan
     Dim mysqlconnect As MySqlConnection ''定义mysql连接
     Dim mycommand As MySqlCommand ''定义mysql命令
     Dim reader As MySqlDataReader ''定义数据流
+    Dim kong As Feature
     ''处理窗体移动，panel2_mousedown as function ,handles panel2_mousedown as return
     Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" _
         (ByVal hwnd As IntPtr,
@@ -292,5 +293,58 @@ Public Class home ''kenan
         Me.Hide()
         partsub.parttype = 6
         partsub.Show()
+    End Sub
+
+    Private Sub BunifuFlatButton14_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub BunifuFlatButton14_Click_1(sender As Object, e As EventArgs) Handles BunifuFlatButton14.Click
+        ''创建进程可视化
+        swapp = CreateObject("Sldworks.Application")
+        swapp.CloseAllDocuments(True)
+        ''创建新零件
+        part = swapp.NewDocument("C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2018\templates\gb_part.prtdot", 0, 0, 0)
+        part = swapp.ActiveDoc
+        swapp.Visible = True
+        part = swapp.ActiveDoc
+        part.Extension.SelectByID2("前视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+        part.SketchManager.InsertSketch(True)
+        part.ClearSelection2(True)
+        part.SketchManager.CreateCircle(0#, 0#, 0#, 0.06, 0, 0#)
+        part.SketchManager.CreateCircle(0#, 0#, 0#, 0.08, 0, 0#)
+        part.FeatureManager.FeatureExtrusion3(True, True, False, 0, 0,
+                                                0.2, 0, False, False, False,
+                                                False, 0, 0, True, True,
+                                                False, False, True, False, False,
+                                                0, 0, 0)
+        part.ClearSelection2(True)
+        part.Extension.SelectByID2("", "FACE", 0.07, 0, 0.2, False, 0, Nothing, 0)
+        part.SketchManager.InsertSketch(True)
+        part.SketchManager.CreateCircle(0, 0, 0.2, 0.07, 0, 0.2)
+        part.FeatureManager.FeatureCut4(True, False, False, 0, 0, 0.01, 0.01, False,
+                                        False, False, False, 0, 0,
+                                        False, False, False, False, False, True, True, True, True, False,
+                                         0, 0, False, False)
+        part.ShowNamedView2("*前视", 1)
+        part.Extension.SelectByID2("", "", 0.07, 0, 0.2, False, 0, Nothing, 0)
+        part.FeatureManager.InsertCosmeticThread2(1, 0.14, 0, "140")
+        part.ShowNamedView2("", 7)
+        part.Extension.SelectByID2("右视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+        part.FeatureManager.InsertRefPlane(8, 0.08, 0, 0, 0, 0)
+        'part.Extension.SelectByID2("", "PLANE", 0.08, 0, 0, False, 0, Nothing, 0)
+        'part.SketchManager.InsertSketch(True)
+        'part.SketchManager.CreateCircleByRadius(-0.15, 0, 0, 0.01) ''草图只有二维，Z无意义
+        '''''''''''''''''''''''''''''''''''
+        Dim swWzdHole As WizardHoleFeatureData2
+        swWzdHole = part.FeatureManager.CreateDefinition(SwConst.swFeatureNameID_e.swFmHoleWzd)
+        part.Extension.SelectByID2("", "FACE", 0.08, 0, 0.15, False, 0, Nothing, 0)
+        part.FeatureManager.HoleWizard5(4, 1, 42, "M10x1.0", 2, 0.009, 0.02, 0.02, 0, 0, 0, 0, 0, 0, 2, 0, 0, -1, -1, -1, "", False, True, True, True, True, False)
+        part.Extension.SelectByID2("凸台-拉伸1", "BODYFEATURE", 0, 0, 0, False, 1, Nothing, 0) ''1是镜像特征
+        part.Extension.SelectByID2("M10x1.0 螺纹孔1", "BODYFEATURE", 0, 0, 0, True, 1, Nothing, 0)
+        part.Extension.SelectByID2("切除-拉伸1"， "BODYFEATURE", 0, 0, 0, True, 1, Nothing, 0)
+        part.Extension.SelectByID2("前视基准面", "PLANE", 0, 0, 0, True, 2, Nothing, 0) ''2是镜像基准
+        part.FeatureManager.InsertMirrorFeature(False, False, False, False)
+
     End Sub
 End Class
