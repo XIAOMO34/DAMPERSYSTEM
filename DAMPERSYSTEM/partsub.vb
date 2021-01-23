@@ -26,42 +26,33 @@ Public Class partsub
     Dim xlBook As Workbook
     Dim xlSheet As Worksheet ''然后创建对象
     Dim pi As Double = 3.1415926535898
-    ''移动窗口代码
-    Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As IntPtr,
-                                                                           ByVal wMsg As Integer,
-                                                                           ByVal wParam As Integer,
-                                                                           ByVal lParam As Integer) As Boolean
-    Public Declare Function ReleaseCapture Lib "user32" Alias "ReleaseCapture" () As Boolean
-    Public Const WM_SYSCOMMAND = &H112
-    Public Const SC_MOVE = &HF010&
-    Public Const HTCAPTION = 2
-    Private Sub Panel1_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) _
-        Handles Panel1.MouseDown
-        ReleaseCapture()
-        SendMessage(Me.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0)
+    ''窗口1关闭时主窗口打开
+    Private Sub partsub_Closed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        home.Show()
     End Sub
-
-
-
     ''本地EXCEL调用
     Private Sub BunifuFlatButton4_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton4.Click
-        If OpenFileDialog1.FileName = "OpenFileDialog1" Then
-            MsgBox("未选择文件！")
-        Else
-            'Useexcel()
-            Select Case parttype
-                Case 1
-                    Createduantou()
-                Case 2
-                    createwaitong()
-                Case 3
-                    createXIAOTOUDUANGAI()
-                Case 4
-                    createhuosaigan()
-                Case 5
-                    Createlatou()
-            End Select
-        End If
+        'If OpenFileDialog1.FileName = "OpenFileDialog1" Then
+        '    MsgBox("未选择文件！")
+        'Else
+        'Useexcel()
+        Me.WindowState = 1
+        Select Case parttype''零件类型
+            Case 1
+                Createduantou()
+            Case 2
+                createwaitong()
+            Case 3
+                createdatouduangai()
+            Case 4
+                createxiaotouduangai()
+            Case 5
+                createhuosaigan()
+            Case 6
+                Createlatou()
+        End Select
+        'End If
+        Me.WindowState = 0
     End Sub
     ''参数表显示
     Public Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click
@@ -72,50 +63,6 @@ Public Class partsub
         End If
     End Sub
     ''关闭窗口
-    Private Sub BunifuImageButton1_Click(sender As Object, e As EventArgs) Handles BunifuImageButton1.Click
-        Me.Close()
-        home.Show()
-    End Sub
-    ''网络数据库数据调用
-    Private Sub BunifuFlatButton3_Click(sender As Object, e As EventArgs)
-        ''sql数据库
-        mysqlconnect = New MySql.Data.MySqlClient.MySqlConnection ''定义连接字符串
-        mysqlconnect.ConnectionString =
-            "server=52.76.27.242;userid=sql12307948;password=W38GxxRxLI;database=sql12307948" ''登录命令
-        Try ''异常处理,给出弹窗提示并且暂停
-            mysqlconnect.Open()
-            MessageBox.Show("连接服务器成功")
-            Readdata() ''读取数据库数据并且赋值，关键函数k
-            mysqlconnect.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            mysqlconnect.Dispose() ''中断sql
-        End Try
-    End Sub
-    ''读取网络数据库数据函数，把第二行参数赋值给a()数组，长度为字段个数，即参数个数
-    Public Function Readdata() As Integer
-        query = "select count(*) from information_schema.COLUMNS where table_name='damper';"
-        ''读取列数，赋值给数组
-        mycommand = New MySql.Data.MySqlClient.MySqlCommand(query, mysqlconnect)
-        reader = mycommand.ExecuteReader ''执行sql语句
-        While reader.Read
-            rows = reader.GetDouble(reader.GetOrdinal("count(*)"))
-        End While
-        reader.Close()
-        query = "select * from sql12307948.damper" ''sql语言，读取表格数据，给数据流reader
-        mycommand = New MySql.Data.MySqlClient.MySqlCommand(query, mysqlconnect)
-        reader = mycommand.ExecuteReader
-        While reader.Read
-            ReDim a(rows - 1) ''定义数组，不是单独的数，长度为rows的数组
-            Dim b As Integer
-            For b = 0 To rows - 1
-                a(b) = reader.GetDouble("pa" & (b + 1))
-                MessageBox.Show(a(b))
-            Next
-        End While
-        Readdata = 0
-    End Function
     ''建模关键函数
     Public Function Createduantou() As Integer
         MsgBox("数据已经读取，准备建立模型!")
@@ -221,24 +168,65 @@ Public Class partsub
         Createduantou = 0
     End Function
     Public Function createwaitong()
-        'MsgBox("数据已经读取，准备建立模型!")
         ''创建进程可视化
         swapp = CreateObject("Sldworks.Application")
         swapp.CloseAllDocuments(True)
         ''创建新零件
-        swapp.Visible = True
-        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cylinder tube.SLDPRT", 1, 0, "", 0, 0)
+        part = swapp.NewDocument("C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2018\templates\gb_part.prtdot", 0, 0, 0)
         part = swapp.ActiveDoc
+        swapp.Visible = True
+        part = swapp.ActiveDoc
+        part.Extension.SelectByID2("前视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+        part.SketchManager.InsertSketch(True)
+        part.ClearSelection2(True)
+        part.SketchManager.CreateCircle(0#, 0#, 0#, 0.06, 0, 0#)
+        part.SketchManager.CreateCircle(0#, 0#, 0#, 0.08, 0, 0#)
+        part.FeatureManager.FeatureExtrusion3(True, True, False, 0, 0,
+                                                0.2, 0, False, False, False,
+                                                False, 0, 0, True, True,
+                                                False, False, True, False, False,
+                                                0, 0, 0)
+        part.ClearSelection2(True)
+        part.Extension.SelectByID2("", "FACE", 0.07, 0, 0.2, False, 0, Nothing, 0)
+        part.SketchManager.InsertSketch(True)
+        part.SketchManager.CreateCircle(0, 0, 0.2, 0.07, 0, 0.2)
+        part.FeatureManager.FeatureCut4(True, False, False, 0, 0, 0.01, 0.01, False,
+                                        False, False, False, 0, 0,
+                                        False, False, False, False, False, True, True, True, True, False,
+                                         0, 0, False, False)
+        part.ShowNamedView2("*前视", 1)
+        part.Extension.SelectByID2("", "", 0.07, 0, 0.2, False, 0, Nothing, 0)
+        part.FeatureManager.InsertCosmeticThread2(1, 0.14, 0, "140")
+        part.ShowNamedView2("", 7)
+        part.Extension.SelectByID2("右视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+        part.FeatureManager.InsertRefPlane(8, 0.08, 0, 0, 0, 0)
+        'part.Extension.SelectByID2("", "PLANE", 0.08, 0, 0, False, 0, Nothing, 0)
+        'part.SketchManager.InsertSketch(True)
+        'part.SketchManager.CreateCircleByRadius(-0.15, 0, 0, 0.01) ''草图只有二维，Z无意义
+        '''''''''''''''''''''''''''''''''''
+        Dim swWzdHole As WizardHoleFeatureData2
+        swWzdHole = part.FeatureManager.CreateDefinition(SwConst.swFeatureNameID_e.swFmHoleWzd)
+        part.Extension.SelectByID2("", "FACE", 0.08, 0, 0.15, False, 0, Nothing, 0)
+        part.FeatureManager.HoleWizard5(4, 1, 42, "M10x1.0", 2, 0.009, 0.02, 0.02, 0, 0, 0, 0, 0, 0, 2, 0, 0, -1, -1, -1, "", False, True, True, True, True, False)
+        part.Extension.SelectByID2("凸台-拉伸1", "BODYFEATURE", 0, 0, 0, False, 1, Nothing, 0) ''1是镜像特征
+        part.Extension.SelectByID2("M10x1.0 螺纹孔1", "BODYFEATURE", 0, 0, 0, True, 1, Nothing, 0)
+        part.Extension.SelectByID2("切除-拉伸1"， "BODYFEATURE", 0, 0, 0, True, 1, Nothing, 0)
+        part.Extension.SelectByID2("前视基准面", "PLANE", 0, 0, 0, True, 2, Nothing, 0) ''2是镜像基准
+        part.FeatureManager.InsertMirrorFeature(False, False, False, False)
     End Function
-    Public Function createdatouduangai()
+    Public Function createdatouduangai()    ''最大直径为活塞杆直径，最小为加上盖头
         swapp = CreateObject("Sldworks.Application")
-        swapp.CloseAllDocuments(True)
+        'swapp.CloseAllDocuments(True)
         ''创建新零件
         swapp.Visible = True
-        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\筒-头装配\dtdg.SLDPRT", 1, 0, "", 0, 0)
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cylinider head.SLDPRT",
+                              1, 0, "", 0, 0)
         part = swapp.ActiveDoc
+        part.ActiveView.FrameState = 1
+        'part.Parameter("D10@Sketch1").SYSTEMVALUE = 0.047 ''修改最大值
+        part.EditRebuild3()
     End Function
-    Public Function createXIAOTOUDUANGAI()
+    Public Function createxiaotouduangai()
         swapp = CreateObject("Sldworks.Application")
         swapp.CloseAllDocuments(True)
         ''创建新零件
@@ -253,23 +241,6 @@ Public Class partsub
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\筒-头装配\hsg.SLDPRT", 1, 0, "", 0, 0)
         part = swapp.ActiveDoc
-    End Function
-    Public Function Useexcel() As Integer ''调用EXCEL参数函数
-        xlapp = CreateObject("Excel.Application") ''创建EXCEL对象
-        xlBook = xlapp.Workbooks.Open(OpenFileDialog1.FileName) ''打开已经存在的EXCEL工件簿文件
-        xlSheet = xlBook.Worksheets("sheet1")
-        Dim a() As Double ''运用数组存数据方便实用（都是double）
-        ReDim a(1)
-        Dim i As Integer
-        For i = 0 To a.Length - 1
-            a(i) = xlSheet.Cells(2, i + 1).value
-        Next
-        ''关闭excel进程，释放内存
-        Dim p As Process() = Process.GetProcessesByName("EXCEL")
-        For Each pr As Process In p
-            pr.Kill()
-        Next
-        Useexcel = 0
     End Function
     Public Function Createlatou()
         swapp = CreateObject("sldworks.Application")
@@ -345,60 +316,76 @@ Public Class partsub
     Private Sub BunifuFlatButton5_Click(sender As Object, e As EventArgs)
         Createlatou()
     End Sub
-
-    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
-
-    End Sub
-
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-
-    End Sub
-
-
-
-    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
-
-    End Sub
-
-    Private Sub Label2_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub BunifuCustomLabel1_Click(sender As Object, e As EventArgs) Handles BunifuCustomLabel1.Click
-
-    End Sub
-
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
-
-    End Sub
-
-    Private Sub BunifuFlatButton2_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton2.Click
-        ''创建进程可视化
-        swapp = CreateObject("Sldworks.Application")
-        swapp.CloseAllDocuments(True)
-        ''创建新零件
-        part = swapp.NewDocument("C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2018\templates\gb_part.prtdot", 0, 0, 0)
-        part = swapp.ActiveDoc
-        swapp.Visible = True
-        part = swapp.ActiveDoc
-        part.Extension.SelectByID2("前视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
-        part.SketchManager.InsertSketch(True)
-        part.ClearSelection2(True)
-        part.SketchManager.CreateCircle(0#, 0#, 0#, 0.06, 0, 0#)
-        part.SketchManager.CreateCircle(0#, 0#, 0#, 0.08, 0, 0#)
-        part.FeatureManager.FeatureExtrusion3(True, True, False, 0, 0,
-                                                0.2, 0, False, False, False,
-                                                False, 0, 0, True, True,
-                                                False, False, True, False, False,
-                                                0, 0, 0)
-        part.ClearSelection2(True)
-        part.Extension.SelectByID2("", "FACE", 0.07, 0, 0.2, False, 0, Nothing, 0)
-        part.SketchManager.InsertSketch(True)
-        part.ClearSelection2(True)
-        part.SketchManager.CreateCircle(0, 0, 0.2, 0.07, 0, 0.2)
-        part.FeatureManager.FeatureCut4(True, True, False, 0, 0, 0.02, 0, 0, False, False, False,
-                                        0, 0, False, False, False, False, False, False, False,
-                                        False, False, False, 0, 0, False, False)
-
-    End Sub
 End Class
+'注释段
+'移动窗口代码
+'Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As IntPtr,
+'ByVal wMsg As Integer,
+'ByVal wParam As Integer,
+'ByVal lParam As Integer) As Boolean
+'Public Declare Function ReleaseCapture Lib "user32" Alias "ReleaseCapture" () As Boolean
+'Public Const WM_SYSCOMMAND = &H112
+'Public Const SC_MOVE = &HF010&
+'Public Const HTCAPTION = 2
+'Private Sub Panel1_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+'    ReleaseCapture()
+'    SendMessage(Me.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0)
+'End Sub
+''网络数据库数据调用
+'Private Sub BunifuFlatButton3_Click(sender As Object, e As EventArgs)
+'    ''sql数据库
+'    mysqlconnect = New MySql.Data.MySqlClient.MySqlConnection ''定义连接字符串
+'    mysqlconnect.ConnectionString =
+'            "server=52.76.27.242;userid=sql12307948;password=W38GxxRxLI;database=sql12307948" ''登录命令
+'    Try ''异常处理,给出弹窗提示并且暂停
+'        mysqlconnect.Open()
+'        MessageBox.Show("连接服务器成功")
+'        Readdata() ''读取数据库数据并且赋值，关键函数k
+'        mysqlconnect.Close()
+'    Catch ex As Exception
+'        MessageBox.Show(ex.Message)
+'    Finally
+'        mysqlconnect.Dispose() ''中断sql
+'    End Try
+'End Sub
+''EXCEL调用及关闭
+'Public Function Useexcel() As Integer ''调用EXCEL参数函数
+'    xlapp = CreateObject("Excel.Application") ''创建EXCEL对象
+'    xlBook = xlapp.Workbooks.Open(OpenFileDialog1.FileName) ''打开已经存在的EXCEL工件簿文件
+'    xlSheet = xlBook.Worksheets("sheet1")
+'    Dim a() As Double ''运用数组存数据方便实用（都是double）
+'    ReDim a(1)
+'    Dim i As Integer
+'    For i = 0 To a.Length - 1
+'        a(i) = xlSheet.Cells(2, i + 1).value
+'    Next
+'    ''关闭excel进程，释放内存
+'    Dim p As Process() = Process.GetProcessesByName("EXCEL")
+'    For Each pr As Process In p
+'        pr.Kill()
+'    Next
+'    Useexcel = 0
+'End Function
+''读取网络数据库数据函数，把第二行参数赋值给a()数组，长度为字段个数，即参数个数
+'Public Function Readdata() As Integer
+'    query = "select count(*) from information_schema.COLUMNS where table_name='damper';"
+'    ''读取列数，赋值给数组
+'    mycommand = New MySql.Data.MySqlClient.MySqlCommand(query, mysqlconnect)
+'    reader = mycommand.ExecuteReader ''执行sql语句
+'    While reader.Read
+'        rows = reader.GetDouble(reader.GetOrdinal("count(*)"))
+'    End While
+'    reader.Close()
+'    query = "select * from sql12307948.damper" ''sql语言，读取表格数据，给数据流reader
+'    mycommand = New MySql.Data.MySqlClient.MySqlCommand(query, mysqlconnect)
+'    reader = mycommand.ExecuteReader
+'    While reader.Read
+'        ReDim a(rows - 1) ''定义数组，不是单独的数，长度为rows的数组
+'        Dim b As Integer
+'        For b = 0 To rows - 1
+'            a(b) = reader.GetDouble("pa" & (b + 1))
+'            MessageBox.Show(a(b))
+'        Next
+'    End While
+'    Readdata = 0
+'End Function

@@ -3,6 +3,7 @@ Imports Microsoft.Office.Interop.Excel
 Imports MySql.Data.MySqlClient
 
 Public Class home ''kenan
+    Dim pi As Double
     Dim mysql As MySqlConnection
     Dim swapp As SldWorks.SldWorks
     Dim part As ModelDoc2
@@ -25,8 +26,8 @@ Public Class home ''kenan
 
     Public Const HTCAPTION = 2
 
-    Private Sub Panel2_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) _
-        Handles Panel2.MouseDown
+    Private Sub Panel2_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+
         ReleaseCapture()
         SendMessage(Me.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0)
     End Sub
@@ -88,7 +89,7 @@ Public Class home ''kenan
         drawingpanel.Visible = False
     End Sub
 
-    Private Sub BunifuImageButton1_Click_2(sender As Object, e As EventArgs) Handles BunifuImageButton1.Click
+    Private Sub BunifuImageButton1_Click_2(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
@@ -188,7 +189,7 @@ Public Class home ''kenan
     End Sub
 
     Private Sub Buttonhuosaigan_Click(sender As Object, e As EventArgs) Handles Buttonhuosaigan.Click
-        partsub.Label1.Text = "小头端盖生成子程序"
+        partsub.Text = "小头端盖生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\xtdg.JPG")
         Me.Hide()
         partsub.parttype = 4
@@ -196,7 +197,7 @@ Public Class home ''kenan
     End Sub
 
     Private Sub Buttonneitong_Click(sender As Object, e As EventArgs) Handles Buttonneitong.Click
-        partsub.Label1.Text = "大头端盖生成子程序"
+        partsub.Text = "大头端盖生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\dtdg1.JPG")
         Me.Hide()
         partsub.parttype = 3
@@ -204,7 +205,7 @@ Public Class home ''kenan
     End Sub
 
     Private Sub Buttonzunitong_Click(sender As Object, e As EventArgs) Handles Buttonzunitong.Click
-        partsub.Label1.Text = "外筒生成子程序"
+        partsub.Text = "外筒生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\wt方形.png")
         Me.Hide()
         partsub.parttype = 2
@@ -276,7 +277,7 @@ Public Class home ''kenan
     End Sub
 
     Private Sub BunifuFlatButton4_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton4.Click
-        partsub.Label1.Text = "活塞杆生成子程序"
+        partsub.Text = "活塞杆生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\hsg.JPG")
         Me.Hide()
         partsub.parttype = 5
@@ -288,7 +289,7 @@ Public Class home ''kenan
     End Sub
 
     Private Sub BunifuFlatButton7_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton7.Click
-        partsub.Label1.Text = "拉头生成子程序"
+        partsub.Text = "拉头生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\lt.JPG")
         Me.Hide()
         partsub.parttype = 6
@@ -299,52 +300,37 @@ Public Class home ''kenan
 
     End Sub
 
-    Private Sub BunifuFlatButton14_Click_1(sender As Object, e As EventArgs) Handles BunifuFlatButton14.Click
+
+
+    Private Sub BunifuFlatButton15_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton15.Click
         ''创建进程可视化
         swapp = CreateObject("Sldworks.Application")
-        swapp.CloseAllDocuments(True)
+        ''swapp.CloseAllDocuments(True)
         ''创建新零件
         part = swapp.NewDocument("C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2018\templates\gb_part.prtdot", 0, 0, 0)
         part = swapp.ActiveDoc
         swapp.Visible = True
         part = swapp.ActiveDoc
-        part.Extension.SelectByID2("前视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+        part.Extension.SelectByID2("前视基准面"， "PLANE"， 0， 0, 0， False， 0， Nothing， 0)
         part.SketchManager.InsertSketch(True)
-        part.ClearSelection2(True)
-        part.SketchManager.CreateCircle(0#, 0#, 0#, 0.06, 0, 0#)
-        part.SketchManager.CreateCircle(0#, 0#, 0#, 0.08, 0, 0#)
+        part.SketchManager.CreateCircleByRadius(0, 0, 0, 0.07)
         part.FeatureManager.FeatureExtrusion3(True, True, False, 0, 0,
-                                                0.2, 0, False, False, False,
+                                                0.02, 0, False, False, False,
                                                 False, 0, 0, True, True,
                                                 False, False, True, False, False,
                                                 0, 0, 0)
-        part.ClearSelection2(True)
-        part.Extension.SelectByID2("", "FACE", 0.07, 0, 0.2, False, 0, Nothing, 0)
-        part.SketchManager.InsertSketch(True)
-        part.SketchManager.CreateCircle(0, 0, 0.2, 0.07, 0, 0.2)
-        part.FeatureManager.FeatureCut4(True, False, False, 0, 0, 0.01, 0.01, False,
-                                        False, False, False, 0, 0,
-                                        False, False, False, False, False, True, True, True, True, False,
-                                         0, 0, False, False)
-        part.ShowNamedView2("*前视", 1)
-        part.Extension.SelectByID2("", "", 0.07, 0, 0.2, False, 0, Nothing, 0)
-        part.FeatureManager.InsertCosmeticThread2(1, 0.14, 0, "140")
-        part.ShowNamedView2("", 7)
-        part.Extension.SelectByID2("右视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
-        part.FeatureManager.InsertRefPlane(8, 0.08, 0, 0, 0, 0)
-        'part.Extension.SelectByID2("", "PLANE", 0.08, 0, 0, False, 0, Nothing, 0)
-        'part.SketchManager.InsertSketch(True)
-        'part.SketchManager.CreateCircleByRadius(-0.15, 0, 0, 0.01) ''草图只有二维，Z无意义
-        '''''''''''''''''''''''''''''''''''
-        Dim swWzdHole As WizardHoleFeatureData2
-        swWzdHole = part.FeatureManager.CreateDefinition(SwConst.swFeatureNameID_e.swFmHoleWzd)
-        part.Extension.SelectByID2("", "FACE", 0.08, 0, 0.15, False, 0, Nothing, 0)
-        part.FeatureManager.HoleWizard5(4, 1, 42, "M10x1.0", 2, 0.009, 0.02, 0.02, 0, 0, 0, 0, 0, 0, 2, 0, 0, -1, -1, -1, "", False, True, True, True, True, False)
-        part.Extension.SelectByID2("凸台-拉伸1", "BODYFEATURE", 0, 0, 0, False, 1, Nothing, 0) ''1是镜像特征
-        part.Extension.SelectByID2("M10x1.0 螺纹孔1", "BODYFEATURE", 0, 0, 0, True, 1, Nothing, 0)
-        part.Extension.SelectByID2("切除-拉伸1"， "BODYFEATURE", 0, 0, 0, True, 1, Nothing, 0)
-        part.Extension.SelectByID2("前视基准面", "PLANE", 0, 0, 0, True, 2, Nothing, 0) ''2是镜像基准
-        part.FeatureManager.InsertMirrorFeature(False, False, False, False)
+        part.Extension.SelectByID2("", "EDGE", 0.07, 0, 0.02, False, 4096, Nothing, 0)
+        ''4096为倒角基准
+        part.FeatureManager.InsertFeatureChamfer(6, 1, 0.01, pi / 4, 0, 0, 0, 0)
 
     End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub BunifuFlatButton18_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton18.Click
+
+    End Sub
+
 End Class
