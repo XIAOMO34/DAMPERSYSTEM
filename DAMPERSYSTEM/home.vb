@@ -1,74 +1,39 @@
 ﻿Imports SldWorks
 Imports Microsoft.Office.Interop.Excel
 Imports MySql.Data.MySqlClient
-
 Public Class home ''kenan
     Dim pi As Double
     Dim mysql As MySqlConnection
     Dim swapp As SldWorks.SldWorks
     Dim part As ModelDoc2
     Dim asm As AssemblyDoc
-    Dim mysqlconnect As MySqlConnection ''定义mysql连接
-    Dim mycommand As MySqlCommand ''定义mysql命令
-    Dim reader As MySqlDataReader ''定义数据流
     Dim kong As Feature
-    ''处理窗体移动，panel2_mousedown as function ,handles panel2_mousedown as return
-    Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" _
-        (ByVal hwnd As IntPtr,
-         ByVal wMsg As Integer,
-         ByVal wParam As Integer,
-         ByVal lParam As Integer) As Boolean
-    Public Declare Function ReleaseCapture Lib "user32" Alias "ReleaseCapture" () As Boolean
-
-    Public Const WM_SYSCOMMAND = &H112
-
-    Public Const SC_MOVE = &HF010&
-
-    Public Const HTCAPTION = 2
-
-    Private Sub Panel2_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs)
-
-        ReleaseCapture()
-        SendMessage(Me.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0)
-    End Sub
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'mysqlconnect = New MySqlConnection ''定义连接字符串
-        'mysqlconnect.ConnectionString =
-        '    "server=52.76.27.242;userid=sql12307948;password=W38GxxRxLI;database=sql12307948" ''登录命令
-        'mysqlconnect.Open()
-        'If mysqlconnect.State = 1 Then
-        '    MessageBox.Show("1")
-        'End If
-        ''Try ''异常处理,给出弹窗提示并且暂停
-        ''    mysqlconnect.Open()
-        ''    Label2.Text = "服务器状态：已连接"
-        ''    mysqlconnect.Close()
-        ''Catch ex As Exception
-        ''    Label2.Text = "服务器状态：未连接"
-        ''Finally
-        ''    mysqlconnect.Dispose() ''中断sql
-        ''End Try
-    End Sub
-    Private Sub Label1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
+    Public xlapp As Application ''引用Microsoft excel和Microsoft office类型库
+    Public xlBook As Workbook
+    Public xlSheet As Worksheet ''然后创建对象
+    Dim wt() As Double '外筒参数数组
+    Dim hsg（） As Double '活塞杆数组
+    Dim hs() As Double '活塞数组
+    Dim alpha As Double '阻尼系数
+    Dim I As Integer
+    Dim aProcesses() As Process = Process.GetProcesses
+    Dim XLAPPpid As Integer
+    'Dim mysqlconnect As MySqlConnection ''定义mysql连接
+    'Dim mycommand As MySqlCommand ''定义mysql命令
+    'Dim reader As MySqlDataReader ''定义数据流
     Private Sub BunifuImageButton1_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
-
     Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs)
         partpanel.Visible = True
         assemblepanel.Visible = False
         morepanel.Visible = False
     End Sub
-
     Private Sub BunifuFlatButton2_Click(sender As Object, e As EventArgs)
         partpanel.Visible = False
         assemblepanel.Visible = True
         morepanel.Visible = False
     End Sub
-
     Private Sub BunifuFlatButton3_Click(sender As Object, e As EventArgs)
         partpanel.Visible = False
         assemblepanel.Visible = False
@@ -76,10 +41,6 @@ Public Class home ''kenan
     End Sub
     Private Sub BunifuImageButton1_Click_1(sender As Object, e As EventArgs)
         Me.Close()
-    End Sub
-
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
-
     End Sub
     Private Sub BunifuFlatButton1_Click_1(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click
         partpanel.Visible = True
@@ -109,16 +70,11 @@ Public Class home ''kenan
         drawingpanel.Visible = False
     End Sub
 
-
-
-
     Private Sub Buttonduantou_Click_1(sender As Object, e As EventArgs) Handles Buttonduantou.Click
         Me.Hide()
         partsub.parttype = 1
         partsub.Show()
     End Sub
-
-
     Private Sub BunifuFlatButton10_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton10.Click
         assemblepanel.Visible = False
         partpanel.Visible = False
@@ -126,7 +82,6 @@ Public Class home ''kenan
         setdamper.Visible = False
         drawingpanel.Visible = True
     End Sub
-
     Private Sub BunifuFlatButton13_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton13.Click
         Dim matlab As Object
         Dim result As String
@@ -212,13 +167,6 @@ Public Class home ''kenan
         partsub.Show()
     End Sub
 
-    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
-
-    End Sub
-
-    Private Sub assemblepanel_Paint(sender As Object, e As PaintEventArgs) Handles assemblepanel.Paint
-
-    End Sub
     Private Sub BunifuFlatButton5_Click_1(sender As Object, e As EventArgs) Handles BunifuFlatButton5.Click
         'Me.Hide()
         Dim featruemgr As FeatureManager
@@ -272,10 +220,6 @@ Public Class home ''kenan
         Return 0
     End Function
 
-    Private Sub partpanel_Paint(sender As Object, e As PaintEventArgs) Handles partpanel.Paint
-
-    End Sub
-
     Private Sub BunifuFlatButton4_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton4.Click
         partsub.Text = "活塞杆生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\hsg.JPG")
@@ -299,10 +243,7 @@ Public Class home ''kenan
     Private Sub BunifuFlatButton14_Click(sender As Object, e As EventArgs)
 
     End Sub
-
-
-
-    Private Sub BunifuFlatButton15_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton15.Click
+    Private Sub BunifuFlatButton15_Click(sender As Object, e As EventArgs)
         ''创建进程可视化
         swapp = CreateObject("Sldworks.Application")
         ''swapp.CloseAllDocuments(True)
@@ -324,13 +265,77 @@ Public Class home ''kenan
         part.FeatureManager.InsertFeatureChamfer(6, 1, 0.01, pi / 4, 0, 0, 0, 0)
 
     End Sub
-
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
     End Sub
+    Private Sub BunifuFlatButton14_Click_1(sender As Object, e As EventArgs) Handles BunifuFlatButton14.Click
+        For Each myprocess As Process In Process.GetProcesses
+            If InStr(myprocess.ProcessName, "SLDWORKS") Then
+                myprocess.Kill()
+            End If
+        Next
+        ''关闭excel进程，释放内存
 
-    Private Sub BunifuFlatButton18_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton18.Click
 
     End Sub
 
+    Private Sub BunifuFlatButton8_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton8.Click
+
+        excel()
+        'ReDim wt(2)
+        'Dim i As Integer
+        'For i = 0 To a.Length - 1
+        '    a(i) = xlSheet.Cells(2, i + 1).value
+        'Next
+        '''关闭excel进程，释放内存
+        'Dim p As Process() = Process.GetProcessesByName("EXCEL")
+        'For Each pr As Process In p
+        '    pr.Kill()
+        'Next
+        'Next
+        'Next
+        'Next
+        'Next
+        'Next
+        'Next
+        'Next
+        'Next
+        'Useexcel = 0
+    End Sub
+    Public Function excel()
+        xlapp = CreateObject("Excel.Application") ''创建EXCEL对象
+        xlBook = xlapp.Workbooks.Open("D:\POST-GRA\研究生大论文\零件库\筒式-间隙-层间用-设计参数阵.xlsx")
+        ''打开已经存在的EXCEL工件簿文件
+        alpha = CType(TextBox2.Text, Double)
+        Select Case alpha''阻尼系数类型
+            Case 0.2
+                xlSheet = xlBook.Worksheets("α=0.20")
+            Case 0.25
+                xlSheet = xlBook.Worksheets("α=0.25")
+            Case 0.3
+                xlSheet = xlBook.Worksheets("α=0.30")
+        End Select
+        For Each sh In xlSheet.Range(xlSheet.Cells(1, 1), xlSheet.Cells(113, 53))
+            If IsNumeric(sh.value) Then
+                If Math.Abs(sh.value - CType（TextBox1.Text, Double）) < 0.1 And
+                Math.Abs(xlSheet.Cells(sh.row, sh.column + 1).Value - CType（TextBox3.Text, Double）) < 0.1 Then
+                    MsgBox(sh.value)
+                    MsgBox(sh.address)
+                    xlBook.Close()
+                    xlapp.Quit()
+                    xlapp = Nothing
+                    Exit For
+                End If
+            End If
+        Next
+        GC.Collect()
+    End Function
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Private Sub BunifuFlatButton9_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton9.Click
+
+    End Sub
 End Class

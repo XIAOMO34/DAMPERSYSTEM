@@ -22,10 +22,7 @@ Public Class partsub
     Dim line2 As Object
     Dim circle As Object
     Dim kong As Feature ''注意命名空间
-    Dim xlapp As Application ''引用Microsoft excel和Microsoft office类型库
-    Dim xlBook As Workbook
-    Dim xlSheet As Worksheet ''然后创建对象
-    Dim pi As Double = 3.1415926535898
+    Public pi As Double = 3.1415926535898
     ''窗口1关闭时主窗口打开
     Private Sub partsub_Closed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         home.Show()
@@ -65,7 +62,6 @@ Public Class partsub
     ''关闭窗口
     ''建模关键函数
     Public Function Createduantou() As Integer
-        MsgBox("数据已经读取，准备建立模型!")
         ''创建进程可视化
         swapp = CreateObject("Sldworks.Application")
         swapp.CloseAllDocuments(True)
@@ -73,7 +69,6 @@ Public Class partsub
         part = swapp.NewDocument("C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2018\templates\gb_part.prtdot", 0, 0, 0)
         part = swapp.ActiveDoc
         swapp.Visible = True
-        MsgBox("调用SOLIDWORKS进程成功!")
         sketch = part.SketchManager
         ''插入草图
         part.InsertSketch()
@@ -164,7 +159,6 @@ Public Class partsub
         part.SketchAddConstraints("sgCOINCIDENT")
         part.ClearSelection2(True)
         part.SketchManager.InsertSketch(True)
-        MsgBox("建模成功！")
         Createduantou = 0
     End Function
     Public Function createwaitong()
@@ -223,7 +217,7 @@ Public Class partsub
                               1, 0, "", 0, 0)
         part = swapp.ActiveDoc
         part.ActiveView.FrameState = 1
-        'part.Parameter("D10@Sketch1").SYSTEMVALUE = 0.047 ''修改最大值
+        part.Parameter("D10@Sketch1").SYSTEMVALUE = 0.047 ''修改最大值
         part.EditRebuild3()
     End Function
     Public Function createxiaotouduangai()
@@ -231,7 +225,8 @@ Public Class partsub
         swapp.CloseAllDocuments(True)
         ''创建新零件
         swapp.Visible = True
-        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\筒-头装配\xtdg.SLDPRT", 1, 0, "", 0, 0)
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cylinider head.SLDPRT",
+                              1, 0, "", 0, 0)
         part = swapp.ActiveDoc
     End Function
     Public Function createhuosaigan()
@@ -239,8 +234,15 @@ Public Class partsub
         swapp.CloseAllDocuments(True)
         ''创建新零件
         swapp.Visible = True
-        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\筒-头装配\hsg.SLDPRT", 1, 0, "", 0, 0)
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Rod.SLDPRT",
+                              1, 0, "", 0, 0)
         part = swapp.ActiveDoc
+        part.Extension.SelectByID2("Sketch1", "SKETCH", 0, 0, 0, False, 0, Nothing, 0)
+        part.EditSketch() ''活塞杆直径
+        part.Extension.SelectByID2("Sketch1", "SKETCH", 0, 0, 0, False, 0, Nothing, 0)
+        part.EditSketch()
+        part.Parameter("D2@Sketch1").systemvalue = 0.042
+        part.EditRebuild3()
     End Function
     Public Function Createlatou()
         swapp = CreateObject("sldworks.Application")
@@ -389,3 +391,41 @@ End Class
 '    End While
 '    Readdata = 0
 'End Function
+'Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+'    'mysqlconnect = New MySqlConnection ''定义连接字符串
+'    'mysqlconnect.ConnectionString =
+'    '    "server=52.76.27.242;userid=sql12307948;password=W38GxxRxLI;database=sql12307948" ''登录命令
+'    'mysqlconnect.Open()
+'    'If mysqlconnect.State = 1 Then
+'    '    MessageBox.Show("1")
+'    'End If
+'    ''Try ''异常处理,给出弹窗提示并且暂停
+'    ''    mysqlconnect.Open()
+'    ''    Label2.Text = "服务器状态：已连接"
+'    ''    mysqlconnect.Close()
+'    ''Catch ex As Exception
+'    ''    Label2.Text = "服务器状态：未连接"
+'    ''Finally
+'    ''    mysqlconnect.Dispose() ''中断sql
+'    ''End Try
+'End Sub
+
+''处理窗体移动，panel2_mousedown as function ,handles panel2_mousedown as return
+'Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" _
+'        (ByVal hwnd As IntPtr,
+'         ByVal wMsg As Integer,
+'         ByVal wParam As Integer,
+'         ByVal lParam As Integer) As Boolean
+'Public Declare Function ReleaseCapture Lib "user32" Alias "ReleaseCapture" () As Boolean
+
+'Public Const WM_SYSCOMMAND = &H112
+
+'Public Const SC_MOVE = &HF010&
+
+'Public Const HTCAPTION = 2
+
+'Private Sub Panel2_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+
+'    ReleaseCapture()
+'    SendMessage(Me.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0)
+'End Sub

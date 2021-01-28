@@ -24,30 +24,13 @@ Partial Class home
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(home))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BunifuFlatButton14 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuFlatButton12 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuFlatButton11 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuFlatButton10 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuFlatButton3 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuFlatButton2 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuFlatButton1 = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.partpanel = New System.Windows.Forms.Panel()
-        Me.BunifuFlatButton15 = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.BunifuFlatButton18 = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.BunifuFlatButton16 = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.BunifuFlatButton9 = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.BunifuFlatButton8 = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.BunifuFlatButton7 = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
-        Me.BunifuFlatButton4 = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
-        Me.Buttonneitong = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
-        Me.Buttonhuosaigan = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        Me.Buttonzunitong = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.Buttonduantou = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.assemblepanel = New System.Windows.Forms.Panel()
         Me.BunifuFlatButton5 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
@@ -60,14 +43,31 @@ Partial Class home
         Me.drawingpanel = New System.Windows.Forms.Panel()
         Me.BunifuFlatButton17 = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.PictureBox12 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Buttonduantou = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.Buttonzunitong = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.Buttonhuosaigan = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
+        Me.Buttonneitong = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
+        Me.BunifuFlatButton4 = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
+        Me.BunifuFlatButton7 = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.partpanel = New System.Windows.Forms.Panel()
+        Me.BunifuFlatButton9 = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.BunifuFlatButton8 = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.BunifuCustomLabel4 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.BunifuCustomLabel3 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
-        Me.partpanel.SuspendLayout()
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.assemblepanel.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.morepanel.SuspendLayout()
@@ -76,12 +76,23 @@ Partial Class home
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.drawingpanel.SuspendLayout()
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.partpanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.AutoSize = True
+        Me.Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.BunifuFlatButton14)
         Me.Panel1.Controls.Add(Me.BunifuFlatButton12)
         Me.Panel1.Controls.Add(Me.BunifuFlatButton11)
         Me.Panel1.Controls.Add(Me.BunifuFlatButton10)
@@ -92,12 +103,49 @@ Partial Class home
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(192, 553)
+        Me.Panel1.Size = New System.Drawing.Size(198, 506)
         Me.Panel1.TabIndex = 0
+        '
+        'BunifuFlatButton14
+        '
+        Me.BunifuFlatButton14.Activecolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton14.AutoSize = True
+        Me.BunifuFlatButton14.BackColor = System.Drawing.Color.White
+        Me.BunifuFlatButton14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BunifuFlatButton14.BorderRadius = 0
+        Me.BunifuFlatButton14.ButtonText = "清理内存"
+        Me.BunifuFlatButton14.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BunifuFlatButton14.DisabledColor = System.Drawing.Color.Gray
+        Me.BunifuFlatButton14.Iconcolor = System.Drawing.Color.Transparent
+        Me.BunifuFlatButton14.Iconimage = CType(resources.GetObject("BunifuFlatButton14.Iconimage"), System.Drawing.Image)
+        Me.BunifuFlatButton14.Iconimage_right = Nothing
+        Me.BunifuFlatButton14.Iconimage_right_Selected = Nothing
+        Me.BunifuFlatButton14.Iconimage_Selected = Nothing
+        Me.BunifuFlatButton14.IconMarginLeft = 20
+        Me.BunifuFlatButton14.IconMarginRight = 0
+        Me.BunifuFlatButton14.IconRightVisible = True
+        Me.BunifuFlatButton14.IconRightZoom = 0R
+        Me.BunifuFlatButton14.IconVisible = True
+        Me.BunifuFlatButton14.IconZoom = 60.0R
+        Me.BunifuFlatButton14.IsTab = False
+        Me.BunifuFlatButton14.Location = New System.Drawing.Point(-1, 355)
+        Me.BunifuFlatButton14.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.BunifuFlatButton14.Name = "BunifuFlatButton14"
+        Me.BunifuFlatButton14.Normalcolor = System.Drawing.Color.White
+        Me.BunifuFlatButton14.OnHovercolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton14.OnHoverTextColor = System.Drawing.Color.Black
+        Me.BunifuFlatButton14.selected = False
+        Me.BunifuFlatButton14.Size = New System.Drawing.Size(191, 55)
+        Me.BunifuFlatButton14.TabIndex = 9
+        Me.BunifuFlatButton14.Text = "清理内存"
+        Me.BunifuFlatButton14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BunifuFlatButton14.Textcolor = System.Drawing.Color.Black
+        Me.BunifuFlatButton14.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         '
         'BunifuFlatButton12
         '
         Me.BunifuFlatButton12.Activecolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton12.AutoSize = True
         Me.BunifuFlatButton12.BackColor = System.Drawing.Color.White
         Me.BunifuFlatButton12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BunifuFlatButton12.BorderRadius = 0
@@ -116,14 +164,14 @@ Partial Class home
         Me.BunifuFlatButton12.IconVisible = True
         Me.BunifuFlatButton12.IconZoom = 60.0R
         Me.BunifuFlatButton12.IsTab = False
-        Me.BunifuFlatButton12.Location = New System.Drawing.Point(0, 351)
+        Me.BunifuFlatButton12.Location = New System.Drawing.Point(0, 290)
         Me.BunifuFlatButton12.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.BunifuFlatButton12.Name = "BunifuFlatButton12"
         Me.BunifuFlatButton12.Normalcolor = System.Drawing.Color.White
         Me.BunifuFlatButton12.OnHovercolor = System.Drawing.Color.Silver
         Me.BunifuFlatButton12.OnHoverTextColor = System.Drawing.Color.Black
         Me.BunifuFlatButton12.selected = False
-        Me.BunifuFlatButton12.Size = New System.Drawing.Size(191, 50)
+        Me.BunifuFlatButton12.Size = New System.Drawing.Size(191, 55)
         Me.BunifuFlatButton12.TabIndex = 8
         Me.BunifuFlatButton12.Text = "阻尼器布置"
         Me.BunifuFlatButton12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -133,6 +181,7 @@ Partial Class home
         'BunifuFlatButton11
         '
         Me.BunifuFlatButton11.Activecolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton11.AutoSize = True
         Me.BunifuFlatButton11.BackColor = System.Drawing.Color.White
         Me.BunifuFlatButton11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BunifuFlatButton11.BorderRadius = 0
@@ -151,14 +200,14 @@ Partial Class home
         Me.BunifuFlatButton11.IconVisible = True
         Me.BunifuFlatButton11.IconZoom = 60.0R
         Me.BunifuFlatButton11.IsTab = False
-        Me.BunifuFlatButton11.Location = New System.Drawing.Point(0, 284)
+        Me.BunifuFlatButton11.Location = New System.Drawing.Point(0, 225)
         Me.BunifuFlatButton11.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.BunifuFlatButton11.Name = "BunifuFlatButton11"
         Me.BunifuFlatButton11.Normalcolor = System.Drawing.Color.White
         Me.BunifuFlatButton11.OnHovercolor = System.Drawing.Color.Silver
         Me.BunifuFlatButton11.OnHoverTextColor = System.Drawing.Color.Black
         Me.BunifuFlatButton11.selected = False
-        Me.BunifuFlatButton11.Size = New System.Drawing.Size(191, 50)
+        Me.BunifuFlatButton11.Size = New System.Drawing.Size(191, 55)
         Me.BunifuFlatButton11.TabIndex = 7
         Me.BunifuFlatButton11.Text = "有限元计算"
         Me.BunifuFlatButton11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -168,6 +217,7 @@ Partial Class home
         'BunifuFlatButton10
         '
         Me.BunifuFlatButton10.Activecolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton10.AutoSize = True
         Me.BunifuFlatButton10.BackColor = System.Drawing.Color.White
         Me.BunifuFlatButton10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BunifuFlatButton10.BorderRadius = 0
@@ -186,14 +236,14 @@ Partial Class home
         Me.BunifuFlatButton10.IconVisible = True
         Me.BunifuFlatButton10.IconZoom = 60.0R
         Me.BunifuFlatButton10.IsTab = False
-        Me.BunifuFlatButton10.Location = New System.Drawing.Point(0, 226)
+        Me.BunifuFlatButton10.Location = New System.Drawing.Point(0, 160)
         Me.BunifuFlatButton10.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.BunifuFlatButton10.Name = "BunifuFlatButton10"
         Me.BunifuFlatButton10.Normalcolor = System.Drawing.Color.White
         Me.BunifuFlatButton10.OnHovercolor = System.Drawing.Color.Silver
         Me.BunifuFlatButton10.OnHoverTextColor = System.Drawing.Color.Black
         Me.BunifuFlatButton10.selected = False
-        Me.BunifuFlatButton10.Size = New System.Drawing.Size(191, 50)
+        Me.BunifuFlatButton10.Size = New System.Drawing.Size(191, 55)
         Me.BunifuFlatButton10.TabIndex = 6
         Me.BunifuFlatButton10.Text = "工程图生成"
         Me.BunifuFlatButton10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -203,6 +253,7 @@ Partial Class home
         'BunifuFlatButton3
         '
         Me.BunifuFlatButton3.Activecolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton3.AutoSize = True
         Me.BunifuFlatButton3.BackColor = System.Drawing.Color.White
         Me.BunifuFlatButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BunifuFlatButton3.BorderRadius = 0
@@ -221,14 +272,14 @@ Partial Class home
         Me.BunifuFlatButton3.IconVisible = True
         Me.BunifuFlatButton3.IconZoom = 60.0R
         Me.BunifuFlatButton3.IsTab = False
-        Me.BunifuFlatButton3.Location = New System.Drawing.Point(0, 418)
+        Me.BunifuFlatButton3.Location = New System.Drawing.Point(0, 420)
         Me.BunifuFlatButton3.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.BunifuFlatButton3.Name = "BunifuFlatButton3"
         Me.BunifuFlatButton3.Normalcolor = System.Drawing.Color.White
         Me.BunifuFlatButton3.OnHovercolor = System.Drawing.Color.Silver
         Me.BunifuFlatButton3.OnHoverTextColor = System.Drawing.Color.Black
         Me.BunifuFlatButton3.selected = False
-        Me.BunifuFlatButton3.Size = New System.Drawing.Size(191, 50)
+        Me.BunifuFlatButton3.Size = New System.Drawing.Size(191, 55)
         Me.BunifuFlatButton3.TabIndex = 5
         Me.BunifuFlatButton3.Text = "更多功能"
         Me.BunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -238,6 +289,7 @@ Partial Class home
         'BunifuFlatButton2
         '
         Me.BunifuFlatButton2.Activecolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton2.AutoSize = True
         Me.BunifuFlatButton2.BackColor = System.Drawing.Color.White
         Me.BunifuFlatButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BunifuFlatButton2.BorderRadius = 0
@@ -256,14 +308,14 @@ Partial Class home
         Me.BunifuFlatButton2.IconVisible = True
         Me.BunifuFlatButton2.IconZoom = 60.0R
         Me.BunifuFlatButton2.IsTab = False
-        Me.BunifuFlatButton2.Location = New System.Drawing.Point(0, 150)
+        Me.BunifuFlatButton2.Location = New System.Drawing.Point(0, 95)
         Me.BunifuFlatButton2.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.BunifuFlatButton2.Name = "BunifuFlatButton2"
         Me.BunifuFlatButton2.Normalcolor = System.Drawing.Color.White
         Me.BunifuFlatButton2.OnHovercolor = System.Drawing.Color.Silver
         Me.BunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.Black
         Me.BunifuFlatButton2.selected = False
-        Me.BunifuFlatButton2.Size = New System.Drawing.Size(191, 50)
+        Me.BunifuFlatButton2.Size = New System.Drawing.Size(191, 55)
         Me.BunifuFlatButton2.TabIndex = 4
         Me.BunifuFlatButton2.Text = "自动装配"
         Me.BunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -273,6 +325,7 @@ Partial Class home
         'BunifuFlatButton1
         '
         Me.BunifuFlatButton1.Activecolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton1.AutoSize = True
         Me.BunifuFlatButton1.BackColor = System.Drawing.Color.White
         Me.BunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BunifuFlatButton1.BorderRadius = 0
@@ -291,498 +344,19 @@ Partial Class home
         Me.BunifuFlatButton1.IconVisible = True
         Me.BunifuFlatButton1.IconZoom = 60.0R
         Me.BunifuFlatButton1.IsTab = False
-        Me.BunifuFlatButton1.Location = New System.Drawing.Point(0, 83)
+        Me.BunifuFlatButton1.Location = New System.Drawing.Point(0, 30)
         Me.BunifuFlatButton1.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.BunifuFlatButton1.Name = "BunifuFlatButton1"
         Me.BunifuFlatButton1.Normalcolor = System.Drawing.Color.White
         Me.BunifuFlatButton1.OnHovercolor = System.Drawing.Color.Silver
         Me.BunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.Black
         Me.BunifuFlatButton1.selected = False
-        Me.BunifuFlatButton1.Size = New System.Drawing.Size(191, 50)
+        Me.BunifuFlatButton1.Size = New System.Drawing.Size(191, 55)
         Me.BunifuFlatButton1.TabIndex = 3
         Me.BunifuFlatButton1.Text = "零件生成"
         Me.BunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BunifuFlatButton1.Textcolor = System.Drawing.Color.Black
         Me.BunifuFlatButton1.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'partpanel
-        '
-        Me.partpanel.BackColor = System.Drawing.Color.White
-        Me.partpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.partpanel.Controls.Add(Me.BunifuFlatButton15)
-        Me.partpanel.Controls.Add(Me.BunifuFlatButton18)
-        Me.partpanel.Controls.Add(Me.BunifuFlatButton16)
-        Me.partpanel.Controls.Add(Me.BunifuFlatButton9)
-        Me.partpanel.Controls.Add(Me.BunifuFlatButton8)
-        Me.partpanel.Controls.Add(Me.BunifuFlatButton7)
-        Me.partpanel.Controls.Add(Me.PictureBox10)
-        Me.partpanel.Controls.Add(Me.BunifuFlatButton4)
-        Me.partpanel.Controls.Add(Me.PictureBox9)
-        Me.partpanel.Controls.Add(Me.Buttonneitong)
-        Me.partpanel.Controls.Add(Me.PictureBox7)
-        Me.partpanel.Controls.Add(Me.Buttonhuosaigan)
-        Me.partpanel.Controls.Add(Me.PictureBox6)
-        Me.partpanel.Controls.Add(Me.Buttonzunitong)
-        Me.partpanel.Controls.Add(Me.PictureBox5)
-        Me.partpanel.Controls.Add(Me.Buttonduantou)
-        Me.partpanel.Controls.Add(Me.PictureBox2)
-        Me.partpanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.partpanel.Location = New System.Drawing.Point(192, 0)
-        Me.partpanel.Margin = New System.Windows.Forms.Padding(4)
-        Me.partpanel.Name = "partpanel"
-        Me.partpanel.Size = New System.Drawing.Size(490, 553)
-        Me.partpanel.TabIndex = 2
-        '
-        'BunifuFlatButton15
-        '
-        Me.BunifuFlatButton15.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.BunifuFlatButton15.BackColor = System.Drawing.Color.White
-        Me.BunifuFlatButton15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuFlatButton15.BorderRadius = 0
-        Me.BunifuFlatButton15.ButtonText = "延伸管头"
-        Me.BunifuFlatButton15.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BunifuFlatButton15.DisabledColor = System.Drawing.Color.Gray
-        Me.BunifuFlatButton15.Iconcolor = System.Drawing.Color.Transparent
-        Me.BunifuFlatButton15.Iconimage = Nothing
-        Me.BunifuFlatButton15.Iconimage_right = Nothing
-        Me.BunifuFlatButton15.Iconimage_right_Selected = Nothing
-        Me.BunifuFlatButton15.Iconimage_Selected = Nothing
-        Me.BunifuFlatButton15.IconMarginLeft = 0
-        Me.BunifuFlatButton15.IconMarginRight = 0
-        Me.BunifuFlatButton15.IconRightVisible = True
-        Me.BunifuFlatButton15.IconRightZoom = 0R
-        Me.BunifuFlatButton15.IconVisible = True
-        Me.BunifuFlatButton15.IconZoom = 90.0R
-        Me.BunifuFlatButton15.IsTab = False
-        Me.BunifuFlatButton15.Location = New System.Drawing.Point(364, 1025)
-        Me.BunifuFlatButton15.Margin = New System.Windows.Forms.Padding(9, 8, 9, 8)
-        Me.BunifuFlatButton15.Name = "BunifuFlatButton15"
-        Me.BunifuFlatButton15.Normalcolor = System.Drawing.Color.White
-        Me.BunifuFlatButton15.OnHovercolor = System.Drawing.Color.Silver
-        Me.BunifuFlatButton15.OnHoverTextColor = System.Drawing.Color.Black
-        Me.BunifuFlatButton15.selected = False
-        Me.BunifuFlatButton15.Size = New System.Drawing.Size(188, 79)
-        Me.BunifuFlatButton15.TabIndex = 19
-        Me.BunifuFlatButton15.Text = "延伸管头"
-        Me.BunifuFlatButton15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.BunifuFlatButton15.Textcolor = System.Drawing.Color.Black
-        Me.BunifuFlatButton15.TextFont = New System.Drawing.Font("宋体", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'BunifuFlatButton18
-        '
-        Me.BunifuFlatButton18.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.BunifuFlatButton18.BackColor = System.Drawing.Color.White
-        Me.BunifuFlatButton18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuFlatButton18.BorderRadius = 0
-        Me.BunifuFlatButton18.ButtonText = "TL-VFD250"
-        Me.BunifuFlatButton18.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BunifuFlatButton18.DisabledColor = System.Drawing.Color.Gray
-        Me.BunifuFlatButton18.Iconcolor = System.Drawing.Color.Transparent
-        Me.BunifuFlatButton18.Iconimage = Nothing
-        Me.BunifuFlatButton18.Iconimage_right = Nothing
-        Me.BunifuFlatButton18.Iconimage_right_Selected = Nothing
-        Me.BunifuFlatButton18.Iconimage_Selected = Nothing
-        Me.BunifuFlatButton18.IconMarginLeft = 0
-        Me.BunifuFlatButton18.IconMarginRight = 0
-        Me.BunifuFlatButton18.IconRightVisible = True
-        Me.BunifuFlatButton18.IconRightZoom = 0R
-        Me.BunifuFlatButton18.IconVisible = True
-        Me.BunifuFlatButton18.IconZoom = 90.0R
-        Me.BunifuFlatButton18.IsTab = False
-        Me.BunifuFlatButton18.Location = New System.Drawing.Point(248, 49)
-        Me.BunifuFlatButton18.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.BunifuFlatButton18.Name = "BunifuFlatButton18"
-        Me.BunifuFlatButton18.Normalcolor = System.Drawing.Color.White
-        Me.BunifuFlatButton18.OnHovercolor = System.Drawing.Color.Silver
-        Me.BunifuFlatButton18.OnHoverTextColor = System.Drawing.Color.Black
-        Me.BunifuFlatButton18.selected = False
-        Me.BunifuFlatButton18.Size = New System.Drawing.Size(100, 38)
-        Me.BunifuFlatButton18.TabIndex = 17
-        Me.BunifuFlatButton18.Text = "TL-VFD250"
-        Me.BunifuFlatButton18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.BunifuFlatButton18.Textcolor = System.Drawing.Color.Black
-        Me.BunifuFlatButton18.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'BunifuFlatButton16
-        '
-        Me.BunifuFlatButton16.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.BunifuFlatButton16.BackColor = System.Drawing.Color.White
-        Me.BunifuFlatButton16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuFlatButton16.BorderRadius = 0
-        Me.BunifuFlatButton16.ButtonText = "TL-VFD200"
-        Me.BunifuFlatButton16.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BunifuFlatButton16.DisabledColor = System.Drawing.Color.Gray
-        Me.BunifuFlatButton16.Iconcolor = System.Drawing.Color.Transparent
-        Me.BunifuFlatButton16.Iconimage = Nothing
-        Me.BunifuFlatButton16.Iconimage_right = Nothing
-        Me.BunifuFlatButton16.Iconimage_right_Selected = Nothing
-        Me.BunifuFlatButton16.Iconimage_Selected = Nothing
-        Me.BunifuFlatButton16.IconMarginLeft = 0
-        Me.BunifuFlatButton16.IconMarginRight = 0
-        Me.BunifuFlatButton16.IconRightVisible = True
-        Me.BunifuFlatButton16.IconRightZoom = 0R
-        Me.BunifuFlatButton16.IconVisible = True
-        Me.BunifuFlatButton16.IconZoom = 90.0R
-        Me.BunifuFlatButton16.IsTab = False
-        Me.BunifuFlatButton16.Location = New System.Drawing.Point(131, 49)
-        Me.BunifuFlatButton16.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.BunifuFlatButton16.Name = "BunifuFlatButton16"
-        Me.BunifuFlatButton16.Normalcolor = System.Drawing.Color.White
-        Me.BunifuFlatButton16.OnHovercolor = System.Drawing.Color.Silver
-        Me.BunifuFlatButton16.OnHoverTextColor = System.Drawing.Color.Black
-        Me.BunifuFlatButton16.selected = False
-        Me.BunifuFlatButton16.Size = New System.Drawing.Size(100, 38)
-        Me.BunifuFlatButton16.TabIndex = 16
-        Me.BunifuFlatButton16.Text = "TL-VFD200"
-        Me.BunifuFlatButton16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.BunifuFlatButton16.Textcolor = System.Drawing.Color.Black
-        Me.BunifuFlatButton16.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'BunifuFlatButton9
-        '
-        Me.BunifuFlatButton9.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.BunifuFlatButton9.BackColor = System.Drawing.Color.White
-        Me.BunifuFlatButton9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuFlatButton9.BorderRadius = 0
-        Me.BunifuFlatButton9.ButtonText = "TL-VFD150"
-        Me.BunifuFlatButton9.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BunifuFlatButton9.DisabledColor = System.Drawing.Color.Gray
-        Me.BunifuFlatButton9.Iconcolor = System.Drawing.Color.Transparent
-        Me.BunifuFlatButton9.Iconimage = Nothing
-        Me.BunifuFlatButton9.Iconimage_right = Nothing
-        Me.BunifuFlatButton9.Iconimage_right_Selected = Nothing
-        Me.BunifuFlatButton9.Iconimage_Selected = Nothing
-        Me.BunifuFlatButton9.IconMarginLeft = 0
-        Me.BunifuFlatButton9.IconMarginRight = 0
-        Me.BunifuFlatButton9.IconRightVisible = True
-        Me.BunifuFlatButton9.IconRightZoom = 0R
-        Me.BunifuFlatButton9.IconVisible = True
-        Me.BunifuFlatButton9.IconZoom = 90.0R
-        Me.BunifuFlatButton9.IsTab = False
-        Me.BunifuFlatButton9.Location = New System.Drawing.Point(248, 13)
-        Me.BunifuFlatButton9.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.BunifuFlatButton9.Name = "BunifuFlatButton9"
-        Me.BunifuFlatButton9.Normalcolor = System.Drawing.Color.White
-        Me.BunifuFlatButton9.OnHovercolor = System.Drawing.Color.Silver
-        Me.BunifuFlatButton9.OnHoverTextColor = System.Drawing.Color.Black
-        Me.BunifuFlatButton9.selected = False
-        Me.BunifuFlatButton9.Size = New System.Drawing.Size(100, 38)
-        Me.BunifuFlatButton9.TabIndex = 13
-        Me.BunifuFlatButton9.Text = "TL-VFD150"
-        Me.BunifuFlatButton9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.BunifuFlatButton9.Textcolor = System.Drawing.Color.Black
-        Me.BunifuFlatButton9.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'BunifuFlatButton8
-        '
-        Me.BunifuFlatButton8.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.BunifuFlatButton8.BackColor = System.Drawing.Color.White
-        Me.BunifuFlatButton8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuFlatButton8.BorderRadius = 0
-        Me.BunifuFlatButton8.ButtonText = "TL-VFD100"
-        Me.BunifuFlatButton8.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BunifuFlatButton8.DisabledColor = System.Drawing.Color.Gray
-        Me.BunifuFlatButton8.Iconcolor = System.Drawing.Color.Transparent
-        Me.BunifuFlatButton8.Iconimage = Nothing
-        Me.BunifuFlatButton8.Iconimage_right = Nothing
-        Me.BunifuFlatButton8.Iconimage_right_Selected = Nothing
-        Me.BunifuFlatButton8.Iconimage_Selected = Nothing
-        Me.BunifuFlatButton8.IconMarginLeft = 0
-        Me.BunifuFlatButton8.IconMarginRight = 0
-        Me.BunifuFlatButton8.IconRightVisible = True
-        Me.BunifuFlatButton8.IconRightZoom = 0R
-        Me.BunifuFlatButton8.IconVisible = True
-        Me.BunifuFlatButton8.IconZoom = 90.0R
-        Me.BunifuFlatButton8.IsTab = False
-        Me.BunifuFlatButton8.Location = New System.Drawing.Point(131, 13)
-        Me.BunifuFlatButton8.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.BunifuFlatButton8.Name = "BunifuFlatButton8"
-        Me.BunifuFlatButton8.Normalcolor = System.Drawing.Color.White
-        Me.BunifuFlatButton8.OnHovercolor = System.Drawing.Color.Silver
-        Me.BunifuFlatButton8.OnHoverTextColor = System.Drawing.Color.Black
-        Me.BunifuFlatButton8.selected = False
-        Me.BunifuFlatButton8.Size = New System.Drawing.Size(100, 38)
-        Me.BunifuFlatButton8.TabIndex = 12
-        Me.BunifuFlatButton8.Text = "TL-VFD100"
-        Me.BunifuFlatButton8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.BunifuFlatButton8.Textcolor = System.Drawing.Color.Black
-        Me.BunifuFlatButton8.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'BunifuFlatButton7
-        '
-        Me.BunifuFlatButton7.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.BunifuFlatButton7.BackColor = System.Drawing.Color.White
-        Me.BunifuFlatButton7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuFlatButton7.BorderRadius = 0
-        Me.BunifuFlatButton7.ButtonText = "拉头"
-        Me.BunifuFlatButton7.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BunifuFlatButton7.DisabledColor = System.Drawing.Color.Gray
-        Me.BunifuFlatButton7.Iconcolor = System.Drawing.Color.Transparent
-        Me.BunifuFlatButton7.Iconimage = Nothing
-        Me.BunifuFlatButton7.Iconimage_right = Nothing
-        Me.BunifuFlatButton7.Iconimage_right_Selected = Nothing
-        Me.BunifuFlatButton7.Iconimage_Selected = Nothing
-        Me.BunifuFlatButton7.IconMarginLeft = 0
-        Me.BunifuFlatButton7.IconMarginRight = 0
-        Me.BunifuFlatButton7.IconRightVisible = True
-        Me.BunifuFlatButton7.IconRightZoom = 0R
-        Me.BunifuFlatButton7.IconVisible = True
-        Me.BunifuFlatButton7.IconZoom = 90.0R
-        Me.BunifuFlatButton7.IsTab = False
-        Me.BunifuFlatButton7.Location = New System.Drawing.Point(292, 393)
-        Me.BunifuFlatButton7.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.BunifuFlatButton7.Name = "BunifuFlatButton7"
-        Me.BunifuFlatButton7.Normalcolor = System.Drawing.Color.White
-        Me.BunifuFlatButton7.OnHovercolor = System.Drawing.Color.Silver
-        Me.BunifuFlatButton7.OnHoverTextColor = System.Drawing.Color.Black
-        Me.BunifuFlatButton7.selected = False
-        Me.BunifuFlatButton7.Size = New System.Drawing.Size(80, 34)
-        Me.BunifuFlatButton7.TabIndex = 11
-        Me.BunifuFlatButton7.Text = "拉头"
-        Me.BunifuFlatButton7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.BunifuFlatButton7.Textcolor = System.Drawing.Color.Black
-        Me.BunifuFlatButton7.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'PictureBox10
-        '
-        Me.PictureBox10.Image = CType(resources.GetObject("PictureBox10.Image"), System.Drawing.Image)
-        Me.PictureBox10.Location = New System.Drawing.Point(292, 285)
-        Me.PictureBox10.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox10.Name = "PictureBox10"
-        Me.PictureBox10.Size = New System.Drawing.Size(80, 80)
-        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox10.TabIndex = 10
-        Me.PictureBox10.TabStop = False
-        '
-        'BunifuFlatButton4
-        '
-        Me.BunifuFlatButton4.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.BunifuFlatButton4.BackColor = System.Drawing.Color.White
-        Me.BunifuFlatButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuFlatButton4.BorderRadius = 0
-        Me.BunifuFlatButton4.ButtonText = "活塞杆"
-        Me.BunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray
-        Me.BunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent
-        Me.BunifuFlatButton4.Iconimage = Nothing
-        Me.BunifuFlatButton4.Iconimage_right = Nothing
-        Me.BunifuFlatButton4.Iconimage_right_Selected = Nothing
-        Me.BunifuFlatButton4.Iconimage_Selected = Nothing
-        Me.BunifuFlatButton4.IconMarginLeft = 0
-        Me.BunifuFlatButton4.IconMarginRight = 0
-        Me.BunifuFlatButton4.IconRightVisible = True
-        Me.BunifuFlatButton4.IconRightZoom = 0R
-        Me.BunifuFlatButton4.IconVisible = True
-        Me.BunifuFlatButton4.IconZoom = 90.0R
-        Me.BunifuFlatButton4.IsTab = False
-        Me.BunifuFlatButton4.Location = New System.Drawing.Point(184, 393)
-        Me.BunifuFlatButton4.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.BunifuFlatButton4.Name = "BunifuFlatButton4"
-        Me.BunifuFlatButton4.Normalcolor = System.Drawing.Color.White
-        Me.BunifuFlatButton4.OnHovercolor = System.Drawing.Color.Silver
-        Me.BunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.Black
-        Me.BunifuFlatButton4.selected = False
-        Me.BunifuFlatButton4.Size = New System.Drawing.Size(80, 34)
-        Me.BunifuFlatButton4.TabIndex = 9
-        Me.BunifuFlatButton4.Text = "活塞杆"
-        Me.BunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.BunifuFlatButton4.Textcolor = System.Drawing.Color.Black
-        Me.BunifuFlatButton4.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'PictureBox9
-        '
-        Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
-        Me.PictureBox9.Location = New System.Drawing.Point(184, 285)
-        Me.PictureBox9.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox9.Name = "PictureBox9"
-        Me.PictureBox9.Size = New System.Drawing.Size(80, 80)
-        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox9.TabIndex = 8
-        Me.PictureBox9.TabStop = False
-        '
-        'Buttonneitong
-        '
-        Me.Buttonneitong.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.Buttonneitong.BackColor = System.Drawing.Color.White
-        Me.Buttonneitong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Buttonneitong.BorderRadius = 0
-        Me.Buttonneitong.ButtonText = "大头端盖"
-        Me.Buttonneitong.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Buttonneitong.DisabledColor = System.Drawing.Color.Gray
-        Me.Buttonneitong.Iconcolor = System.Drawing.Color.Transparent
-        Me.Buttonneitong.Iconimage = Nothing
-        Me.Buttonneitong.Iconimage_right = Nothing
-        Me.Buttonneitong.Iconimage_right_Selected = Nothing
-        Me.Buttonneitong.Iconimage_Selected = Nothing
-        Me.Buttonneitong.IconMarginLeft = 0
-        Me.Buttonneitong.IconMarginRight = 0
-        Me.Buttonneitong.IconRightVisible = True
-        Me.Buttonneitong.IconRightZoom = 0R
-        Me.Buttonneitong.IconVisible = True
-        Me.Buttonneitong.IconZoom = 90.0R
-        Me.Buttonneitong.IsTab = False
-        Me.Buttonneitong.Location = New System.Drawing.Point(292, 226)
-        Me.Buttonneitong.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.Buttonneitong.Name = "Buttonneitong"
-        Me.Buttonneitong.Normalcolor = System.Drawing.Color.White
-        Me.Buttonneitong.OnHovercolor = System.Drawing.Color.Silver
-        Me.Buttonneitong.OnHoverTextColor = System.Drawing.Color.Black
-        Me.Buttonneitong.selected = False
-        Me.Buttonneitong.Size = New System.Drawing.Size(80, 34)
-        Me.Buttonneitong.TabIndex = 7
-        Me.Buttonneitong.Text = "大头端盖"
-        Me.Buttonneitong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.Buttonneitong.Textcolor = System.Drawing.Color.Black
-        Me.Buttonneitong.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'PictureBox7
-        '
-        Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
-        Me.PictureBox7.Location = New System.Drawing.Point(292, 131)
-        Me.PictureBox7.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(80, 80)
-        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox7.TabIndex = 6
-        Me.PictureBox7.TabStop = False
-        '
-        'Buttonhuosaigan
-        '
-        Me.Buttonhuosaigan.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.Buttonhuosaigan.BackColor = System.Drawing.Color.White
-        Me.Buttonhuosaigan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Buttonhuosaigan.BorderRadius = 0
-        Me.Buttonhuosaigan.ButtonText = "小头端盖"
-        Me.Buttonhuosaigan.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Buttonhuosaigan.DisabledColor = System.Drawing.Color.Gray
-        Me.Buttonhuosaigan.Iconcolor = System.Drawing.Color.Transparent
-        Me.Buttonhuosaigan.Iconimage = Nothing
-        Me.Buttonhuosaigan.Iconimage_right = Nothing
-        Me.Buttonhuosaigan.Iconimage_right_Selected = Nothing
-        Me.Buttonhuosaigan.Iconimage_Selected = Nothing
-        Me.Buttonhuosaigan.IconMarginLeft = 0
-        Me.Buttonhuosaigan.IconMarginRight = 0
-        Me.Buttonhuosaigan.IconRightVisible = True
-        Me.Buttonhuosaigan.IconRightZoom = 0R
-        Me.Buttonhuosaigan.IconVisible = True
-        Me.Buttonhuosaigan.IconZoom = 90.0R
-        Me.Buttonhuosaigan.IsTab = False
-        Me.Buttonhuosaigan.Location = New System.Drawing.Point(76, 393)
-        Me.Buttonhuosaigan.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.Buttonhuosaigan.Name = "Buttonhuosaigan"
-        Me.Buttonhuosaigan.Normalcolor = System.Drawing.Color.White
-        Me.Buttonhuosaigan.OnHovercolor = System.Drawing.Color.Silver
-        Me.Buttonhuosaigan.OnHoverTextColor = System.Drawing.Color.Black
-        Me.Buttonhuosaigan.selected = False
-        Me.Buttonhuosaigan.Size = New System.Drawing.Size(80, 34)
-        Me.Buttonhuosaigan.TabIndex = 5
-        Me.Buttonhuosaigan.Text = "小头端盖"
-        Me.Buttonhuosaigan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.Buttonhuosaigan.Textcolor = System.Drawing.Color.Black
-        Me.Buttonhuosaigan.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(76, 285)
-        Me.PictureBox6.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(80, 80)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox6.TabIndex = 4
-        Me.PictureBox6.TabStop = False
-        '
-        'Buttonzunitong
-        '
-        Me.Buttonzunitong.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.Buttonzunitong.BackColor = System.Drawing.Color.White
-        Me.Buttonzunitong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Buttonzunitong.BorderRadius = 0
-        Me.Buttonzunitong.ButtonText = "外筒"
-        Me.Buttonzunitong.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Buttonzunitong.DisabledColor = System.Drawing.Color.Gray
-        Me.Buttonzunitong.Iconcolor = System.Drawing.Color.Transparent
-        Me.Buttonzunitong.Iconimage = Nothing
-        Me.Buttonzunitong.Iconimage_right = Nothing
-        Me.Buttonzunitong.Iconimage_right_Selected = Nothing
-        Me.Buttonzunitong.Iconimage_Selected = Nothing
-        Me.Buttonzunitong.IconMarginLeft = 0
-        Me.Buttonzunitong.IconMarginRight = 0
-        Me.Buttonzunitong.IconRightVisible = True
-        Me.Buttonzunitong.IconRightZoom = 0R
-        Me.Buttonzunitong.IconVisible = True
-        Me.Buttonzunitong.IconZoom = 90.0R
-        Me.Buttonzunitong.IsTab = False
-        Me.Buttonzunitong.Location = New System.Drawing.Point(184, 226)
-        Me.Buttonzunitong.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.Buttonzunitong.Name = "Buttonzunitong"
-        Me.Buttonzunitong.Normalcolor = System.Drawing.Color.White
-        Me.Buttonzunitong.OnHovercolor = System.Drawing.Color.Silver
-        Me.Buttonzunitong.OnHoverTextColor = System.Drawing.Color.Black
-        Me.Buttonzunitong.selected = False
-        Me.Buttonzunitong.Size = New System.Drawing.Size(80, 34)
-        Me.Buttonzunitong.TabIndex = 3
-        Me.Buttonzunitong.Text = "外筒"
-        Me.Buttonzunitong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.Buttonzunitong.Textcolor = System.Drawing.Color.Black
-        Me.Buttonzunitong.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(184, 131)
-        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(80, 80)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox5.TabIndex = 2
-        Me.PictureBox5.TabStop = False
-        '
-        'Buttonduantou
-        '
-        Me.Buttonduantou.Activecolor = System.Drawing.SystemColors.Highlight
-        Me.Buttonduantou.BackColor = System.Drawing.Color.White
-        Me.Buttonduantou.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Buttonduantou.BorderRadius = 0
-        Me.Buttonduantou.ButtonText = "端头"
-        Me.Buttonduantou.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Buttonduantou.DisabledColor = System.Drawing.Color.Gray
-        Me.Buttonduantou.Iconcolor = System.Drawing.Color.Transparent
-        Me.Buttonduantou.Iconimage = Nothing
-        Me.Buttonduantou.Iconimage_right = Nothing
-        Me.Buttonduantou.Iconimage_right_Selected = Nothing
-        Me.Buttonduantou.Iconimage_Selected = Nothing
-        Me.Buttonduantou.IconMarginLeft = 0
-        Me.Buttonduantou.IconMarginRight = 0
-        Me.Buttonduantou.IconRightVisible = True
-        Me.Buttonduantou.IconRightZoom = 0R
-        Me.Buttonduantou.IconVisible = True
-        Me.Buttonduantou.IconZoom = 90.0R
-        Me.Buttonduantou.IsTab = False
-        Me.Buttonduantou.Location = New System.Drawing.Point(76, 226)
-        Me.Buttonduantou.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.Buttonduantou.Name = "Buttonduantou"
-        Me.Buttonduantou.Normalcolor = System.Drawing.Color.White
-        Me.Buttonduantou.OnHovercolor = System.Drawing.Color.Silver
-        Me.Buttonduantou.OnHoverTextColor = System.Drawing.Color.Black
-        Me.Buttonduantou.selected = False
-        Me.Buttonduantou.Size = New System.Drawing.Size(80, 34)
-        Me.Buttonduantou.TabIndex = 1
-        Me.Buttonduantou.Text = "端头"
-        Me.Buttonduantou.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.Buttonduantou.Textcolor = System.Drawing.Color.Black
-        Me.Buttonduantou.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(76, 131)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(80, 80)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 0
-        Me.PictureBox2.TabStop = False
         '
         'assemblepanel
         '
@@ -790,10 +364,10 @@ Partial Class home
         Me.assemblepanel.Controls.Add(Me.PictureBox3)
         Me.assemblepanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.assemblepanel.ForeColor = System.Drawing.Color.White
-        Me.assemblepanel.Location = New System.Drawing.Point(192, 0)
+        Me.assemblepanel.Location = New System.Drawing.Point(198, 0)
         Me.assemblepanel.Margin = New System.Windows.Forms.Padding(4)
         Me.assemblepanel.Name = "assemblepanel"
-        Me.assemblepanel.Size = New System.Drawing.Size(490, 553)
+        Me.assemblepanel.Size = New System.Drawing.Size(874, 506)
         Me.assemblepanel.TabIndex = 3
         '
         'BunifuFlatButton5
@@ -847,10 +421,10 @@ Partial Class home
         Me.morepanel.Controls.Add(Me.BunifuFlatButton6)
         Me.morepanel.Controls.Add(Me.PictureBox4)
         Me.morepanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.morepanel.Location = New System.Drawing.Point(192, 0)
+        Me.morepanel.Location = New System.Drawing.Point(198, 0)
         Me.morepanel.Margin = New System.Windows.Forms.Padding(4)
         Me.morepanel.Name = "morepanel"
-        Me.morepanel.Size = New System.Drawing.Size(490, 553)
+        Me.morepanel.Size = New System.Drawing.Size(874, 506)
         Me.morepanel.TabIndex = 4
         '
         'BunifuFlatButton6
@@ -904,10 +478,10 @@ Partial Class home
         Me.setdamper.Controls.Add(Me.BunifuFlatButton13)
         Me.setdamper.Controls.Add(Me.PictureBox8)
         Me.setdamper.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.setdamper.Location = New System.Drawing.Point(192, 0)
+        Me.setdamper.Location = New System.Drawing.Point(198, 0)
         Me.setdamper.Margin = New System.Windows.Forms.Padding(4)
         Me.setdamper.Name = "setdamper"
-        Me.setdamper.Size = New System.Drawing.Size(490, 553)
+        Me.setdamper.Size = New System.Drawing.Size(874, 506)
         Me.setdamper.TabIndex = 5
         '
         'BunifuFlatButton13
@@ -961,10 +535,10 @@ Partial Class home
         Me.drawingpanel.Controls.Add(Me.BunifuFlatButton17)
         Me.drawingpanel.Controls.Add(Me.PictureBox12)
         Me.drawingpanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.drawingpanel.Location = New System.Drawing.Point(192, 0)
+        Me.drawingpanel.Location = New System.Drawing.Point(198, 0)
         Me.drawingpanel.Margin = New System.Windows.Forms.Padding(4)
         Me.drawingpanel.Name = "drawingpanel"
-        Me.drawingpanel.Size = New System.Drawing.Size(490, 553)
+        Me.drawingpanel.Size = New System.Drawing.Size(874, 506)
         Me.drawingpanel.TabIndex = 6
         '
         'BunifuFlatButton17
@@ -1013,12 +587,484 @@ Partial Class home
         Me.PictureBox12.TabIndex = 0
         Me.PictureBox12.TabStop = False
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(437, 114)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(80, 80)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 0
+        Me.PictureBox2.TabStop = False
+        '
+        'Buttonduantou
+        '
+        Me.Buttonduantou.Activecolor = System.Drawing.SystemColors.Highlight
+        Me.Buttonduantou.BackColor = System.Drawing.Color.White
+        Me.Buttonduantou.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Buttonduantou.BorderRadius = 0
+        Me.Buttonduantou.ButtonText = "端头"
+        Me.Buttonduantou.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Buttonduantou.DisabledColor = System.Drawing.Color.Gray
+        Me.Buttonduantou.Iconcolor = System.Drawing.Color.Transparent
+        Me.Buttonduantou.Iconimage = Nothing
+        Me.Buttonduantou.Iconimage_right = Nothing
+        Me.Buttonduantou.Iconimage_right_Selected = Nothing
+        Me.Buttonduantou.Iconimage_Selected = Nothing
+        Me.Buttonduantou.IconMarginLeft = 0
+        Me.Buttonduantou.IconMarginRight = 0
+        Me.Buttonduantou.IconRightVisible = True
+        Me.Buttonduantou.IconRightZoom = 0R
+        Me.Buttonduantou.IconVisible = True
+        Me.Buttonduantou.IconZoom = 90.0R
+        Me.Buttonduantou.IsTab = False
+        Me.Buttonduantou.Location = New System.Drawing.Point(437, 209)
+        Me.Buttonduantou.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.Buttonduantou.Name = "Buttonduantou"
+        Me.Buttonduantou.Normalcolor = System.Drawing.Color.White
+        Me.Buttonduantou.OnHovercolor = System.Drawing.Color.Silver
+        Me.Buttonduantou.OnHoverTextColor = System.Drawing.Color.Black
+        Me.Buttonduantou.selected = False
+        Me.Buttonduantou.Size = New System.Drawing.Size(80, 34)
+        Me.Buttonduantou.TabIndex = 1
+        Me.Buttonduantou.Text = "端头"
+        Me.Buttonduantou.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Buttonduantou.Textcolor = System.Drawing.Color.Black
+        Me.Buttonduantou.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
+        Me.PictureBox5.Location = New System.Drawing.Point(545, 114)
+        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(80, 80)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox5.TabIndex = 2
+        Me.PictureBox5.TabStop = False
+        '
+        'Buttonzunitong
+        '
+        Me.Buttonzunitong.Activecolor = System.Drawing.SystemColors.Highlight
+        Me.Buttonzunitong.BackColor = System.Drawing.Color.White
+        Me.Buttonzunitong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Buttonzunitong.BorderRadius = 0
+        Me.Buttonzunitong.ButtonText = "外筒"
+        Me.Buttonzunitong.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Buttonzunitong.DisabledColor = System.Drawing.Color.Gray
+        Me.Buttonzunitong.Iconcolor = System.Drawing.Color.Transparent
+        Me.Buttonzunitong.Iconimage = Nothing
+        Me.Buttonzunitong.Iconimage_right = Nothing
+        Me.Buttonzunitong.Iconimage_right_Selected = Nothing
+        Me.Buttonzunitong.Iconimage_Selected = Nothing
+        Me.Buttonzunitong.IconMarginLeft = 0
+        Me.Buttonzunitong.IconMarginRight = 0
+        Me.Buttonzunitong.IconRightVisible = True
+        Me.Buttonzunitong.IconRightZoom = 0R
+        Me.Buttonzunitong.IconVisible = True
+        Me.Buttonzunitong.IconZoom = 90.0R
+        Me.Buttonzunitong.IsTab = False
+        Me.Buttonzunitong.Location = New System.Drawing.Point(545, 209)
+        Me.Buttonzunitong.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.Buttonzunitong.Name = "Buttonzunitong"
+        Me.Buttonzunitong.Normalcolor = System.Drawing.Color.White
+        Me.Buttonzunitong.OnHovercolor = System.Drawing.Color.Silver
+        Me.Buttonzunitong.OnHoverTextColor = System.Drawing.Color.Black
+        Me.Buttonzunitong.selected = False
+        Me.Buttonzunitong.Size = New System.Drawing.Size(80, 34)
+        Me.Buttonzunitong.TabIndex = 3
+        Me.Buttonzunitong.Text = "外筒"
+        Me.Buttonzunitong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Buttonzunitong.Textcolor = System.Drawing.Color.Black
+        Me.Buttonzunitong.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
+        Me.PictureBox6.Location = New System.Drawing.Point(437, 268)
+        Me.PictureBox6.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(80, 80)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox6.TabIndex = 4
+        Me.PictureBox6.TabStop = False
+        '
+        'Buttonhuosaigan
+        '
+        Me.Buttonhuosaigan.Activecolor = System.Drawing.SystemColors.Highlight
+        Me.Buttonhuosaigan.BackColor = System.Drawing.Color.White
+        Me.Buttonhuosaigan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Buttonhuosaigan.BorderRadius = 0
+        Me.Buttonhuosaigan.ButtonText = "小头端盖"
+        Me.Buttonhuosaigan.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Buttonhuosaigan.DisabledColor = System.Drawing.Color.Gray
+        Me.Buttonhuosaigan.Iconcolor = System.Drawing.Color.Transparent
+        Me.Buttonhuosaigan.Iconimage = Nothing
+        Me.Buttonhuosaigan.Iconimage_right = Nothing
+        Me.Buttonhuosaigan.Iconimage_right_Selected = Nothing
+        Me.Buttonhuosaigan.Iconimage_Selected = Nothing
+        Me.Buttonhuosaigan.IconMarginLeft = 0
+        Me.Buttonhuosaigan.IconMarginRight = 0
+        Me.Buttonhuosaigan.IconRightVisible = True
+        Me.Buttonhuosaigan.IconRightZoom = 0R
+        Me.Buttonhuosaigan.IconVisible = True
+        Me.Buttonhuosaigan.IconZoom = 90.0R
+        Me.Buttonhuosaigan.IsTab = False
+        Me.Buttonhuosaigan.Location = New System.Drawing.Point(437, 376)
+        Me.Buttonhuosaigan.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.Buttonhuosaigan.Name = "Buttonhuosaigan"
+        Me.Buttonhuosaigan.Normalcolor = System.Drawing.Color.White
+        Me.Buttonhuosaigan.OnHovercolor = System.Drawing.Color.Silver
+        Me.Buttonhuosaigan.OnHoverTextColor = System.Drawing.Color.Black
+        Me.Buttonhuosaigan.selected = False
+        Me.Buttonhuosaigan.Size = New System.Drawing.Size(80, 34)
+        Me.Buttonhuosaigan.TabIndex = 5
+        Me.Buttonhuosaigan.Text = "小头端盖"
+        Me.Buttonhuosaigan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Buttonhuosaigan.Textcolor = System.Drawing.Color.Black
+        Me.Buttonhuosaigan.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
+        Me.PictureBox7.Location = New System.Drawing.Point(653, 114)
+        Me.PictureBox7.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(80, 80)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox7.TabIndex = 6
+        Me.PictureBox7.TabStop = False
+        '
+        'Buttonneitong
+        '
+        Me.Buttonneitong.Activecolor = System.Drawing.SystemColors.Highlight
+        Me.Buttonneitong.BackColor = System.Drawing.Color.White
+        Me.Buttonneitong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Buttonneitong.BorderRadius = 0
+        Me.Buttonneitong.ButtonText = "大头端盖"
+        Me.Buttonneitong.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Buttonneitong.DisabledColor = System.Drawing.Color.Gray
+        Me.Buttonneitong.Iconcolor = System.Drawing.Color.Transparent
+        Me.Buttonneitong.Iconimage = Nothing
+        Me.Buttonneitong.Iconimage_right = Nothing
+        Me.Buttonneitong.Iconimage_right_Selected = Nothing
+        Me.Buttonneitong.Iconimage_Selected = Nothing
+        Me.Buttonneitong.IconMarginLeft = 0
+        Me.Buttonneitong.IconMarginRight = 0
+        Me.Buttonneitong.IconRightVisible = True
+        Me.Buttonneitong.IconRightZoom = 0R
+        Me.Buttonneitong.IconVisible = True
+        Me.Buttonneitong.IconZoom = 90.0R
+        Me.Buttonneitong.IsTab = False
+        Me.Buttonneitong.Location = New System.Drawing.Point(653, 209)
+        Me.Buttonneitong.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.Buttonneitong.Name = "Buttonneitong"
+        Me.Buttonneitong.Normalcolor = System.Drawing.Color.White
+        Me.Buttonneitong.OnHovercolor = System.Drawing.Color.Silver
+        Me.Buttonneitong.OnHoverTextColor = System.Drawing.Color.Black
+        Me.Buttonneitong.selected = False
+        Me.Buttonneitong.Size = New System.Drawing.Size(80, 34)
+        Me.Buttonneitong.TabIndex = 7
+        Me.Buttonneitong.Text = "大头端盖"
+        Me.Buttonneitong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Buttonneitong.Textcolor = System.Drawing.Color.Black
+        Me.Buttonneitong.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        '
+        'PictureBox9
+        '
+        Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
+        Me.PictureBox9.Location = New System.Drawing.Point(545, 268)
+        Me.PictureBox9.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(80, 80)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox9.TabIndex = 8
+        Me.PictureBox9.TabStop = False
+        '
+        'BunifuFlatButton4
+        '
+        Me.BunifuFlatButton4.Activecolor = System.Drawing.SystemColors.Highlight
+        Me.BunifuFlatButton4.BackColor = System.Drawing.Color.White
+        Me.BunifuFlatButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BunifuFlatButton4.BorderRadius = 0
+        Me.BunifuFlatButton4.ButtonText = "活塞杆"
+        Me.BunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray
+        Me.BunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent
+        Me.BunifuFlatButton4.Iconimage = Nothing
+        Me.BunifuFlatButton4.Iconimage_right = Nothing
+        Me.BunifuFlatButton4.Iconimage_right_Selected = Nothing
+        Me.BunifuFlatButton4.Iconimage_Selected = Nothing
+        Me.BunifuFlatButton4.IconMarginLeft = 0
+        Me.BunifuFlatButton4.IconMarginRight = 0
+        Me.BunifuFlatButton4.IconRightVisible = True
+        Me.BunifuFlatButton4.IconRightZoom = 0R
+        Me.BunifuFlatButton4.IconVisible = True
+        Me.BunifuFlatButton4.IconZoom = 90.0R
+        Me.BunifuFlatButton4.IsTab = False
+        Me.BunifuFlatButton4.Location = New System.Drawing.Point(545, 376)
+        Me.BunifuFlatButton4.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.BunifuFlatButton4.Name = "BunifuFlatButton4"
+        Me.BunifuFlatButton4.Normalcolor = System.Drawing.Color.White
+        Me.BunifuFlatButton4.OnHovercolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.Black
+        Me.BunifuFlatButton4.selected = False
+        Me.BunifuFlatButton4.Size = New System.Drawing.Size(80, 34)
+        Me.BunifuFlatButton4.TabIndex = 9
+        Me.BunifuFlatButton4.Text = "活塞杆"
+        Me.BunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.BunifuFlatButton4.Textcolor = System.Drawing.Color.Black
+        Me.BunifuFlatButton4.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        '
+        'PictureBox10
+        '
+        Me.PictureBox10.Image = CType(resources.GetObject("PictureBox10.Image"), System.Drawing.Image)
+        Me.PictureBox10.Location = New System.Drawing.Point(653, 268)
+        Me.PictureBox10.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.Size = New System.Drawing.Size(80, 80)
+        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox10.TabIndex = 10
+        Me.PictureBox10.TabStop = False
+        '
+        'BunifuFlatButton7
+        '
+        Me.BunifuFlatButton7.Activecolor = System.Drawing.SystemColors.Highlight
+        Me.BunifuFlatButton7.BackColor = System.Drawing.Color.White
+        Me.BunifuFlatButton7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BunifuFlatButton7.BorderRadius = 0
+        Me.BunifuFlatButton7.ButtonText = "拉头"
+        Me.BunifuFlatButton7.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BunifuFlatButton7.DisabledColor = System.Drawing.Color.Gray
+        Me.BunifuFlatButton7.Iconcolor = System.Drawing.Color.Transparent
+        Me.BunifuFlatButton7.Iconimage = Nothing
+        Me.BunifuFlatButton7.Iconimage_right = Nothing
+        Me.BunifuFlatButton7.Iconimage_right_Selected = Nothing
+        Me.BunifuFlatButton7.Iconimage_Selected = Nothing
+        Me.BunifuFlatButton7.IconMarginLeft = 0
+        Me.BunifuFlatButton7.IconMarginRight = 0
+        Me.BunifuFlatButton7.IconRightVisible = True
+        Me.BunifuFlatButton7.IconRightZoom = 0R
+        Me.BunifuFlatButton7.IconVisible = True
+        Me.BunifuFlatButton7.IconZoom = 90.0R
+        Me.BunifuFlatButton7.IsTab = False
+        Me.BunifuFlatButton7.Location = New System.Drawing.Point(653, 376)
+        Me.BunifuFlatButton7.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.BunifuFlatButton7.Name = "BunifuFlatButton7"
+        Me.BunifuFlatButton7.Normalcolor = System.Drawing.Color.White
+        Me.BunifuFlatButton7.OnHovercolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton7.OnHoverTextColor = System.Drawing.Color.Black
+        Me.BunifuFlatButton7.selected = False
+        Me.BunifuFlatButton7.Size = New System.Drawing.Size(80, 34)
+        Me.BunifuFlatButton7.TabIndex = 11
+        Me.BunifuFlatButton7.Text = "拉头"
+        Me.BunifuFlatButton7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.BunifuFlatButton7.Textcolor = System.Drawing.Color.Black
+        Me.BunifuFlatButton7.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        '
+        'partpanel
+        '
+        Me.partpanel.AutoScroll = True
+        Me.partpanel.BackColor = System.Drawing.Color.White
+        Me.partpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.partpanel.Controls.Add(Me.BunifuFlatButton9)
+        Me.partpanel.Controls.Add(Me.BunifuFlatButton8)
+        Me.partpanel.Controls.Add(Me.BunifuCustomLabel4)
+        Me.partpanel.Controls.Add(Me.TextBox4)
+        Me.partpanel.Controls.Add(Me.BunifuCustomLabel3)
+        Me.partpanel.Controls.Add(Me.TextBox3)
+        Me.partpanel.Controls.Add(Me.BunifuCustomLabel2)
+        Me.partpanel.Controls.Add(Me.TextBox1)
+        Me.partpanel.Controls.Add(Me.Label1)
+        Me.partpanel.Controls.Add(Me.BunifuCustomLabel1)
+        Me.partpanel.Controls.Add(Me.TextBox2)
+        Me.partpanel.Controls.Add(Me.BunifuFlatButton7)
+        Me.partpanel.Controls.Add(Me.PictureBox10)
+        Me.partpanel.Controls.Add(Me.BunifuFlatButton4)
+        Me.partpanel.Controls.Add(Me.PictureBox9)
+        Me.partpanel.Controls.Add(Me.Buttonneitong)
+        Me.partpanel.Controls.Add(Me.PictureBox7)
+        Me.partpanel.Controls.Add(Me.Buttonhuosaigan)
+        Me.partpanel.Controls.Add(Me.PictureBox6)
+        Me.partpanel.Controls.Add(Me.Buttonzunitong)
+        Me.partpanel.Controls.Add(Me.PictureBox5)
+        Me.partpanel.Controls.Add(Me.Buttonduantou)
+        Me.partpanel.Controls.Add(Me.PictureBox2)
+        Me.partpanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.partpanel.Location = New System.Drawing.Point(198, 0)
+        Me.partpanel.Margin = New System.Windows.Forms.Padding(4)
+        Me.partpanel.Name = "partpanel"
+        Me.partpanel.Size = New System.Drawing.Size(874, 506)
+        Me.partpanel.TabIndex = 2
+        '
+        'BunifuFlatButton9
+        '
+        Me.BunifuFlatButton9.Activecolor = System.Drawing.SystemColors.Highlight
+        Me.BunifuFlatButton9.BackColor = System.Drawing.Color.White
+        Me.BunifuFlatButton9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BunifuFlatButton9.BorderRadius = 0
+        Me.BunifuFlatButton9.ButtonText = "生成所有零件"
+        Me.BunifuFlatButton9.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BunifuFlatButton9.DisabledColor = System.Drawing.Color.Gray
+        Me.BunifuFlatButton9.Iconcolor = System.Drawing.Color.Transparent
+        Me.BunifuFlatButton9.Iconimage = Nothing
+        Me.BunifuFlatButton9.Iconimage_right = Nothing
+        Me.BunifuFlatButton9.Iconimage_right_Selected = Nothing
+        Me.BunifuFlatButton9.Iconimage_Selected = Nothing
+        Me.BunifuFlatButton9.IconMarginLeft = 0
+        Me.BunifuFlatButton9.IconMarginRight = 0
+        Me.BunifuFlatButton9.IconRightVisible = True
+        Me.BunifuFlatButton9.IconRightZoom = 0R
+        Me.BunifuFlatButton9.IconVisible = True
+        Me.BunifuFlatButton9.IconZoom = 90.0R
+        Me.BunifuFlatButton9.IsTab = False
+        Me.BunifuFlatButton9.Location = New System.Drawing.Point(123, 406)
+        Me.BunifuFlatButton9.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.BunifuFlatButton9.Name = "BunifuFlatButton9"
+        Me.BunifuFlatButton9.Normalcolor = System.Drawing.Color.White
+        Me.BunifuFlatButton9.OnHovercolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton9.OnHoverTextColor = System.Drawing.Color.Black
+        Me.BunifuFlatButton9.selected = False
+        Me.BunifuFlatButton9.Size = New System.Drawing.Size(144, 34)
+        Me.BunifuFlatButton9.TabIndex = 32
+        Me.BunifuFlatButton9.Text = "生成所有零件"
+        Me.BunifuFlatButton9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.BunifuFlatButton9.Textcolor = System.Drawing.Color.Black
+        Me.BunifuFlatButton9.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        '
+        'BunifuFlatButton8
+        '
+        Me.BunifuFlatButton8.Activecolor = System.Drawing.SystemColors.Highlight
+        Me.BunifuFlatButton8.BackColor = System.Drawing.Color.White
+        Me.BunifuFlatButton8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BunifuFlatButton8.BorderRadius = 0
+        Me.BunifuFlatButton8.ButtonText = "生成所有零件"
+        Me.BunifuFlatButton8.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BunifuFlatButton8.DisabledColor = System.Drawing.Color.Gray
+        Me.BunifuFlatButton8.Iconcolor = System.Drawing.Color.Transparent
+        Me.BunifuFlatButton8.Iconimage = Nothing
+        Me.BunifuFlatButton8.Iconimage_right = Nothing
+        Me.BunifuFlatButton8.Iconimage_right_Selected = Nothing
+        Me.BunifuFlatButton8.Iconimage_Selected = Nothing
+        Me.BunifuFlatButton8.IconMarginLeft = 0
+        Me.BunifuFlatButton8.IconMarginRight = 0
+        Me.BunifuFlatButton8.IconRightVisible = True
+        Me.BunifuFlatButton8.IconRightZoom = 0R
+        Me.BunifuFlatButton8.IconVisible = True
+        Me.BunifuFlatButton8.IconZoom = 90.0R
+        Me.BunifuFlatButton8.IsTab = False
+        Me.BunifuFlatButton8.Location = New System.Drawing.Point(123, 336)
+        Me.BunifuFlatButton8.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.BunifuFlatButton8.Name = "BunifuFlatButton8"
+        Me.BunifuFlatButton8.Normalcolor = System.Drawing.Color.White
+        Me.BunifuFlatButton8.OnHovercolor = System.Drawing.Color.Silver
+        Me.BunifuFlatButton8.OnHoverTextColor = System.Drawing.Color.Black
+        Me.BunifuFlatButton8.selected = False
+        Me.BunifuFlatButton8.Size = New System.Drawing.Size(144, 34)
+        Me.BunifuFlatButton8.TabIndex = 31
+        Me.BunifuFlatButton8.Text = "生成所有零件"
+        Me.BunifuFlatButton8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.BunifuFlatButton8.Textcolor = System.Drawing.Color.Black
+        Me.BunifuFlatButton8.TextFont = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        '
+        'BunifuCustomLabel4
+        '
+        Me.BunifuCustomLabel4.AutoSize = True
+        Me.BunifuCustomLabel4.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.BunifuCustomLabel4.Location = New System.Drawing.Point(211, 224)
+        Me.BunifuCustomLabel4.Name = "BunifuCustomLabel4"
+        Me.BunifuCustomLabel4.Size = New System.Drawing.Size(192, 19)
+        Me.BunifuCustomLabel4.TabIndex = 30
+        Me.BunifuCustomLabel4.Text = "阻尼系数（kN/m·s）"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.BackColor = System.Drawing.Color.White
+        Me.TextBox4.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(235, 251)
+        Me.TextBox4.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox4.TabIndex = 29
+        '
+        'BunifuCustomLabel3
+        '
+        Me.BunifuCustomLabel3.AutoSize = True
+        Me.BunifuCustomLabel3.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.BunifuCustomLabel3.Location = New System.Drawing.Point(18, 224)
+        Me.BunifuCustomLabel3.Name = "BunifuCustomLabel3"
+        Me.BunifuCustomLabel3.Size = New System.Drawing.Size(163, 19)
+        Me.BunifuCustomLabel3.TabIndex = 28
+        Me.BunifuCustomLabel3.Text = "最大速度（mm/s）"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.BackColor = System.Drawing.Color.White
+        Me.TextBox3.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox3.Location = New System.Drawing.Point(27, 251)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox3.TabIndex = 27
+        '
+        'BunifuCustomLabel2
+        '
+        Me.BunifuCustomLabel2.AutoSize = True
+        Me.BunifuCustomLabel2.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.BunifuCustomLabel2.Location = New System.Drawing.Point(226, 112)
+        Me.BunifuCustomLabel2.Name = "BunifuCustomLabel2"
+        Me.BunifuCustomLabel2.Size = New System.Drawing.Size(162, 19)
+        Me.BunifuCustomLabel2.TabIndex = 26
+        Me.BunifuCustomLabel2.Text = "设计阻尼力（kN）"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.Color.White
+        Me.TextBox1.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(235, 141)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox1.TabIndex = 25
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Location = New System.Drawing.Point(161, 75)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(89, 20)
+        Me.Label1.TabIndex = 24
+        Me.Label1.Text = "设计参数"
+        '
+        'BunifuCustomLabel1
+        '
+        Me.BunifuCustomLabel1.AutoSize = True
+        Me.BunifuCustomLabel1.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(25, 112)
+        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
+        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(149, 19)
+        Me.BunifuCustomLabel1.TabIndex = 23
+        Me.BunifuCustomLabel1.Text = "α（速度指数）"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.White
+        Me.TextBox2.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(27, 141)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox2.TabIndex = 22
+        '
         'home
         '
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
+        Me.AutoScroll = True
         Me.AutoSize = True
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(682, 553)
+        Me.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.ClientSize = New System.Drawing.Size(1072, 506)
         Me.Controls.Add(Me.partpanel)
         Me.Controls.Add(Me.assemblepanel)
         Me.Controls.Add(Me.setdamper)
@@ -1027,19 +1073,14 @@ Partial Class home
         Me.Controls.Add(Me.Panel1)
         Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Location = New System.Drawing.Point(1200, 300)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "home"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "阻尼器"
         Me.TransparencyKey = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Panel1.ResumeLayout(False)
-        Me.partpanel.ResumeLayout(False)
-        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.PerformLayout()
         Me.assemblepanel.ResumeLayout(False)
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.morepanel.ResumeLayout(False)
@@ -1048,7 +1089,16 @@ Partial Class home
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.drawingpanel.ResumeLayout(False)
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.partpanel.ResumeLayout(False)
+        Me.partpanel.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -1056,21 +1106,12 @@ Partial Class home
     Friend WithEvents BunifuFlatButton3 As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents BunifuFlatButton2 As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents BunifuFlatButton1 As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents partpanel As Panel
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Buttonduantou As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents assemblepanel As Panel
     Friend WithEvents BunifuFlatButton5 As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents morepanel As Panel
     Friend WithEvents BunifuFlatButton6 As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents Buttonneitong As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents PictureBox7 As PictureBox
-    Friend WithEvents Buttonhuosaigan As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents PictureBox6 As PictureBox
-    Friend WithEvents Buttonzunitong As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents BunifuFlatButton11 As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents BunifuFlatButton10 As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents BunifuFlatButton12 As Bunifu.Framework.UI.BunifuFlatButton
@@ -1080,13 +1121,29 @@ Partial Class home
     Friend WithEvents drawingpanel As Panel
     Friend WithEvents BunifuFlatButton17 As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents PictureBox12 As PictureBox
-    Friend WithEvents BunifuFlatButton4 As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents BunifuFlatButton14 As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Buttonduantou As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents Buttonzunitong As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents Buttonhuosaigan As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents Buttonneitong As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents PictureBox9 As PictureBox
-    Friend WithEvents BunifuFlatButton18 As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents BunifuFlatButton16 As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents BunifuFlatButton9 As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents BunifuFlatButton8 As Bunifu.Framework.UI.BunifuFlatButton
-    Friend WithEvents BunifuFlatButton7 As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents BunifuFlatButton4 As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents PictureBox10 As PictureBox
-    Friend WithEvents BunifuFlatButton15 As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents BunifuFlatButton7 As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents partpanel As Panel
+    Friend WithEvents BunifuFlatButton8 As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents BunifuCustomLabel4 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents BunifuCustomLabel3 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents BunifuCustomLabel2 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents BunifuFlatButton9 As Bunifu.Framework.UI.BunifuFlatButton
 End Class
