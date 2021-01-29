@@ -12,8 +12,8 @@ Public Class home ''kenan
     Public xlBook As Workbook
     Public xlSheet As Worksheet ''然后创建对象
     Dim wt() As Double '外筒参数数组
-    Dim hsg（） As Double '活塞杆数组
-    Dim hs() As Double '活塞数组
+    Dim hsg As Double '活塞杆数组
+    Dim hs As Double '活塞数组
     Dim alpha As Double '阻尼系数
     Dim I As Integer
     Dim aProcesses() As Process = Process.GetProcesses
@@ -274,36 +274,17 @@ Public Class home ''kenan
                 myprocess.Kill()
             End If
         Next
-        ''关闭excel进程，释放内存
-
-
+        Dim p As Process() = Process.GetProcessesByName("EXCEL")
+        For Each pr As Process In p
+            pr.Kill()
+        Next
     End Sub
-
     Private Sub BunifuFlatButton8_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton8.Click
+        checktext()
 
-        excel()
-        'ReDim wt(2)
-        'Dim i As Integer
-        'For i = 0 To a.Length - 1
-        '    a(i) = xlSheet.Cells(2, i + 1).value
-        'Next
-        '''关闭excel进程，释放内存
-        'Dim p As Process() = Process.GetProcessesByName("EXCEL")
-        'For Each pr As Process In p
-        '    pr.Kill()
-        'Next
-        'Next
-        'Next
-        'Next
-        'Next
-        'Next
-        'Next
-        'Next
-        'Next
-        'Useexcel = 0
     End Sub
     Public Function excel()
-        xlapp = CreateObject("Excel.Application") ''创建EXCEL对象
+        xlapp = CreateObject("Excel.Application")  ''创建EXCEL对象
         xlBook = xlapp.Workbooks.Open("D:\POST-GRA\研究生大论文\零件库\筒式-间隙-层间用-设计参数阵.xlsx")
         ''打开已经存在的EXCEL工件簿文件
         alpha = CType(TextBox2.Text, Double)
@@ -314,28 +295,68 @@ Public Class home ''kenan
                 xlSheet = xlBook.Worksheets("α=0.25")
             Case 0.3
                 xlSheet = xlBook.Worksheets("α=0.30")
+            Case Else
+                RichTextBox1.Text = "未找到参数"
+                Exit Function
         End Select
-        For Each sh In xlSheet.Range(xlSheet.Cells(1, 1), xlSheet.Cells(113, 53))
-            If IsNumeric(sh.value) Then
-                If Math.Abs(sh.value - CType（TextBox1.Text, Double）) < 0.1 And
+        ReDim wt(2)
+        Dim textbox1text As Double = CType(TextBox1.Text, Double）
+        Select Case True''阻尼系数类型
+            Case textbox1text <= 150
+                wt(0) = 110 '直径
+                wt(1) = 80
+                wt（2） = 15
+                hsg = 30
+            Case textbox1text > 150 And textbox1text <= 250
+                wt(0) = 130 '直径
+                wt(1) = 100
+                wt（2） = 15
+                hsg = 40
+            Case textbox1text > 250 And textbox1text <= 350
+                wt(0) = 150 '直径
+                wt(1) = 110
+                wt（2） = 20
+                hsg = 45
+            Case textbox1text > 360 And textbox1text <= 450
+                wt(0) = 166 '直径
+                wt(1) = 126
+                wt（2） = 20
+                hsg = 50
+            Case textbox1text > 450 And textbox1text <= 650
+                wt(0) = 200 '直径
+                wt(1) = 150
+                wt（2） = 25
+                hsg = 60
+        End Select
+        I = 0
+        For Each sh In xlSheet.Range(xlSheet.Cells(1, 1), xlSheet.Cells(114, 49))
+            If sh.row = 114 Then
+                RichTextBox1.Text = "未找到参数"
+                Exit For
+            Else
+                If IsNumeric(sh.value) Then
+                    If Math.Abs(sh.value - CType（TextBox1.Text, Double）) < 0.1 And
                 Math.Abs(xlSheet.Cells(sh.row, sh.column + 1).Value - CType（TextBox3.Text, Double）) < 0.1 Then
-                    MsgBox(sh.value)
-                    MsgBox(sh.address)
-                    xlBook.Close()
-                    xlapp.Quit()
-                    xlapp = Nothing
-                    Exit For
+                        hs = xlSheet.Cells(sh.row, sh.column + 4).Value
+                        RichTextBox1.Text = "筒外径：" & wt（0） + vbCrLf +
+                            "筒内径：" & wt（0） + vbCrLf +
+                            "活塞直径：" & hs
+                        Exit For
+                    End If
                 End If
             End If
         Next
         GC.Collect()
     End Function
-
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-
-    End Sub
-
-    Private Sub BunifuFlatButton9_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton9.Click
-
-    End Sub
+    Public Function checktext()
+        If TextBox1.Text IsNot "" And TextBox2.Text IsNot "" And
+            TextBox3.Text IsNot "" And TextBox4.Text IsNot "" Then
+            excel()
+            xlBook.Close()
+            xlapp.Quit()
+            xlapp = Nothing
+        Else
+            MsgBox("未输入值")
+        End If
+    End Function
 End Class
