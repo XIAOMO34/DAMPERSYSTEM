@@ -2,7 +2,7 @@
 Imports Microsoft.Office.Interop.Excel
 Imports MySql.Data.MySqlClient
 Public Class home ''kenan
-    Dim pi As Double
+    Dim pi As Double = 3.141592653
     Dim mysql As MySqlConnection
     Dim swapp As SldWorks.SldWorks
     Dim part As ModelDoc2
@@ -11,13 +11,15 @@ Public Class home ''kenan
     Public xlapp As Application ''引用Microsoft excel和Microsoft office类型库
     Public xlBook As Workbook
     Public xlSheet As Worksheet ''然后创建对象
-    Dim wt() As Double '外筒参数数组
+    Dim wt(3) As Double '外筒参数数组
     Dim hsg As Double '活塞杆数组
     Dim hs As Double '活塞数组
     Dim alpha As Double '阻尼系数
     Dim I As Integer
     Dim aProcesses() As Process = Process.GetProcesses
     Dim XLAPPpid As Integer
+    Dim parttitle As String '文件名
+    Dim feature As Feature ''拉伸特征
     'Dim mysqlconnect As MySqlConnection ''定义mysql连接
     'Dim mycommand As MySqlCommand ''定义mysql命令
     'Dim reader As MySqlDataReader ''定义数据流
@@ -265,9 +267,7 @@ Public Class home ''kenan
         part.FeatureManager.InsertFeatureChamfer(6, 1, 0.01, pi / 4, 0, 0, 0, 0)
 
     End Sub
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
-    End Sub
     Private Sub BunifuFlatButton14_Click_1(sender As Object, e As EventArgs) Handles BunifuFlatButton14.Click
         For Each myprocess As Process In Process.GetProcesses
             If InStr(myprocess.ProcessName, "SLDWORKS") Then
@@ -280,8 +280,13 @@ Public Class home ''kenan
         Next
     End Sub
     Private Sub BunifuFlatButton8_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton8.Click
-        checktext()
-
+        'checktext()
+        wt(0) = 130 / 1000 '外径  
+        wt(1) = 100 / 1000 '内径
+        wt(2) = 160 / 1000 '长度
+        'createwaitong()
+        createcylinderhead()
+        'createspacerpiece()
     End Sub
     Public Function excel()
         xlapp = CreateObject("Excel.Application")  ''创建EXCEL对象
@@ -297,6 +302,7 @@ Public Class home ''kenan
                 xlSheet = xlBook.Worksheets("α=0.30")
             Case Else
                 RichTextBox1.Text = "未找到参数"
+                closeexcel()
                 Exit Function
         End Select
         ReDim wt(2)
@@ -327,20 +333,26 @@ Public Class home ''kenan
                 wt(1) = 150
                 wt（2） = 25
                 hsg = 60
+            Case Else
+                RichTextBox1.Text = "未找到参数"
+                closeexcel()
+                Exit Function
         End Select
         I = 0
         For Each sh In xlSheet.Range(xlSheet.Cells(1, 1), xlSheet.Cells(114, 49))
             If sh.row = 114 Then
                 RichTextBox1.Text = "未找到参数"
+                closeexcel()
                 Exit For
             Else
                 If IsNumeric(sh.value) Then
                     If Math.Abs(sh.value - CType（TextBox1.Text, Double）) < 0.1 And
                 Math.Abs(xlSheet.Cells(sh.row, sh.column + 1).Value - CType（TextBox3.Text, Double）) < 0.1 Then
                         hs = xlSheet.Cells(sh.row, sh.column + 4).Value
-                        RichTextBox1.Text = "筒外径：" & wt（0） + vbCrLf +
-                            "筒内径：" & wt（0） + vbCrLf +
-                            "活塞直径：" & hs
+                        RichTextBox1.Text = "筒外径：" & wt（0） & vbCrLf &
+                            "筒内径：" & wt（1） & vbCrLf &
+                            "活塞直径：" & hs & vbCrLf &
+                            "活塞杆直径：" & hsg
                         Exit For
                     End If
                 End If
@@ -352,11 +364,109 @@ Public Class home ''kenan
         If TextBox1.Text IsNot "" And TextBox2.Text IsNot "" And
             TextBox3.Text IsNot "" And TextBox4.Text IsNot "" Then
             excel()
-            xlBook.Close()
-            xlapp.Quit()
-            xlapp = Nothing
         Else
             MsgBox("未输入值")
         End If
     End Function
+    Public Function closeexcel()
+        If xlBook IsNot Nothing Then
+            xlBook.Close()
+            xlapp.Quit()
+            xlapp = Nothing
+        End If
+    End Function
+    Public Function createwaitong()
+        ''创建进程可视化
+        swapp = CreateObject("Sldworks.Application")
+        'swapp.CloseAllDocuments(True)
+
+        ''创建新零件
+        part = swapp.NewDocument("C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2018\templates\gb_part.prtdot", 0, 0, 0)
+        part = swapp.ActiveDoc
+        swapp.Visible = True
+        part = swapp.ActiveDoc
+        part.Extension.SelectByID2("前视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+        part.SketchManager.InsertSketch(True)
+        part.ClearSelection2(True)
+        part.SketchManager.CreateCircle(0#, 0#, 0#, wt(0) / 2, 0, 0#)
+        part.SketchManager.CreateCircle(0#, 0#, 0#, wt(1) / 2, 0, 0#)
+        part.FeatureManager.FeatureExtrusion3(True, True, False, 0, 0,
+                                                wt（2） / 2, 0, False, False, False,
+                                                False, 0, 0, True, True,
+                                                False, False, True, False, False,
+                                                0, 0, 0)
+        part.ClearSelection2(True)
+        part.Extension.SelectByID2("", "FACE", (wt(0) + wt(1)) / 4, 0, wt(2) / 2, False, 0, Nothing, 0)
+        part.SketchManager.InsertSketch(True)
+        part.SketchManager.CreateCircle(0, 0, wt（2) / 2, (wt(0) + wt(1)) / 4, 0, wt（2) / 2)
+        part.FeatureManager.FeatureCut4(True, False, False, 0, 0, 0.01, 0.01, False,
+                                        False, False, False, 0, 0,
+                                        False, False, False, False, False, True, True, True, True, False,
+                                         0, 0, False, False)
+        part.ShowNamedView2("*前视", 1)
+        part.Extension.SelectByID2("", "", (wt(0) + wt(1)) / 4, 0, wt(2) / 2, False, 0, Nothing, 0)
+        part.FeatureManager.InsertCosmeticThread2(1, (wt(0) + wt(1)) / 2, 0, "140")
+        part.Extension.SelectByID2("", "", wt(1) / 2, 0, wt(2) / 2 - 0.01, False, 0, Nothing, 0)
+        part.FeatureManager.InsertFeatureChamfer(7, 1, 0.013, 7.5 * pi / 180, 0, 0, 0, 0)
+        part.ShowNamedView2("", 7)
+        part.Extension.SelectByID2("右视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+        part.FeatureManager.InsertRefPlane(8, wt(0) / 2, 0, 0, 0, 0)
+        Dim swWzdHole As WizardHoleFeatureData2
+        swWzdHole = part.FeatureManager.CreateDefinition(SwConst.swFeatureNameID_e.swFmHoleWzd)
+        part.Extension.SelectByID2("", "FACE", wt(0) / 2, 0, wt(2) / 4, False, 0, Nothing, 0)
+        part.FeatureManager.HoleWizard5(4, 1, 42, "M10x1.0", 2, 0.009, 0.02, 0.02, 0, 0, 0, 0, 0, 0, 2, 0,
+                                        0, -1, -1, -1, "", False, True, True, True, True, False)
+        part.Extension.SelectByID2("凸台-拉伸1", "BODYFEATURE", 0, 0, 0, False, 1, Nothing, 0) ''1是镜像特征
+        part.Extension.SelectByID2("M10x1.0 螺纹孔1", "BODYFEATURE", 0, 0, 0, True, 1, Nothing, 0)
+        part.Extension.SelectByID2("切除-拉伸1"， "BODYFEATURE", 0, 0, 0, True, 1, Nothing, 0)
+        part.Extension.SelectByID2("前视基准面", "PLANE", 0, 0, 0, True, 2, Nothing, 0) ''2是镜像基准
+        part.FeatureManager.InsertMirrorFeature(False, False, False, False)
+        part.ShowNamedView2("", 2)
+        part.Extension.SelectByID2("", "", wt(1) / 2, 0, -wt(2) / 2 + 0.01, False, 0, Nothing, 0)
+        part.FeatureManager.InsertFeatureChamfer(7, 1, 0.013, 7.5 * pi / 180, 0, 0, 0, 0)
+        part.Extension.SelectByID2("M10x1.0 螺纹孔1", "BODYFEATURE", 0, 0, 0, False, 1, Nothing, 0)
+        ''修正螺纹线参数，设置螺纹线为1m，自动生成
+        feature = part.SelectionManager.GetSelectedObject5(1)
+        swWzdHole = feature.GetDefinition
+        swWzdHole.ThreadDepth = 1
+        feature.ModifyDefinition(swWzdHole, part, Nothing)
+    End Function ''外筒（完成）
+    Public Function createcylinderhead() ''端盖（完成）
+        swapp = CreateObject("Sldworks.Application")
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cylinider head.SLDPRT", 1, 0, "", 0, 0)
+        part.Parameter("D28@Sketch1").SYSTEMVALUE = 0.07 ''内筒内径
+        part.Parameter("D29@Sketch1").SYSTEMVALUE = 0.07 ''内筒内径
+        part.Parameter("D10@Sketch1").SYSTEMVALUE = 0.04 ''活塞直径
+        part.EditRebuild3()
+    End Function
+    Public Function createspacerpiece() ''垫片（完成）
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Spacer piece.SLDPRT", 1, 0, "", 0, 0)
+        part.Parameter("D2@Sketch2").systemvalue = wt(1) / 2
+        part.Parameter("D5@Sketch2").systemvalue = wt(1) / 2
+        part.Parameter("D18@Sketch2").systemvalue = wt(1) / 2 ''旋转内径
+        part.Parameter("D11@Sketch2").systemvalue = part.Parameter("D11@Sketch2").systemvalue - (80 / 1000 - wt(1) / 2)
+        part.Parameter("D14@Sketch2").systemvalue = part.Parameter("D14@Sketch2").systemvalue - (80 / 1000 - wt(1) / 2)
+        part.Parameter("D3@Sketch2").systemvalue = part.Parameter("D3@Sketch2").systemvalue - (80 / 1000 - wt(1) / 2)
+        part.Parameter("D10@Sketch2").systemvalue = part.Parameter("D10@Sketch2").systemvalue - (80 / 1000 - wt(1) / 2)
+        ''修改特征的方法：1、选中特征；2、利用selectionmgr获取对象；、3、set对象属性；4、修改modify定义
+        part.Extension.SelectByID2("Cut-Extrude2", "BODYFEATURE", 0, 0, 0, False, 0, Nothing, 0)
+        feature = part.SelectionManager.GetSelectedObject5(1) ''获取选中实体的特征对象
+        Dim extrudedata As ExtrudeFeatureData2
+        extrudedata = feature.GetDefinition ''获取特征的定义
+        extrudedata.SetEndCondition(1, 2) ''修改特征定义
+        feature.ModifyDefinition(extrudedata, part, Nothing) ''修改到特征中
+        part.EditRebuild3()
+    End Function
+    Public Function createthreaderflange() ''螺纹法兰(外圈是外筒螺纹直径，内圈是固定直径，长度为固定)
+
+    End Function
+
+    Private Sub BunifuFlatButton9_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton9.Click
+        swapp = CreateObject("Sldworks.Application")
+        part = swapp.ActiveDoc
+        parttitle = part.GetTitle
+        swapp.CloseDoc(parttitle)
+    End Sub
 End Class
