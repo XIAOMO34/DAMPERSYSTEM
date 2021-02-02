@@ -20,6 +20,8 @@ Public Class home ''kenan
     Dim XLAPPpid As Integer
     Dim parttitle As String '文件名
     Dim feature As Feature ''拉伸特征
+    Dim scale As Double ''缩放比例
+    Dim Parachaval As Double ''过程参数
     'Dim mysqlconnect As MySqlConnection ''定义mysql连接
     'Dim mycommand As MySqlCommand ''定义mysql命令
     'Dim reader As MySqlDataReader ''定义数据流
@@ -284,9 +286,14 @@ Public Class home ''kenan
         wt(0) = 130 / 1000 '外径  
         wt(1) = 100 / 1000 '内径
         wt(2) = 160 / 1000 '长度
+        hs = 78.12 / 1000 '活塞直径
+        hsg = 30 / 1000 ''活塞杆直径
         'createwaitong()
         createcylinderhead()
         'createspacerpiece()
+        'CREATEROB()
+        'createrodbearing()
+        'createpiston()
     End Sub
     Public Function excel()
         xlapp = CreateObject("Excel.Application")  ''创建EXCEL对象
@@ -433,10 +440,23 @@ Public Class home ''kenan
     End Function ''外筒（完成）
     Public Function createcylinderhead() ''端盖（完成）
         swapp = CreateObject("Sldworks.Application")
-        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cylinider head.SLDPRT", 1, 0, "", 0, 0)
-        part.Parameter("D28@Sketch1").SYSTEMVALUE = 0.07 ''内筒内径
-        part.Parameter("D29@Sketch1").SYSTEMVALUE = 0.07 ''内筒内径
-        part.Parameter("D10@Sketch1").SYSTEMVALUE = 0.04 ''活塞直径
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cylinider head.SLDPRT",
+                              1, 0, "", 0, 0)
+        ''主动尺寸
+        Parachaval = part.Parameter("D7@Sketch1").SYSTEMVALUE - hsg / 2
+        part.Parameter("D7@Sketch1").SYSTEMVALUE = 0.04 ''活塞直径
+        part.Parameter("D28@Sketch1").SYSTEMVALUE = wt(1) / 2 ''内筒内径
+        part.Parameter("D29@Sketch1").SYSTEMVALUE = wt(1) / 2 ''内筒内径
+        ''随动尺寸
+        part.Parameter("D6@Sketch1").SYSTEMVALUE = part.Parameter("D6@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D10@Sketch1").SYSTEMVALUE = part.Parameter("D10@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D9@Sketch1").SYSTEMVALUE = part.Parameter("D9@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D25@Sketch1").SYSTEMVALUE = part.Parameter("D25@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D13@Sketch1").SYSTEMVALUE = part.Parameter("D13@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D11@Sketch1").SYSTEMVALUE = part.Parameter("D11@Sketch1").SYSTEMVALUE - Parachaval
+        ''孔尺寸随动
+        part.Parameter("D2@Sketch6").SYSTEMVALUE = part.Parameter("D2@Sketch6").SYSTEMVALUE - Parachaval
         part.EditRebuild3()
     End Function
     Public Function createspacerpiece() ''垫片（完成）
@@ -459,8 +479,50 @@ Public Class home ''kenan
         feature.ModifyDefinition(extrudedata, part, Nothing) ''修改到特征中
         part.EditRebuild3()
     End Function
-    Public Function createthreaderflange() ''螺纹法兰(外圈是外筒螺纹直径，内圈是固定直径，长度为固定)
-
+    Public Function CREATEROB() ''活塞杆（连接处形状不变）
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Rod.SLDPRT",
+                              1, 0, "", 0, 0)
+        Parachaval = part.Parameter("D2@Sketch1").systemvalue - hsg / 2
+        part.Parameter("D2@Sketch1").systemvalue = hsg / 2
+        part.Parameter("D10@Sketch1").systemvalue = part.Parameter("D10@Sketch1").systemvalue - Parachaval + 0.01
+        part.Parameter("D9@Sketch1").systemvalue = part.Parameter("D9@Sketch1").systemvalue - Parachaval
+        part.Parameter("D4@Sketch1").systemvalue = part.Parameter("D4@Sketch1").systemvalue - Parachaval
+        part.EditRebuild3()
+    End Function
+    Public Function createrodbearing() ''连杆轴承(内圈D-35是活塞杆直径，螺纹是端盖内螺纹)
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Rod bearing.SLDPRT",
+                              1, 0, "", 0, 0)
+        Parachaval = part.Parameter("D24@Sketch1").systemvalue - hsg / 2
+        part.Parameter("D24@Sketch1").systemvalue = hsg / 2
+        part.Parameter("D27@Sketch1").systemvalue = hsg / 2
+        ''等比例外延
+        part.Parameter("D18@Sketch1").systemvalue = part.Parameter("D18@Sketch1").systemvalue - Parachaval
+        part.Parameter("D16@Sketch1").systemvalue = part.Parameter("D16@Sketch1").systemvalue - Parachaval
+        part.Parameter("D7@Sketch1").systemvalue = part.Parameter("D7@Sketch1").systemvalue - Parachaval
+        part.Parameter("D13@Sketch1").systemvalue = part.Parameter("D13@Sketch1").systemvalue - Parachaval
+        part.Parameter("D12@Sketch1").systemvalue = part.Parameter("D12@Sketch1").systemvalue - Parachaval
+        part.Parameter("D2@Sketch1").systemvalue = part.Parameter("D2@Sketch1").systemvalue - Parachaval
+        part.Parameter("D4@Sketch1").systemvalue = part.Parameter("D4@Sketch1").systemvalue - Parachaval
+        part.Parameter("D3@Sketch1").systemvalue = part.Parameter("D3@Sketch1").systemvalue - Parachaval
+        part.EditRebuild3()
+    End Function
+    Public Function createpiston() ''活塞
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\piston.SLDPRT",
+                              1, 0, "", 0, 0)
+        part.Parameter("D1@Sketch1
+").systemvalue = hs ''活塞直径（外径）
+        Parachaval = part.Parameter("D16@Sketch3").systemvalue - hsg / 2
+        ''内径
+        part.Parameter("D16@Sketch3").systemvalue = hsg / 2
+        part.Parameter("D11@Sketch3").systemvalue = part.Parameter("D11@Sketch3").systemvalue - Parachaval
+        part.Parameter("D10@Sketch3").systemvalue = part.Parameter("D10@Sketch3").systemvalue - Parachaval
+        part.EditRebuild3()
     End Function
 
     Private Sub BunifuFlatButton9_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton9.Click
