@@ -289,11 +289,12 @@ Public Class home ''kenan
         hs = 78.12 / 1000 '活塞直径
         hsg = 30 / 1000 ''活塞杆直径
         'createwaitong()
-        createcylinderhead()
+        'createcylinderhead()
         'createspacerpiece()
-        'CREATEROB()
+        'createrod()
         'createrodbearing()
         'createpiston()
+        createthreadedflange()
     End Sub
     Public Function excel()
         xlapp = CreateObject("Excel.Application")  ''创建EXCEL对象
@@ -445,7 +446,7 @@ Public Class home ''kenan
                               1, 0, "", 0, 0)
         ''主动尺寸
         Parachaval = part.Parameter("D7@Sketch1").SYSTEMVALUE - hsg / 2
-        part.Parameter("D7@Sketch1").SYSTEMVALUE = 0.04 ''活塞直径
+        part.Parameter("D7@Sketch1").SYSTEMVALUE = hsg / 2 ''活塞杆直径
         part.Parameter("D28@Sketch1").SYSTEMVALUE = wt(1) / 2 ''内筒内径
         part.Parameter("D29@Sketch1").SYSTEMVALUE = wt(1) / 2 ''内筒内径
         ''随动尺寸
@@ -479,7 +480,7 @@ Public Class home ''kenan
         feature.ModifyDefinition(extrudedata, part, Nothing) ''修改到特征中
         part.EditRebuild3()
     End Function
-    Public Function CREATEROB() ''活塞杆（连接处形状不变）
+    Public Function createrod() ''活塞杆（连接处形状不变）
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Rod.SLDPRT",
@@ -515,8 +516,7 @@ Public Class home ''kenan
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\piston.SLDPRT",
                               1, 0, "", 0, 0)
-        part.Parameter("D1@Sketch1
-").systemvalue = hs ''活塞直径（外径）
+        part.Parameter("D1@Sketch1").systemvalue = hs ''活塞直径（外径）
         Parachaval = part.Parameter("D16@Sketch3").systemvalue - hsg / 2
         ''内径
         part.Parameter("D16@Sketch3").systemvalue = hsg / 2
@@ -524,7 +524,28 @@ Public Class home ''kenan
         part.Parameter("D10@Sketch3").systemvalue = part.Parameter("D10@Sketch3").systemvalue - Parachaval
         part.EditRebuild3()
     End Function
-
+    Public Function createthreadedflange() ''螺纹法兰（完成）
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Threaded flange.SLDPRT",
+                              1, 0, "", 0, 0)
+        Parachaval = part.Parameter("D1@Sketch1").systemvalue - (70 / 1000 + hsg) ''cylinderhead.(d6-(d7-hsg/2))
+        part.Parameter("D1@Sketch1").systemvalue = part.Parameter("D1@Sketch1").systemvalue - Parachaval
+        part.Parameter("D2@Sketch1").systemvalue = part.Parameter("D1@Sketch1").systemvalue + 30 / 1000
+        part.Parameter("D2@Sketch3").systemvalue = part.Parameter("D2@Sketch3").systemvalue - Parachaval / 2
+        part.Extension.SelectByID2("Cosmetic Thread1", "CTHREAD", 0, 0, 0, False, 0, Nothing, 0)
+        ''指定数据类型
+        Dim thread As CosmeticThreadFeatureData
+        ''获取特征
+        feature = part.SelectionManager.GetSelectedObject5(1)
+        ''获取特征定义
+        thread = feature.GetDefinition
+        ''修改特征定义
+        thread.Diameter = thread.Diameter - Parachaval
+        ''修改特征
+        feature.ModifyDefinition(thread, part, Nothing)
+        part.EditRebuild3()
+    End Function
     Private Sub BunifuFlatButton9_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton9.Click
         swapp = CreateObject("Sldworks.Application")
         part = swapp.ActiveDoc
