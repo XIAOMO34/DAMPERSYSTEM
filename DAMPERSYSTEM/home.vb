@@ -294,7 +294,10 @@ Public Class home ''kenan
         'createrod()
         'createrodbearing()
         'createpiston()
-        createthreadedflange()
+        'createthreadedflange()
+        'createexrod()
+        'createextube()
+        createcapeex()
     End Sub
     Public Function excel()
         xlapp = CreateObject("Excel.Application")  ''创建EXCEL对象
@@ -544,6 +547,49 @@ Public Class home ''kenan
         thread.Diameter = thread.Diameter - Parachaval
         ''修改特征
         feature.ModifyDefinition(thread, part, Nothing)
+        part.EditRebuild3()
+    End Function
+    Public Function createexrod()
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Extension rod.SLDPRT",
+                              1, 0, "", 0, 0)
+        Parachaval = part.Parameter("D1@Sketch2").systemvalue - hsg / 2
+        part.Parameter("D1@Sketch2").systemvalue = hsg / 2
+        part.Parameter("D6@Sketch2").systemvalue = 5 / 1000
+        part.Parameter("D9@Sketch2").systemvalue = 6.25 / 1000
+        part.EditRebuild3()
+    End Function
+    Public Function createextube() ''伸长筒（完成
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Extension tube.SLDPRT",
+                              1, 0, "", 0, 0)
+        ''EXTENSION TUBE.D1=CYLINDERHEAD.D6=70-(35-HSG/2)
+        Parachaval = part.Parameter("D1@Sketch1").SYSTEMVALUE - (70 / 1000 - (35 / 1000 - hsg / 2))
+        part.Parameter("D1@Sketch1").SYSTEMVALUE = (70 / 1000 - (35 / 1000 - hsg / 2))
+        part.Parameter("D2@Sketch1").SYSTEMVALUE = part.Parameter("D2@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D9@Sketch1").SYSTEMVALUE = part.Parameter("D9@Sketch1").SYSTEMVALUE - Parachaval
+        part.Extension.SelectByID2("Cosmetic Thread1", "CTHREAD", 0, 0, 0, False, 0, Nothing, 0)
+        ''指定数据类型
+        Dim thread As CosmeticThreadFeatureData
+        ''获取特征
+        feature = part.SelectionManager.GetSelectedObject5(1)
+        ''获取特征定义
+        thread = feature.GetDefinition
+        ''修改特征定义
+        thread.Diameter = thread.Diameter - Parachaval * 2
+        ''修改特征
+        feature.ModifyDefinition(thread, part, Nothing)
+        part.EditRebuild3()
+    End Function
+    Public Function createcapeex() ''角延伸管(完成)
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cape extension tube.SLDPRT",
+                              1, 0, "", 0, 0)
+        ''createextube.d9-20.6=33.4+hsg/2
+        part.Parameter("D1@Sketch1").SYSTEMVALUE = 66.8 / 1000 + hsg
         part.EditRebuild3()
     End Function
     Private Sub BunifuFlatButton9_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton9.Click
