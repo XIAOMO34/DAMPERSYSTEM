@@ -287,17 +287,20 @@ Public Class home ''kenan
         wt(1) = 100 / 1000 '内径
         wt(2) = 160 / 1000 '长度
         hs = 78.12 / 1000 '活塞直径
-        hsg = 30 / 1000 ''活塞杆直径
+        hsg = 30 / 1000 ''活塞杆直径(接拉头螺纹直径20-25mm)
         'createwaitong()
         'createcylinderhead()
         'createspacerpiece()
-        'createrod()
+        'Createrod()
         'createrodbearing()
         'createpiston()
         'createthreadedflange()
         'createexrod()
         'createextube()
-        createcapeex()
+        'Createcapeex()
+        'Createsocconrodend()
+        'Createterend()
+        Createreaear()
     End Sub
     Public Function excel()
         xlapp = CreateObject("Excel.Application")  ''创建EXCEL对象
@@ -386,7 +389,7 @@ Public Class home ''kenan
             xlapp = Nothing
         End If
     End Function
-    Public Function createwaitong()
+    Public Function Createwaitong()
         ''创建进程可视化
         swapp = CreateObject("Sldworks.Application")
         'swapp.CloseAllDocuments(True)
@@ -442,7 +445,7 @@ Public Class home ''kenan
         swWzdHole.ThreadDepth = 1
         feature.ModifyDefinition(swWzdHole, part, Nothing)
     End Function ''外筒（完成）
-    Public Function createcylinderhead() ''端盖（完成）
+    Public Function Createcylinderhead() ''端盖（完成）
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cylinider head.SLDPRT",
@@ -463,7 +466,7 @@ Public Class home ''kenan
         part.Parameter("D2@Sketch6").SYSTEMVALUE = part.Parameter("D2@Sketch6").SYSTEMVALUE - Parachaval
         part.EditRebuild3()
     End Function
-    Public Function createspacerpiece() ''垫片（完成）
+    Public Function Createspacerpiece() ''垫片（完成）
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Spacer piece.SLDPRT", 1, 0, "", 0, 0)
@@ -483,7 +486,7 @@ Public Class home ''kenan
         feature.ModifyDefinition(extrudedata, part, Nothing) ''修改到特征中
         part.EditRebuild3()
     End Function
-    Public Function createrod() ''活塞杆（连接处形状不变）
+    Public Function Createrod() ''活塞杆（连接处形状不变）
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Rod.SLDPRT",
@@ -495,7 +498,7 @@ Public Class home ''kenan
         part.Parameter("D4@Sketch1").systemvalue = part.Parameter("D4@Sketch1").systemvalue - Parachaval
         part.EditRebuild3()
     End Function
-    Public Function createrodbearing() ''连杆轴承(内圈D-35是活塞杆直径，螺纹是端盖内螺纹)
+    Public Function Createrodbearing() ''连杆轴承(内圈D-35是活塞杆直径，螺纹是端盖内螺纹)
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Rod bearing.SLDPRT",
@@ -514,7 +517,7 @@ Public Class home ''kenan
         part.Parameter("D3@Sketch1").systemvalue = part.Parameter("D3@Sketch1").systemvalue - Parachaval
         part.EditRebuild3()
     End Function
-    Public Function createpiston() ''活塞
+    Public Function Createpiston() ''活塞
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\piston.SLDPRT",
@@ -527,7 +530,7 @@ Public Class home ''kenan
         part.Parameter("D10@Sketch3").systemvalue = part.Parameter("D10@Sketch3").systemvalue - Parachaval
         part.EditRebuild3()
     End Function
-    Public Function createthreadedflange() ''螺纹法兰（完成）
+    Public Function Createthreadedflange() ''螺纹法兰（完成）
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Threaded flange.SLDPRT",
@@ -549,7 +552,7 @@ Public Class home ''kenan
         feature.ModifyDefinition(thread, part, Nothing)
         part.EditRebuild3()
     End Function
-    Public Function createexrod()
+    Public Function Createexrod()
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Extension rod.SLDPRT",
@@ -560,7 +563,7 @@ Public Class home ''kenan
         part.Parameter("D9@Sketch2").systemvalue = 6.25 / 1000
         part.EditRebuild3()
     End Function
-    Public Function createextube() ''伸长筒（完成
+    Public Function Createextube() ''伸长筒（完成
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Extension tube.SLDPRT",
@@ -583,13 +586,46 @@ Public Class home ''kenan
         feature.ModifyDefinition(thread, part, Nothing)
         part.EditRebuild3()
     End Function
-    Public Function createcapeex() ''角延伸管(完成)
+    Public Function Createcapeex() ''角延伸管(完成)
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cape extension tube.SLDPRT",
                               1, 0, "", 0, 0)
         ''createextube.d9-20.6=33.4+hsg/2
         part.Parameter("D1@Sketch1").SYSTEMVALUE = 66.8 / 1000 + hsg
+        part.EditRebuild3()
+    End Function
+    Public Function Createsocconrodend() ''套筒连接杆端(完成)
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Socket connection rod end.SLDPRT",
+                              1, 0, "", 0, 0)
+        part.Parameter("D3@Sketch3").SYSTEMVALUE = 10 / 1000
+        part.Parameter("D4@Sketch3").SYSTEMVALUE = 11.5 / 1000
+        part.Parameter("D1@Sketch1").SYSTEMVALUE = part.Parameter("D1@Sketch1").SYSTEMVALUE - 18.75 / 1000 * 2
+        part.EditRebuild3()
+    End Function
+    Public Function Createterend() ''终端（完成）
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Terminal end.SLDPRT",
+                              1, 0, "", 0, 0)
+        part.Parameter("D2@Sketch2").SYSTEMVALUE = 62.5 / 1000
+        part.Extension.SelectByID2("Cut-Extrude1", "BODYFEATURE", 0, 0, 0, False, 0, Nothing, 0)
+        feature = part.SelectionManager.GETSELECTEDOBJECT5(1)
+        Dim EXTRU As ExtrudeFeatureData2
+        EXTRU = feature.GetDefinition
+        EXTRU.SetDepth(1, 50 / 1000)
+        feature.ModifyDefinition(EXTRU, part, Nothing)
+        part.EditRebuild3()
+    End Function
+    Public Function Createreaear() ''后耳座（完成）
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Rear ear.SLDPRT",
+                              1, 0, "", 0, 0)
+        part.Parameter("D1@Sketch1").SYSTEMVALUE = 100 / 1000
+        part.Parameter("D3@Sketch1").SYSTEMVALUE = 50 / 1000
         part.EditRebuild3()
     End Function
     Private Sub BunifuFlatButton9_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton9.Click
