@@ -114,7 +114,7 @@ Partial Class home
         Me.Button16.FlatAppearance.BorderSize = 0
         Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button16.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button16.Location = New System.Drawing.Point(-1, 53)
+        Me.Button16.Location = New System.Drawing.Point(-1, 52)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(150, 30)
         Me.Button16.TabIndex = 44
@@ -131,7 +131,7 @@ Partial Class home
         Me.Button15.FlatAppearance.BorderSize = 0
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button15.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button15.Location = New System.Drawing.Point(-1, 419)
+        Me.Button15.Location = New System.Drawing.Point(-1, 418)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(150, 30)
         Me.Button15.TabIndex = 48
@@ -148,7 +148,7 @@ Partial Class home
         Me.Button14.FlatAppearance.BorderSize = 0
         Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button14.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button14.Location = New System.Drawing.Point(-1, 358)
+        Me.Button14.Location = New System.Drawing.Point(-1, 357)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(150, 30)
         Me.Button14.TabIndex = 47
@@ -165,7 +165,7 @@ Partial Class home
         Me.Button13.FlatAppearance.BorderSize = 0
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button13.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button13.Location = New System.Drawing.Point(-1, 297)
+        Me.Button13.Location = New System.Drawing.Point(-1, 296)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(150, 30)
         Me.Button13.TabIndex = 46
@@ -182,7 +182,7 @@ Partial Class home
         Me.Button12.FlatAppearance.BorderSize = 0
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button12.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button12.Location = New System.Drawing.Point(-1, 236)
+        Me.Button12.Location = New System.Drawing.Point(-1, 235)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(150, 30)
         Me.Button12.TabIndex = 45
@@ -199,7 +199,7 @@ Partial Class home
         Me.Button11.FlatAppearance.BorderSize = 0
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button11.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button11.Location = New System.Drawing.Point(-1, 175)
+        Me.Button11.Location = New System.Drawing.Point(-1, 174)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(150, 30)
         Me.Button11.TabIndex = 44
@@ -216,7 +216,7 @@ Partial Class home
         Me.Button10.FlatAppearance.BorderSize = 0
         Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button10.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button10.Location = New System.Drawing.Point(-1, 114)
+        Me.Button10.Location = New System.Drawing.Point(-1, 113)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(150, 30)
         Me.Button10.TabIndex = 43
@@ -249,7 +249,7 @@ Partial Class home
         Me.assemblepanel.Location = New System.Drawing.Point(150, 0)
         Me.assemblepanel.Margin = New System.Windows.Forms.Padding(4)
         Me.assemblepanel.Name = "assemblepanel"
-        Me.assemblepanel.Size = New System.Drawing.Size(922, 506)
+        Me.assemblepanel.Size = New System.Drawing.Size(757, 506)
         Me.assemblepanel.TabIndex = 3
         '
         'PictureBox3
@@ -271,7 +271,7 @@ Partial Class home
         Me.morepanel.Location = New System.Drawing.Point(150, 0)
         Me.morepanel.Margin = New System.Windows.Forms.Padding(4)
         Me.morepanel.Name = "morepanel"
-        Me.morepanel.Size = New System.Drawing.Size(922, 506)
+        Me.morepanel.Size = New System.Drawing.Size(757, 506)
         Me.morepanel.TabIndex = 4
         '
         'PictureBox4
@@ -294,7 +294,7 @@ Partial Class home
         Me.setdamper.Location = New System.Drawing.Point(150, 0)
         Me.setdamper.Margin = New System.Windows.Forms.Padding(4)
         Me.setdamper.Name = "setdamper"
-        Me.setdamper.Size = New System.Drawing.Size(922, 506)
+        Me.setdamper.Size = New System.Drawing.Size(757, 506)
         Me.setdamper.TabIndex = 5
         '
         'Button17
@@ -329,7 +329,7 @@ Partial Class home
         Me.drawingpanel.Location = New System.Drawing.Point(150, 0)
         Me.drawingpanel.Margin = New System.Windows.Forms.Padding(4)
         Me.drawingpanel.Name = "drawingpanel"
-        Me.drawingpanel.Size = New System.Drawing.Size(922, 506)
+        Me.drawingpanel.Size = New System.Drawing.Size(757, 506)
         Me.drawingpanel.TabIndex = 6
         '
         'PictureBox12
@@ -442,46 +442,46 @@ Partial Class home
         Me.partpanel.Location = New System.Drawing.Point(150, 0)
         Me.partpanel.Margin = New System.Windows.Forms.Padding(4)
         Me.partpanel.Name = "partpanel"
-        Me.partpanel.Size = New System.Drawing.Size(922, 506)
+        Me.partpanel.Size = New System.Drawing.Size(757, 506)
         Me.partpanel.TabIndex = 2
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label5.Location = New System.Drawing.Point(206, 215)
+        Me.Label5.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label5.Location = New System.Drawing.Point(211, 215)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(199, 20)
+        Me.Label5.Size = New System.Drawing.Size(192, 19)
         Me.Label5.TabIndex = 45
         Me.Label5.Text = "阻尼系数（kN/m·s）"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label4.Location = New System.Drawing.Point(23, 215)
+        Me.Label4.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label4.Location = New System.Drawing.Point(18, 215)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(169, 20)
+        Me.Label4.Size = New System.Drawing.Size(163, 19)
         Me.Label4.TabIndex = 44
         Me.Label4.Text = "最大速度（mm/s）"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label3.Location = New System.Drawing.Point(231, 110)
+        Me.Label3.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label3.Location = New System.Drawing.Point(226, 110)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(169, 20)
+        Me.Label3.Size = New System.Drawing.Size(162, 19)
         Me.Label3.TabIndex = 43
         Me.Label3.Text = "设计阻尼力（kN）"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label2.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label2.Location = New System.Drawing.Point(25, 110)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(156, 20)
+        Me.Label2.Size = New System.Drawing.Size(149, 19)
         Me.Label2.TabIndex = 42
         Me.Label2.Text = "α（速度指数）"
         '
@@ -490,7 +490,7 @@ Partial Class home
         Me.Button8.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button8.FlatAppearance.BorderSize = 0
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button8.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button8.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button8.Location = New System.Drawing.Point(653, 376)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(80, 34)
@@ -503,7 +503,7 @@ Partial Class home
         Me.Button7.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button7.FlatAppearance.BorderSize = 0
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button7.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button7.Location = New System.Drawing.Point(545, 376)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(80, 34)
@@ -517,7 +517,7 @@ Partial Class home
         Me.Button6.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button6.FlatAppearance.BorderSize = 0
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button6.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button6.Location = New System.Drawing.Point(428, 376)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(99, 34)
@@ -531,7 +531,7 @@ Partial Class home
         Me.Button5.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button5.FlatAppearance.BorderSize = 0
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button5.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button5.Location = New System.Drawing.Point(644, 215)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(99, 34)
@@ -544,7 +544,7 @@ Partial Class home
         Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button4.FlatAppearance.BorderSize = 0
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button4.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button4.Location = New System.Drawing.Point(545, 215)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(80, 34)
@@ -557,7 +557,7 @@ Partial Class home
         Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button3.FlatAppearance.BorderSize = 0
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button3.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button3.Location = New System.Drawing.Point(437, 215)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(80, 34)
@@ -570,8 +570,8 @@ Partial Class home
         Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button2.Location = New System.Drawing.Point(235, 449)
+        Me.Button2.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button2.Location = New System.Drawing.Point(235, 448)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(144, 34)
         Me.Button2.TabIndex = 35
@@ -583,8 +583,8 @@ Partial Class home
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button1.Location = New System.Drawing.Point(27, 449)
+        Me.Button1.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button1.Location = New System.Drawing.Point(22, 448)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(144, 34)
         Me.Button1.TabIndex = 34
@@ -604,32 +604,35 @@ Partial Class home
         'TextBox4
         '
         Me.TextBox4.BackColor = System.Drawing.Color.White
-        Me.TextBox4.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox4.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.TextBox4.Location = New System.Drawing.Point(235, 251)
         Me.TextBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox4.Size = New System.Drawing.Size(144, 28)
         Me.TextBox4.TabIndex = 29
+        Me.TextBox4.Text = "113"
         '
         'TextBox3
         '
         Me.TextBox3.BackColor = System.Drawing.Color.White
-        Me.TextBox3.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox3.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.TextBox3.Location = New System.Drawing.Point(27, 251)
         Me.TextBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox3.Size = New System.Drawing.Size(144, 28)
         Me.TextBox3.TabIndex = 27
+        Me.TextBox3.Text = "800"
         '
         'TextBox1
         '
         Me.TextBox1.BackColor = System.Drawing.Color.White
-        Me.TextBox1.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox1.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(235, 141)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox1.Size = New System.Drawing.Size(144, 28)
         Me.TextBox1.TabIndex = 25
+        Me.TextBox1.Text = "100"
         '
         'Label1
         '
@@ -644,12 +647,13 @@ Partial Class home
         'TextBox2
         '
         Me.TextBox2.BackColor = System.Drawing.Color.White
-        Me.TextBox2.Font = New System.Drawing.Font("宋体", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox2.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.TextBox2.Location = New System.Drawing.Point(27, 141)
         Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(144, 36)
+        Me.TextBox2.Size = New System.Drawing.Size(144, 28)
         Me.TextBox2.TabIndex = 22
+        Me.TextBox2.Text = "0.2"
         '
         'home
         '
@@ -657,7 +661,7 @@ Partial Class home
         Me.AutoScroll = True
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1072, 506)
+        Me.ClientSize = New System.Drawing.Size(907, 506)
         Me.Controls.Add(Me.partpanel)
         Me.Controls.Add(Me.morepanel)
         Me.Controls.Add(Me.drawingpanel)

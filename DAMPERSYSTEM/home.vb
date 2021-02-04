@@ -70,7 +70,6 @@ Public Class home ''kenan
         partsub.Show()
     End Sub
 
-
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         partsub.Text = "拉头生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\lt.JPG")
@@ -170,13 +169,24 @@ Public Class home ''kenan
         End Try
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'checktext()
-        wt(0) = 130 / 1000 '外径  
-        wt(1) = 100 / 1000 '内径
-        wt(2) = 160 / 1000 '长度
-        hs = 78.12 / 1000 '活塞直径
-        hsg = 30 / 1000 ''活塞杆直径(接拉头螺纹直径20-25mm)
-        'createwaitong()
+        If TextBox1.Text IsNot "" And TextBox2.Text IsNot "" And
+            TextBox3.Text IsNot "" And TextBox4.Text IsNot "" Then
+            Excel()
+        Else
+            MsgBox("未输入值")
+            Exit Sub
+        End If
+        'wt(0) = 130 / 1000 '外径  
+        'wt(1) = 100 / 1000 '内径
+        'wt(2) = 160 / 1000 '长度
+        'hs = 78.12 / 1000 '活塞直径
+        'hsg = 30 / 1000 ''活塞杆直径(接拉头螺纹直径20-25mm)
+        wt(0) = wt(0) / 1000
+        wt(1) = wt(1) / 1000
+        wt(2) = 400 / 1000
+        hs = hs / 1000
+        hsg = hsg / 1000
+        Createwaitong()
         'createcylinderhead()
         'createspacerpiece()
         'Createrod()
@@ -189,7 +199,7 @@ Public Class home ''kenan
         'Createsocconrodend()
         'Createterend()
         'Createreaear()
-        Createothers()
+        'Createothers()
     End Sub
     Public Function Excel()
         xlapp = CreateObject("Excel.Application")  ''创建EXCEL对象
@@ -263,14 +273,6 @@ Public Class home ''kenan
         Next
         GC.Collect()
     End Function
-    Public Function Checktext()
-        If TextBox1.Text IsNot "" And TextBox2.Text IsNot "" And
-            TextBox3.Text IsNot "" And TextBox4.Text IsNot "" Then
-            Excel()
-        Else
-            MsgBox("未输入值")
-        End If
-    End Function
     Public Function Closeexcel()
         If xlBook IsNot Nothing Then
             xlBook.Close()
@@ -333,6 +335,8 @@ Public Class home ''kenan
         swWzdHole = feature.GetDefinition
         swWzdHole.ThreadDepth = 1
         feature.ModifyDefinition(swWzdHole, part, Nothing)
+        part.ShowNamedView2("", 7)
+        part.EditRebuild3()
     End Function ''外筒（完成）
     Public Function Createcylinderhead() ''端盖（完成）
         swapp = CreateObject("Sldworks.Application")
@@ -517,7 +521,7 @@ Public Class home ''kenan
         part.Parameter("D3@Sketch1").SYSTEMVALUE = 50 / 1000
         part.EditRebuild3()
     End Function
-    Public Function Createothers()
+    Public Function Createothers() ''密封件采用缩放形式
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         '''''''''''''''''''''''''''''''''
@@ -550,9 +554,43 @@ Public Class home ''kenan
         part.Parameter("D2@Sketch1").SYSTEMVALUE = part.Parameter("D2@Sketch1").SYSTEMVALUE - Parachaval
         part.Parameter("D1@Sketch1").SYSTEMVALUE = part.Parameter("D1@Sketch1").SYSTEMVALUE - Parachaval
         part.EditRebuild3()
-
+        '''''''''''''''''''''''''''''''''''''''''''''''
+        ''''head back-up ring.sldprt(头部支承环)
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\head back-up ring.SLDPRT",
+                              1, 0, "", 0, 0)
+        '''' CYLINDERHEAD.D28-4.3
+        part.Parameter("D1@Sketch1").SYSTEMVALUE = wt(1) / 2 - 4.3 / 1000
+        part.Parameter("D2@Sketch1").SYSTEMVALUE = part.Parameter("D1@Sketch1").SYSTEMVALUE + 8.6 / 1000
+        part.EditRebuild3()
+        '''''''''''''''''''''''''''''''''''''''''''''''
+        ''''ORAR00151.sldprt
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\ORAR00151.sldprt",
+1, 0, "", 0, 0)
+        scale = (40.5 - (35 - hsg / 2)) / 40.5
+        part.FeatureManager.InsertScale(0, True, scale, scale, scale)
+        '''''''''''''''''''''''''''''''''''''''''''''''
+        ''''WAP100700-N9T60 (0).sldprt
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\WAP100700-N9T60 (0).sldprt",
+1, 0, "", 0, 0)
+        scale = hsg / 2 / 35 * 1000
+        part.FeatureManager.InsertScale(0, True, scale, scale, scale)
+        '''''''''''''''''''''''''''''''''''''''''''''''
+        ''''RSK3007001 (01).sldprt
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\RSK3007001 (01).sldprt",
+1, 0, "", 0, 0)
+        scale = hsg / 2 / 35 * 1000
+        part.FeatureManager.InsertScale(0, True, scale, scale, scale)
+        '''''''''''''''''''''''''''''''''''''''''''''''
+        ''''RSK3007002.sldprt
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\RSK3007002.sldprt",
+1, 0, "", 0, 0)
+        scale = hsg / 2 / 35 * 1000
+        part.FeatureManager.InsertScale(0, True, scale, scale, scale)
+        '''''''''''''''''''''''''''''''''''''''''''''''
+        ''''RL16N0700-Z20 (010)
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\RL16N0700-Z20 (010)",
+1, 0, "", 0, 0)
+        scale = hsg / 2 / 35 * 1000
+        part.FeatureManager.InsertScale(0, True, scale, scale, scale)
     End Function
-
-
-
 End Class
