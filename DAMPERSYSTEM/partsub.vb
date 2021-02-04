@@ -27,38 +27,7 @@ Public Class partsub
     Private Sub partsub_Closed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         home.Show()
     End Sub
-    ''本地EXCEL调用
-    Private Sub BunifuFlatButton4_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton4.Click
-        'If OpenFileDialog1.FileName = "OpenFileDialog1" Then
-        '    MsgBox("未选择文件！")
-        'Else
-        'Useexcel()
-        Me.WindowState = 1
-        Select Case parttype''零件类型
-            Case 1
-                Createduantou()
-            Case 2
-                createwaitong()
-            Case 3
-                createdatouduangai()
-            Case 4
-                createxiaotouduangai()
-            Case 5
-                createhuosaigan()
-            Case 6
-                Createlatou()
-        End Select
-        'End If
-        Me.WindowState = 0
-    End Sub
-    ''参数表显示
-    Public Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click
-        OpenFileDialog1.Filter = "工作簿（*.xlsx）|*.xlsx" ''文件筛选器，只选择xlsx文件
-        OpenFileDialog1.ShowDialog()
-        If OpenFileDialog1.FileName <> "OpenFileDialog1" Then
-            TextBox1.Text = "文件已选择：" & OpenFileDialog1.FileName
-        End If
-    End Sub
+
     ''关闭窗口
     ''建模关键函数
     Public Function Createduantou() As Integer
@@ -315,9 +284,39 @@ Public Class partsub
         Createlatou = 0
     End Function
 
-    Private Sub BunifuFlatButton5_Click(sender As Object, e As EventArgs)
-        Createlatou()
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        OpenFileDialog1.Filter = "工作簿（*.xlsx）|*.xlsx" ''文件筛选器，只选择xlsx文件
+        OpenFileDialog1.ShowDialog()
+        If OpenFileDialog1.FileName <> "OpenFileDialog1" Then
+            TextBox1.Text = "文件已选择：" & OpenFileDialog1.FileName
+        End If
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'If OpenFileDialog1.FileName = "OpenFileDialog1" Then
+        '    MsgBox("未选择文件！")
+        'Else
+        'Useexcel()
+        Me.WindowState = 1
+        Select Case parttype''零件类型
+            Case 1
+                Createduantou()
+            Case 2
+                createwaitong()
+            Case 3
+                createdatouduangai()
+            Case 4
+                createxiaotouduangai()
+            Case 5
+                createhuosaigan()
+            Case 6
+                Createlatou()
+        End Select
+        'End If
+        Me.WindowState = 0
+    End Sub
+
+
 End Class
 '注释段
 '移动窗口代码
@@ -429,3 +428,77 @@ End Class
 '    ReleaseCapture()
 '    SendMessage(Me.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0)
 'End Sub
+'Private Sub BunifuFlatButton15_Click(sender As Object, e As EventArgs)
+'    ''创建进程可视化
+'    swapp = CreateObject("Sldworks.Application")
+'    ''swapp.CloseAllDocuments(True)
+'    ''创建新零件
+'    part = swapp.NewDocument("C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2018\templates\gb_part.prtdot", 0, 0, 0)
+'    part = swapp.ActiveDoc
+'    swapp.Visible = True
+'    part = swapp.ActiveDoc
+'    part.Extension.SelectByID2("前视基准面"， "PLANE"， 0， 0, 0， False， 0， Nothing， 0)
+''    part.SketchManager.InsertSketch(True)
+''    part.SketchManager.CreateCircleByRadius(0, 0, 0, 0.07)
+''    part.FeatureManager.FeatureExtrusion3(True, True, False, 0, 0,
+''                                                0.02, 0, False, False, False,
+''                                                False, 0, 0, True, True,
+''                                                False, False, True, False, False,
+''                                                0, 0, 0)
+''    part.Extension.SelectByID2("", "EDGE", 0.07, 0, 0.02, False, 4096, Nothing, 0)
+''    ''4096为倒角基准
+''    part.FeatureManager.InsertFeatureChamfer(6, 1, 0.01, pi / 4, 0, 0, 0, 0)
+
+''End Sub
+'Private Sub BunifuFlatButton5_Click_1(sender As Object, e As EventArgs) Handles BunifuFlatButton5.Click
+'    'Me.Hide()
+'    Dim featruemgr As FeatureManager
+'    Dim datouduangai As String =
+'            "C:\Users\LJX\Desktop\装配练习2019-10-14\大头端盖.SLDPRT"
+'    Dim xiaotouduangai As String =
+'            "C:\Users\LJX\Desktop\装配练习2019-10-14\小头端盖.SLDPRT"
+'    Dim latou As String =
+'            "C:\Users\LJX\Desktop\装配练习2019-10-14\拉头.SLDPRT"
+'    Dim jietou As String =
+'            "C:\Users\LJX\Desktop\装配练习2019-10-14\接头.SLDPRT"
+'    Dim waitong As String =
+'            "C:\Users\LJX\Desktop\装配练习2019-10-14\外筒.SLDPRT"
+'    Dim huosaigan As String =
+'            "C:\Users\LJX\Desktop\装配练习2019-10-14\活塞杆.SLDPRT"
+'    Dim title As String
+'    swapp = CreateObject("Sldworks.Application")
+'    swapp.CloseAllDocuments(True)
+'    swapp.Visible = True
+'    part = swapp.NewDocument("C:\ProgramData\SolidWorks\SOLIDWORKS 2018\templates\gb_assembly.asmdot", 0,
+'                                 0, 0)
+'    title = part.GetTitle
+'    asm = part
+'    Addcomponent(waitong)
+'    Addcomponent(huosaigan)
+'    Addcomponent(datouduangai)
+'    Addcomponent(xiaotouduangai)
+'    swapp.OpenDoc6(latou, 1, 32, "", 2, 2)
+'    asm.AddComponent5(latou, 0, "", False, "", 1, 0, 0)
+'    swapp.CloseDoc(latou)
+'    Addcomponent(jietou)
+'    part.Extension.SelectByID2("右视基准面@大头端盖-1@" & title, "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+'    part.Extension.SelectByID2("右视基准面@外筒-1@" & title, "PLANE", 0, 0, 0, True, 0, Nothing, 0)
+'    asm.AddMate5(0, 0, False, 0, 0, 0, 0, 0, 0,
+'                     0, 0, False, False, 0, 0)
+'    part.ShowNamedView2("*左视", 3)
+'    part.Extension.SelectByID2("右视基准面@接头-1@" & title, "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+'    part.Extension.SelectByID2("", "FACE", -0.153, 0.054, 0, True, 0, Nothing, 0)
+'    asm.AddMate5(0, 0, False, 0, 0, 0, 0, 0, 0,
+'                     0, 0, False, False, 0, 0)
+'    part.Extension.SelectByID2("", "FACE", 0.153, 0.05, 0, False, 0, Nothing, 0)
+'    part.ShowNamedView2("*左视", 3)
+'    part.Extension.SelectByID2("", "FACE", 1 - 0.28, 0.035, 0, True, 0, Nothing, 0)
+'    part.ShowNamedView2("*", 7)
+'    asm.AddMate5(0, 1, False, 0.001, 0.001, 0.001, 0.001, 0.001, 0, 0, 0, False, False, 0, 1)
+'End Sub
+'Function Addcomponent(a As String)
+'    swapp.OpenDoc6(a, 1, 32, "", 2, 2)
+'    asm.AddComponent5(a, 0, "", False, "", 0, 0, 0)
+'    swapp.CloseDoc(a)
+'    Return 0
+'End Function
