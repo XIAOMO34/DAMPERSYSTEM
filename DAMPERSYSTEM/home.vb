@@ -300,7 +300,8 @@ Public Class home ''kenan
         'Createcapeex()
         'Createsocconrodend()
         'Createterend()
-        Createreaear()
+        'Createreaear()
+        Createothers()
     End Sub
     Public Function excel()
         xlapp = CreateObject("Excel.Application")  ''创建EXCEL对象
@@ -627,6 +628,41 @@ Public Class home ''kenan
         part.Parameter("D1@Sketch1").SYSTEMVALUE = 100 / 1000
         part.Parameter("D3@Sketch1").SYSTEMVALUE = 50 / 1000
         part.EditRebuild3()
+    End Function
+    Public Function Createothers()
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        '''''''''''''''''''''''''''''''''
+        ''''GP6901600-T47 (0).sldprt
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\GP6901600-T47 (0).sldprt",
+                              1, 0, "", 0, 0)
+        ''D1=SPACESPIECE.D11
+        Parachaval = part.Parameter("D1@Sketch2").SYSTEMVALUE - (wt(1) / 2) + 2.5 / 1000
+        part.Parameter("D1@Sketch2").SYSTEMVALUE = wt(1) / 2 - 2.5 / 1000
+        part.Parameter("D2@Sketch2").SYSTEMVALUE = part.Parameter("D1@Sketch2").SYSTEMVALUE + 0.3 / 1000
+        part.Parameter("D1@Sketch1").SYSTEMVALUE = part.Parameter("D1@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D2@Sketch1").SYSTEMVALUE = part.Parameter("D2@Sketch1").SYSTEMVALUE - Parachaval
+        part.EditRebuild3()
+        ''''''''''''''''''''''''''''''''''''''''''''
+        ''''ORID14500-N5 - (00).sldprt
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\ORID14500-N5 - (00).sldprt",
+                              1, 0, "", 0, 0)
+
+        ''D1=CYLINDERHEAD.D28(实际)-4.3+2.15=WT(1)/2-4.3+2.15
+        part.Parameter("D1@Sketch1").SYSTEMVALUE = wt(1) / 2 - 4.3 / 1000 + 2.15 / 1000
+        part.Parameter("D2@Sketch1").SYSTEMVALUE = wt(1) / 2 - 4.3 / 1000 + 2.15 / 1000
+        part.EditRebuild3()
+        '''''''''''''''''''''''''''''''''''''''''''''''
+        ''''GR6900700-T47 (0).sldprt
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\GR6900700-T47 (0).sldprt",
+                              1, 0, "", 0, 0)
+        Parachaval = part.Parameter("D2@Sketch2").SYSTEMVALUE - hsg / 2
+        part.Parameter("D2@Sketch2").SYSTEMVALUE = hsg / 2
+        part.Parameter("D1@Sketch2").SYSTEMVALUE = part.Parameter("D1@Sketch2").SYSTEMVALUE - Parachaval
+        part.Parameter("D2@Sketch1").SYSTEMVALUE = part.Parameter("D2@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D1@Sketch1").SYSTEMVALUE = part.Parameter("D1@Sketch1").SYSTEMVALUE - Parachaval
+        part.EditRebuild3()
+
     End Function
     Private Sub BunifuFlatButton9_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton9.Click
         swapp = CreateObject("Sldworks.Application")
