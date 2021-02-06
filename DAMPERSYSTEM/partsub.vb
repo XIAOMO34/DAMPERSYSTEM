@@ -284,39 +284,51 @@ Public Class partsub
         Createlatou = 0
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        OpenFileDialog1.Filter = "工作簿（*.xlsx）|*.xlsx" ''文件筛选器，只选择xlsx文件
-        OpenFileDialog1.ShowDialog()
-        If OpenFileDialog1.FileName <> "OpenFileDialog1" Then
-            TextBox1.Text = "文件已选择：" & OpenFileDialog1.FileName
-        End If
-    End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         'If OpenFileDialog1.FileName = "OpenFileDialog1" Then
         '    MsgBox("未选择文件！")
         'Else
         'Useexcel()
         Me.WindowState = 1
+
         Select Case parttype''零件类型
             Case 1
-                Createduantou()
+                'Createduantou()
+                home.Createwaitong()
             Case 2
-                createwaitong()
+                'createwaitong()
+                home.Createrod()
             Case 3
-                createdatouduangai()
-            Case 4
-                createxiaotouduangai()
-            Case 5
-                createhuosaigan()
-            Case 6
-                Createlatou()
+                'createdatouduangai()
+                home.Createpiston()
         End Select
         'End If
         Me.WindowState = 0
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        'If OpenFileDialog1.FileName = "OpenFileDialog1" Then
+        '    MsgBox("未选择文件！")
+        'Else
+        'Useexcel()
+        Me.WindowState = 1
 
+        Select Case parttype''零件类型
+            Case 1
+                'Createduantou()
+                home.Createwaitong()
+            Case 2
+                'createwaitong()
+                home.Createrod()
+            Case 3
+                'createdatouduangai()
+                home.Createpiston()
+        End Select
+        'End If
+        Me.WindowState = 0
+    End Sub
 End Class
 '注释段
 '移动窗口代码
@@ -502,3 +514,10 @@ End Class
 '    swapp.CloseDoc(a)
 '    Return 0
 'End Function
+'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+'    OpenFileDialog1.Filter = "工作簿（*.xlsx）|*.xlsx" ''文件筛选器，只选择xlsx文件
+'    OpenFileDialog1.ShowDialog()
+'    If OpenFileDialog1.FileName <> "OpenFileDialog1" Then
+'        TextBox1.Text = "文件已选择：" & OpenFileDialog1.FileName
+'    End If
+'End Sub

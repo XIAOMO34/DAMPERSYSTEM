@@ -1,7 +1,7 @@
 ﻿Imports SldWorks
 Imports Microsoft.Office.Interop.Excel
 Imports MySql.Data.MySqlClient
-Public Class home ''kenan
+Public Class home
     Dim pi As Double = 3.141592653
     Dim mysql As MySqlConnection
     Dim swapp As SldWorks.SldWorks
@@ -11,9 +11,9 @@ Public Class home ''kenan
     Public xlapp As Application ''引用Microsoft excel和Microsoft office类型库
     Public xlBook As Workbook
     Public xlSheet As Worksheet ''然后创建对象
-    Dim wt(3) As Double '外筒参数数组
-    Dim hsg As Double '活塞杆数组
-    Dim hs As Double '活塞数组
+    Public wt(3) As Double '外筒参数数组
+    Public hsg As Double '活塞杆数组
+    Public hs As Double '活塞数组
     Dim alpha As Double '阻尼系数
     Dim I As Integer
     Dim aProcesses() As Process = Process.GetProcesses
@@ -33,48 +33,26 @@ Public Class home ''kenan
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        partsub.Text = "外筒生成子程序"
+        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\装配体外筒.png")
         Me.Hide()
         partsub.parttype = 1
         partsub.Show()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        partsub.Text = "外筒生成子程序"
-        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\wt方形.png")
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        partsub.Text = "活塞杆生成子程序"
+        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\装配体活塞杆.png")
         Me.Hide()
         partsub.parttype = 2
         partsub.Show()
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        partsub.Text = "大头端盖生成子程序"
-        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\dtdg1.JPG")
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        partsub.Text = "活塞生成子程序"
+        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\装配体活塞.png")
         Me.Hide()
         partsub.parttype = 3
-        partsub.Show()
-    End Sub
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        partsub.Text = "小头端盖生成子程序"
-        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\xtdg.JPG")
-        Me.Hide()
-        partsub.parttype = 4
-        partsub.Show()
-    End Sub
-
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        partsub.Text = "活塞杆生成子程序"
-        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\hsg.JPG")
-        Me.Hide()
-        partsub.parttype = 5
-        partsub.Show()
-    End Sub
-
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        partsub.Text = "拉头生成子程序"
-        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\lt.JPG")
-        Me.Hide()
-        partsub.parttype = 6
         partsub.Show()
     End Sub
 
@@ -215,7 +193,7 @@ Public Class home ''kenan
                 xlSheet = xlBook.Worksheets("α=0.30")
             Case Else
                 RichTextBox1.Text = "未找到参数"
-                closeexcel()
+                Closeexcel()
                 Exit Function
         End Select
         ReDim wt(2)
@@ -248,14 +226,14 @@ Public Class home ''kenan
                 hsg = 60
             Case Else
                 RichTextBox1.Text = "未找到参数"
-                closeexcel()
+                Closeexcel()
                 Exit Function
         End Select
         I = 0
         For Each sh In xlSheet.Range(xlSheet.Cells(1, 1), xlSheet.Cells(114, 49))
             If sh.row = 114 Then
                 RichTextBox1.Text = "未找到参数"
-                closeexcel()
+                Closeexcel()
                 Exit For
             Else
                 If IsNumeric(sh.value) Then
@@ -266,6 +244,8 @@ Public Class home ''kenan
                             "筒内径：" & wt（1） & vbCrLf &
                             "活塞直径：" & hs & vbCrLf &
                             "活塞杆直径：" & hsg
+                        Closeexcel()
+                        GC.Collect()
                         Exit For
                     End If
                 End If
@@ -280,7 +260,7 @@ Public Class home ''kenan
             xlapp = Nothing
         End If
     End Function
-    Public Function Createwaitong()
+    Public Function Createwaitong() ''外筒（完成）
         ''创建进程可视化
         swapp = CreateObject("Sldworks.Application")
         'swapp.CloseAllDocuments(True)
@@ -337,7 +317,7 @@ Public Class home ''kenan
         feature.ModifyDefinition(swWzdHole, part, Nothing)
         part.ShowNamedView2("", 7)
         part.EditRebuild3()
-    End Function ''外筒（完成）
+    End Function
     Public Function Createcylinderhead() ''端盖（完成）
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
