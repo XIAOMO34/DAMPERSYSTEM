@@ -329,6 +329,10 @@ Public Class partsub
         'End If
         Me.WindowState = 0
     End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
 End Class
 '注释段
 '移动窗口代码
