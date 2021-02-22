@@ -22,6 +22,9 @@ Public Class home
     Dim feature As Feature ''拉伸特征
     Dim scale As Double ''缩放比例
     Dim Parachaval As Double ''过程参数
+    Dim swWzdHole As WizardHoleFeatureData2
+    Dim TEMP As Double '临时数据
+    Dim ASSEM As AssemblyDoc
     'Dim mysqlconnect As MySqlConnection ''定义mysql连接
     'Dim mycommand As MySqlCommand ''定义mysql命令
     'Dim reader As MySqlDataReader ''定义数据流
@@ -46,6 +49,15 @@ Public Class home
         Me.Hide()
         partsub.parttype = 2
         partsub.Show()
+        partsub.PictureBox1.Load("D:\POST-GRA\研究生大论文\论文素材\图片\活塞杆工程图.png")
+        partsub.Label7.Text = "活塞杆参数表"
+        partsub.Label1.Text = "hsg(0)"
+        partsub.Label2.Text = "hsg(1)"
+        partsub.Label3.Text = "hsg(2)"
+        partsub.Label4.Text = "hsg(3)"
+        partsub.Label5.Text = "hsg(4)"
+        partsub.Label6.Text = "hsg(5)"
+        partsub.Button4.Text = "生成活塞杆"
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -54,6 +66,15 @@ Public Class home
         Me.Hide()
         partsub.parttype = 3
         partsub.Show()
+        partsub.PictureBox1.Load("D:\POST-GRA\研究生大论文\论文素材\图片\活塞工程图.png")
+        partsub.Label7.Text = "活塞参数表"
+        partsub.Label1.Text = "hs(0)"
+        partsub.Label2.Text = "hs(1)"
+        partsub.Label3.Text = "hs(2)"
+        partsub.Label4.Text = "hs(3)"
+        partsub.Label5.Text = "hs(4)"
+        partsub.Label6.Text = "hs(5)"
+        partsub.Button4.Text = "生成活塞"
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
@@ -165,19 +186,21 @@ Public Class home
         hs = hs / 1000
         hsg = hsg / 1000
         Createwaitong()
-        'createcylinderhead()
-        'createspacerpiece()
-        'Createrod()
-        'createrodbearing()
-        'createpiston()
-        'createthreadedflange()
-        'createexrod()
-        'createextube()
-        'Createcapeex()
-        'Createsocconrodend()
-        'Createterend()
-        'Createreaear()
-        'Createothers()
+        'Createwaitong2()
+        Createspacerpiece()
+        Createrod()
+        Createrodbearing()
+        Createcylinderhead()
+        Createpiston()
+        Createthreadedflange()
+        Createexrod()
+        Createextube()
+        Createcapeex()
+        Createsocconrodend()
+        Createterend()
+        Createreaear()
+        Createothers()
+        OPENSLDASM()
     End Sub
     Public Function Excel()
         xlapp = CreateObject("Excel.Application")  ''创建EXCEL对象
@@ -260,8 +283,33 @@ Public Class home
             xlapp = Nothing
         End If
     End Function
-    Public Function Createwaitong() ''外筒（完成）
+    Public Function Createwaitong()
+        swapp = CreateObject("Sldworks.Application")
+        'swapp.CloseAllDocuments(True)
+
+        ''创建新零件
+        part = swapp.NewDocument("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cylinder tube.SLDPRT", 0, 0, 0)
+        part = swapp.ActiveDoc
+        swapp.Visible = True
+        part.Parameter("D1@Sketch1").systemvalue = wt(1)
+        part.Parameter("D2@Sketch1").systemvalue = wt(0)
+        part.Parameter("D1@Sketch2").systemvalue = (83.4 / 160 * wt(1))
+        part.Parameter("D4@Sketch2").systemvalue = (85.25 / 160 * wt(1))
+        Dim REFPLKANE As RefPlaneFeatureData
+        part.Extension.SelectByID2("Plane2", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
+        feature = part.SelectionManager.GetSelectedObject5(1)
+        REFPLKANE = feature.GetDefinition
+        REFPLKANE.Distance = wt(0) / 2
+        feature.ModifyDefinition(REFPLKANE, part, Nothing)
+        part.EditRebuild3()
+        part.EditRebuild3()
+    End Function
+
+    Public Function Createwaitong2() ''外筒（完成）
         ''创建进程可视化
+        wt(0) = 110 / 1000
+        wt(1) = 80 / 1000
+        wt(2) = 400 / 1000
         swapp = CreateObject("Sldworks.Application")
         'swapp.CloseAllDocuments(True)
 
@@ -296,7 +344,7 @@ Public Class home
         part.ShowNamedView2("", 7)
         part.Extension.SelectByID2("右视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
         part.FeatureManager.InsertRefPlane(8, wt(0) / 2, 0, 0, 0, 0)
-        Dim swWzdHole As WizardHoleFeatureData2
+
         swWzdHole = part.FeatureManager.CreateDefinition(SwConst.swFeatureNameID_e.swFmHoleWzd)
         part.Extension.SelectByID2("", "FACE", wt(0) / 2, 0, wt(2) / 4, False, 0, Nothing, 0)
         part.FeatureManager.HoleWizard5(4, 1, 42, "M10x1.0", 2, 0.009, 0.02, 0.02, 0, 0, 0, 0, 0, 0, 2, 0,
@@ -318,27 +366,7 @@ Public Class home
         part.ShowNamedView2("", 7)
         part.EditRebuild3()
     End Function
-    Public Function Createcylinderhead() ''端盖（完成）
-        swapp = CreateObject("Sldworks.Application")
-        swapp.Visible = True
-        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cylinider head.SLDPRT",
-                              1, 0, "", 0, 0)
-        ''主动尺寸
-        Parachaval = part.Parameter("D7@Sketch1").SYSTEMVALUE - hsg / 2
-        part.Parameter("D7@Sketch1").SYSTEMVALUE = hsg / 2 ''活塞杆直径
-        part.Parameter("D28@Sketch1").SYSTEMVALUE = wt(1) / 2 ''内筒内径
-        part.Parameter("D29@Sketch1").SYSTEMVALUE = wt(1) / 2 ''内筒内径
-        ''随动尺寸
-        part.Parameter("D6@Sketch1").SYSTEMVALUE = part.Parameter("D6@Sketch1").SYSTEMVALUE - Parachaval
-        part.Parameter("D10@Sketch1").SYSTEMVALUE = part.Parameter("D10@Sketch1").SYSTEMVALUE - Parachaval
-        part.Parameter("D9@Sketch1").SYSTEMVALUE = part.Parameter("D9@Sketch1").SYSTEMVALUE - Parachaval
-        part.Parameter("D25@Sketch1").SYSTEMVALUE = part.Parameter("D25@Sketch1").SYSTEMVALUE - Parachaval
-        part.Parameter("D13@Sketch1").SYSTEMVALUE = part.Parameter("D13@Sketch1").SYSTEMVALUE - Parachaval
-        part.Parameter("D11@Sketch1").SYSTEMVALUE = part.Parameter("D11@Sketch1").SYSTEMVALUE - Parachaval
-        ''孔尺寸随动
-        part.Parameter("D2@Sketch6").SYSTEMVALUE = part.Parameter("D2@Sketch6").SYSTEMVALUE - Parachaval
-        part.EditRebuild3()
-    End Function
+
     Public Function Createspacerpiece() ''垫片（完成）
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
@@ -371,7 +399,7 @@ Public Class home
         part.Parameter("D4@Sketch1").systemvalue = part.Parameter("D4@Sketch1").systemvalue - Parachaval
         part.EditRebuild3()
     End Function
-    Public Function Createrodbearing() ''连杆轴承(内圈D-35是活塞杆直径，螺纹是端盖内螺纹)
+    Public Function Createrodbearing() ''连杆轴承(内圈D-35是活塞杆直径，螺纹是端盖内螺纹)厚度为活塞杆到外筒内径距离1/4
         swapp = CreateObject("Sldworks.Application")
         swapp.Visible = True
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Rod bearing.SLDPRT",
@@ -387,7 +415,35 @@ Public Class home
         part.Parameter("D12@Sketch1").systemvalue = part.Parameter("D12@Sketch1").systemvalue - Parachaval
         part.Parameter("D2@Sketch1").systemvalue = part.Parameter("D2@Sketch1").systemvalue - Parachaval
         part.Parameter("D4@Sketch1").systemvalue = part.Parameter("D4@Sketch1").systemvalue - Parachaval
-        part.Parameter("D3@Sketch1").systemvalue = part.Parameter("D3@Sketch1").systemvalue - Parachaval
+        'part.Parameter("D3@Sketch1").systemvalue = part.Parameter("D3@Sketch1").systemvalue - Parachaval
+        part.Parameter("D3@Sketch1").systemvalue = part.Parameter("D27@Sketch1").systemvalue + (wt(1) - hsg) / 8
+        TEMP = part.Parameter("D3@Sketch1").systemvalue
+        part.EditRebuild3()
+    End Function
+    Public Function Createcylinderhead() ''端盖（完成）
+        swapp = CreateObject("Sldworks.Application")
+        swapp.Visible = True
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Cylinider head.SLDPRT",
+                              1, 0, "", 0, 0)
+        ''主动尺寸
+        Parachaval = part.Parameter("D7@Sketch1").SYSTEMVALUE - hsg / 2
+        part.Parameter("D7@Sketch1").SYSTEMVALUE = hsg / 2 ''活塞杆直径
+        part.Parameter("D28@Sketch1").SYSTEMVALUE = wt(1) / 2 ''内筒内径
+        part.Parameter("D29@Sketch1").SYSTEMVALUE = wt(1) / 2 ''内筒内径
+        ''随动尺寸
+        'part.Parameter("D10@Sketch1").SYSTEMVALUE = part.Parameter("D10@Sketch1").SYSTEMVALUE - Parachaval
+        'part.Parameter("D6@Sketch1").SYSTEMVALUE = part.Parameter("D6@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D10@Sketch1").SYSTEMVALUE = TEMP
+        part.Parameter("D6@Sketch1").SYSTEMVALUE = part.Parameter("D10@Sketch1").SYSTEMVALUE + (wt(1) - hsg) / 4
+        TEMP = part.Parameter("D6@Sketch1").SYSTEMVALUE
+        part.Parameter("D9@Sketch1").SYSTEMVALUE = part.Parameter("D9@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D25@Sketch1").SYSTEMVALUE = part.Parameter("D25@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D13@Sketch1").SYSTEMVALUE = part.Parameter("D13@Sketch1").SYSTEMVALUE - Parachaval - 0.002
+        part.Parameter("D11@Sketch1").SYSTEMVALUE = part.Parameter("D11@Sketch1").SYSTEMVALUE - Parachaval
+        ''孔尺寸随动
+        part.Parameter("D2@Sketch6").SYSTEMVALUE = (part.Parameter("D10@Sketch1").SYSTEMVALUE +
+        part.Parameter("D6@Sketch1").SYSTEMVALUE) / 2
+
         part.EditRebuild3()
     End Function
     Public Function Createpiston() ''活塞
@@ -409,8 +465,9 @@ Public Class home
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\Threaded flange.SLDPRT",
                               1, 0, "", 0, 0)
         Parachaval = part.Parameter("D1@Sketch1").systemvalue - (70 / 1000 + hsg) ''cylinderhead.(d6-(d7-hsg/2))
-        part.Parameter("D1@Sketch1").systemvalue = part.Parameter("D1@Sketch1").systemvalue - Parachaval
-        part.Parameter("D2@Sketch1").systemvalue = part.Parameter("D1@Sketch1").systemvalue + 30 / 1000
+        'part.Parameter("D1@Sketch1").systemvalue = part.Parameter("D1@Sketch1").systemvalue - Parachaval
+        part.Parameter("D1@Sketch1").systemvalue = TEMP * 2
+        part.Parameter("D2@Sketch1").systemvalue = part.Parameter("D1@Sketch1").systemvalue + (wt(1) - hsg) / 2
         part.Parameter("D2@Sketch3").systemvalue = part.Parameter("D2@Sketch3").systemvalue - Parachaval / 2
         part.Extension.SelectByID2("Cosmetic Thread1", "CTHREAD", 0, 0, 0, False, 0, Nothing, 0)
         ''指定数据类型
@@ -423,6 +480,8 @@ Public Class home
         thread.Diameter = thread.Diameter - Parachaval
         ''修改特征
         feature.ModifyDefinition(thread, part, Nothing)
+        part.Parameter("D2@Sketch3").value = (part.Parameter("D1@Sketch1").value +
+            part.Parameter("D2@Sketch1").value) / 4
         part.EditRebuild3()
     End Function
     Public Function Createexrod()
@@ -443,18 +502,18 @@ Public Class home
                               1, 0, "", 0, 0)
         ''EXTENSION TUBE.D1=CYLINDERHEAD.D6=70-(35-HSG/2)
         Parachaval = part.Parameter("D1@Sketch1").SYSTEMVALUE - (70 / 1000 - (35 / 1000 - hsg / 2))
-        part.Parameter("D1@Sketch1").SYSTEMVALUE = (70 / 1000 - (35 / 1000 - hsg / 2))
-        part.Parameter("D2@Sketch1").SYSTEMVALUE = part.Parameter("D2@Sketch1").SYSTEMVALUE - Parachaval
-        part.Parameter("D9@Sketch1").SYSTEMVALUE = part.Parameter("D9@Sketch1").SYSTEMVALUE - Parachaval
+        part.Parameter("D2@Sketch1").SYSTEMVALUE = wt(1) / 2 + 0.01
+        part.Parameter("D1@Sketch1").SYSTEMVALUE = part.Parameter("D2@Sketch1").SYSTEMVALUE - 0.01
+        part.Parameter("D9@Sketch1").SYSTEMVALUE = part.Parameter("D2@Sketch1").SYSTEMVALUE + 0.002
         part.Extension.SelectByID2("Cosmetic Thread1", "CTHREAD", 0, 0, 0, False, 0, Nothing, 0)
-        ''指定数据类型
+        '指定数据类型
         Dim thread As CosmeticThreadFeatureData
         ''获取特征
         feature = part.SelectionManager.GetSelectedObject5(1)
         ''获取特征定义
         thread = feature.GetDefinition
         ''修改特征定义
-        thread.Diameter = thread.Diameter - Parachaval * 2
+        thread.Diameter = wt(1)
         ''修改特征
         feature.ModifyDefinition(thread, part, Nothing)
         part.EditRebuild3()
@@ -499,6 +558,9 @@ Public Class home
                               1, 0, "", 0, 0)
         part.Parameter("D1@Sketch1").SYSTEMVALUE = 100 / 1000
         part.Parameter("D3@Sketch1").SYSTEMVALUE = 50 / 1000
+        part.Extension.SelectByID2("Chamfer3", "SOLIDBODY", 0.115, 0.1, 0.0465, False, 1, Nothing, 0)
+        part.FeatureManager.InsertMoveCopyBody2(25 / 1000, 0, 0, 0,
+                                                0.075, 0.0949978810370884, 0.025, 0, 0, 0, False, 1)
         part.EditRebuild3()
     End Function
     Public Function Createothers() ''密封件采用缩放形式
@@ -568,9 +630,13 @@ Public Class home
         part.FeatureManager.InsertScale(0, True, scale, scale, scale)
         '''''''''''''''''''''''''''''''''''''''''''''''
         ''''RL16N0700-Z20 (010)
-        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\RL16N0700-Z20 (010)",
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\RL16N0700-Z20 (010).sldprt",
 1, 0, "", 0, 0)
         scale = hsg / 2 / 35 * 1000
         part.FeatureManager.InsertScale(0, True, scale, scale, scale)
+    End Function
+    Public Function OPENSLDASM()
+        part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\SA500.SLDASM",
+2, 0, "", 0, 0)
     End Function
 End Class

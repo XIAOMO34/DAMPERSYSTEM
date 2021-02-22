@@ -296,7 +296,7 @@ Public Class partsub
         Select Case parttype''零件类型
             Case 1
                 'Createduantou()
-                home.Createwaitong()
+                home.Createwaitong2()
             Case 2
                 'createwaitong()
                 home.Createrod()
@@ -318,7 +318,7 @@ Public Class partsub
         Select Case parttype''零件类型
             Case 1
                 'Createduantou()
-                home.Createwaitong()
+                home.Createwaitong2()
             Case 2
                 'createwaitong()
                 home.Createrod()
