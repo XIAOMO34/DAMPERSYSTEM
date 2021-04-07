@@ -26,25 +26,25 @@ Partial Class home
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button16 = New System.Windows.Forms.Button()
         Me.Button15 = New System.Windows.Forms.Button()
-        Me.Button14 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
-        Me.Button12 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.assemblepanel = New System.Windows.Forms.Panel()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.morepanel = New System.Windows.Forms.Panel()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.setdamper = New System.Windows.Forms.Panel()
-        Me.Button17 = New System.Windows.Forms.Button()
-        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.drawingpanel = New System.Windows.Forms.Panel()
         Me.PictureBox12 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.partpanel = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -60,14 +60,10 @@ Partial Class home
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
-        Me.assemblepanel.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.morepanel.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.setdamper.SuspendLayout()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.drawingpanel.SuspendLayout()
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,9 +79,7 @@ Partial Class home
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Button16)
         Me.Panel1.Controls.Add(Me.Button15)
-        Me.Panel1.Controls.Add(Me.Button14)
         Me.Panel1.Controls.Add(Me.Button13)
-        Me.Panel1.Controls.Add(Me.Button12)
         Me.Panel1.Controls.Add(Me.Button11)
         Me.Panel1.Controls.Add(Me.Button10)
         Me.Panel1.Controls.Add(Me.Button9)
@@ -98,119 +92,80 @@ Partial Class home
         '
         'Button16
         '
-        Me.Button16.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.Button16.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button16.AutoSize = True
+        Me.Button16.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Button16.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button16.FlatAppearance.BorderSize = 0
         Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button16.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button16.Location = New System.Drawing.Point(-1, 77)
+        Me.Button16.Location = New System.Drawing.Point(3, 78)
         Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(150, 30)
+        Me.Button16.Size = New System.Drawing.Size(145, 30)
         Me.Button16.TabIndex = 44
         Me.Button16.Text = "零件生成"
         Me.Button16.UseVisualStyleBackColor = True
         '
         'Button15
         '
-        Me.Button15.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.Button15.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button15.AutoSize = True
+        Me.Button15.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Button15.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button15.FlatAppearance.BorderSize = 0
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button15.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button15.Location = New System.Drawing.Point(-1, 443)
+        Me.Button15.Location = New System.Drawing.Point(3, 442)
         Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(150, 30)
+        Me.Button15.Size = New System.Drawing.Size(145, 30)
         Me.Button15.TabIndex = 48
         Me.Button15.Text = "更多功能"
         Me.Button15.UseVisualStyleBackColor = True
         '
-        'Button14
-        '
-        Me.Button14.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button14.AutoSize = True
-        Me.Button14.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button14.FlatAppearance.BorderSize = 0
-        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button14.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button14.Location = New System.Drawing.Point(-1, 382)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(150, 30)
-        Me.Button14.TabIndex = 47
-        Me.Button14.Text = "清理内存"
-        Me.Button14.UseVisualStyleBackColor = True
-        '
         'Button13
         '
-        Me.Button13.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.Button13.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button13.AutoSize = True
+        Me.Button13.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Button13.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button13.FlatAppearance.BorderSize = 0
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button13.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button13.Location = New System.Drawing.Point(-1, 321)
+        Me.Button13.Location = New System.Drawing.Point(3, 351)
         Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(150, 30)
+        Me.Button13.Size = New System.Drawing.Size(145, 30)
         Me.Button13.TabIndex = 46
         Me.Button13.Text = "阻尼器布置"
         Me.Button13.UseVisualStyleBackColor = True
         '
-        'Button12
-        '
-        Me.Button12.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button12.AutoSize = True
-        Me.Button12.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button12.FlatAppearance.BorderSize = 0
-        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button12.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button12.Location = New System.Drawing.Point(-1, 260)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(150, 30)
-        Me.Button12.TabIndex = 45
-        Me.Button12.Text = "有限元计算"
-        Me.Button12.UseVisualStyleBackColor = True
-        '
         'Button11
         '
-        Me.Button11.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.Button11.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button11.AutoSize = True
+        Me.Button11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Button11.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button11.FlatAppearance.BorderSize = 0
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button11.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button11.Location = New System.Drawing.Point(-1, 199)
+        Me.Button11.Location = New System.Drawing.Point(3, 260)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(150, 30)
+        Me.Button11.Size = New System.Drawing.Size(145, 30)
         Me.Button11.TabIndex = 44
         Me.Button11.Text = "工程图生成"
         Me.Button11.UseVisualStyleBackColor = True
         '
         'Button10
         '
-        Me.Button10.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.Button10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button10.AutoSize = True
+        Me.Button10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Button10.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button10.FlatAppearance.BorderSize = 0
         Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button10.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button10.Location = New System.Drawing.Point(-1, 138)
+        Me.Button10.Location = New System.Drawing.Point(3, 169)
         Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(150, 30)
+        Me.Button10.Size = New System.Drawing.Size(145, 30)
         Me.Button10.TabIndex = 43
         Me.Button10.Text = "自动装配"
         Me.Button10.UseVisualStyleBackColor = True
@@ -227,7 +182,7 @@ Partial Class home
         Me.Button9.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button9.Location = New System.Drawing.Point(360, 54)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(402, 77)
+        Me.Button9.Size = New System.Drawing.Size(822, 77)
         Me.Button9.TabIndex = 42
         Me.Button9.Text = "零件生成"
         Me.Button9.UseVisualStyleBackColor = True
@@ -235,7 +190,7 @@ Partial Class home
         'assemblepanel
         '
         Me.assemblepanel.BackColor = System.Drawing.Color.White
-        Me.assemblepanel.Controls.Add(Me.PictureBox3)
+        Me.assemblepanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.assemblepanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.assemblepanel.ForeColor = System.Drawing.Color.White
         Me.assemblepanel.Location = New System.Drawing.Point(150, 0)
@@ -244,21 +199,10 @@ Partial Class home
         Me.assemblepanel.Size = New System.Drawing.Size(632, 553)
         Me.assemblepanel.TabIndex = 3
         '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(124, 55)
-        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(200, 188)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 0
-        Me.PictureBox3.TabStop = False
-        '
         'morepanel
         '
         Me.morepanel.BackColor = System.Drawing.Color.White
-        Me.morepanel.Controls.Add(Me.PictureBox4)
+        Me.morepanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.morepanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.morepanel.Location = New System.Drawing.Point(150, 0)
         Me.morepanel.Margin = New System.Windows.Forms.Padding(4)
@@ -266,22 +210,14 @@ Partial Class home
         Me.morepanel.Size = New System.Drawing.Size(632, 553)
         Me.morepanel.TabIndex = 4
         '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(124, 55)
-        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(200, 188)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 0
-        Me.PictureBox4.TabStop = False
-        '
         'setdamper
         '
         Me.setdamper.BackColor = System.Drawing.Color.White
-        Me.setdamper.Controls.Add(Me.Button17)
-        Me.setdamper.Controls.Add(Me.PictureBox8)
+        Me.setdamper.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.setdamper.Controls.Add(Me.PictureBox3)
+        Me.setdamper.Controls.Add(Me.PictureBox1)
+        Me.setdamper.Controls.Add(Me.Button8)
+        Me.setdamper.Controls.Add(Me.Button7)
         Me.setdamper.Dock = System.Windows.Forms.DockStyle.Fill
         Me.setdamper.Location = New System.Drawing.Point(150, 0)
         Me.setdamper.Margin = New System.Windows.Forms.Padding(4)
@@ -289,33 +225,64 @@ Partial Class home
         Me.setdamper.Size = New System.Drawing.Size(632, 553)
         Me.setdamper.TabIndex = 5
         '
-        'Button17
+        'PictureBox3
         '
-        Me.Button17.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button17.FlatAppearance.BorderSize = 0
-        Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button17.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button17.Location = New System.Drawing.Point(152, 255)
-        Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(144, 34)
-        Me.Button17.TabIndex = 36
-        Me.Button17.Text = "关闭零件"
-        Me.Button17.UseVisualStyleBackColor = True
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(396, 68)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(102, 102)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 50
+        Me.PictureBox3.TabStop = False
         '
-        'PictureBox8
+        'PictureBox1
         '
-        Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
-        Me.PictureBox8.Location = New System.Drawing.Point(124, 55)
-        Me.PictureBox8.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(200, 188)
-        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox8.TabIndex = 0
-        Me.PictureBox8.TabStop = False
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(80, 68)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(102, 102)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 49
+        Me.PictureBox1.TabStop = False
+        '
+        'Button8
+        '
+        Me.Button8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Button8.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button8.FlatAppearance.BorderSize = 0
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button8.Location = New System.Drawing.Point(373, 190)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(146, 30)
+        Me.Button8.TabIndex = 48
+        Me.Button8.Text = "关闭excel进程"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Button7.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button7.FlatAppearance.BorderSize = 0
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button7.Location = New System.Drawing.Point(21, 190)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(218, 30)
+        Me.Button7.TabIndex = 47
+        Me.Button7.Text = "关闭solidworks进程"
+        Me.Button7.UseVisualStyleBackColor = True
         '
         'drawingpanel
         '
         Me.drawingpanel.BackColor = System.Drawing.Color.White
+        Me.drawingpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.drawingpanel.Controls.Add(Me.PictureBox12)
         Me.drawingpanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.drawingpanel.Location = New System.Drawing.Point(150, 0)
@@ -373,6 +340,7 @@ Partial Class home
         Me.partpanel.AutoScroll = True
         Me.partpanel.BackColor = System.Drawing.Color.White
         Me.partpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.partpanel.Controls.Add(Me.Button4)
         Me.partpanel.Controls.Add(Me.Label6)
         Me.partpanel.Controls.Add(Me.Label5)
         Me.partpanel.Controls.Add(Me.Label4)
@@ -398,6 +366,30 @@ Partial Class home
         Me.partpanel.Name = "partpanel"
         Me.partpanel.Size = New System.Drawing.Size(632, 553)
         Me.partpanel.TabIndex = 2
+        '
+        'Button4
+        '
+        Me.Button4.AutoSize = True
+        Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("宋体", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button4.Location = New System.Drawing.Point(374, 476)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(99, 34)
+        Me.Button4.TabIndex = 47
+        Me.Button4.Text = "活塞"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("黑体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label6.Location = New System.Drawing.Point(454, 52)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(149, 20)
+        Me.Label6.TabIndex = 46
+        Me.Label6.Text = "阻尼力相关零件"
         '
         'Label5
         '
@@ -570,16 +562,6 @@ Partial Class home
         Me.TextBox2.TabIndex = 22
         Me.TextBox2.Text = "0.2"
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("黑体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label6.Location = New System.Drawing.Point(454, 52)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(149, 20)
-        Me.Label6.TabIndex = 46
-        Me.Label6.Text = "阻尼力相关零件"
-        '
         'home
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -588,10 +570,10 @@ Partial Class home
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(782, 553)
         Me.Controls.Add(Me.partpanel)
-        Me.Controls.Add(Me.morepanel)
-        Me.Controls.Add(Me.drawingpanel)
         Me.Controls.Add(Me.setdamper)
+        Me.Controls.Add(Me.morepanel)
         Me.Controls.Add(Me.assemblepanel)
+        Me.Controls.Add(Me.drawingpanel)
         Me.Controls.Add(Me.Panel1)
         Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -603,12 +585,9 @@ Partial Class home
         Me.TransparencyKey = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.assemblepanel.ResumeLayout(False)
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.morepanel.ResumeLayout(False)
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.setdamper.ResumeLayout(False)
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.drawingpanel.ResumeLayout(False)
         CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -622,11 +601,8 @@ Partial Class home
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents assemblepanel As Panel
-    Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents morepanel As Panel
-    Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents setdamper As Panel
-    Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents drawingpanel As Panel
     Friend WithEvents PictureBox12 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
@@ -647,15 +623,17 @@ Partial Class home
     Friend WithEvents Button9 As Button
     Friend WithEvents Button10 As Button
     Friend WithEvents Button11 As Button
-    Friend WithEvents Button12 As Button
     Friend WithEvents Button13 As Button
-    Friend WithEvents Button14 As Button
     Friend WithEvents Button15 As Button
     Friend WithEvents Button16 As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Button17 As Button
     Friend WithEvents Label6 As Label
+    Friend WithEvents Button4 As Button
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Button7 As Button
 End Class

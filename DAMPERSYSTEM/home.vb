@@ -25,6 +25,8 @@ Public Class home
     Dim swWzdHole As WizardHoleFeatureData2
     Dim TEMP As Double '临时数据
     Dim ASSEM As AssemblyDoc
+    Dim thread As CosmeticThreadFeatureData
+    Dim p As Double ''压强计算值
     'Dim mysqlconnect As MySqlConnection ''定义mysql连接
     'Dim mycommand As MySqlCommand ''定义mysql命令
     'Dim reader As MySqlDataReader ''定义数据流
@@ -101,7 +103,7 @@ Public Class home
         drawingpanel.Visible = True
     End Sub
 
-    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+    Private Sub Button12_Click(sender As Object, e As EventArgs)
         setdamper.Visible = False
         assemblepanel.Visible = False
         partpanel.Visible = False
@@ -118,7 +120,7 @@ Public Class home
         drawingpanel.Visible = False
     End Sub
 
-    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+    Private Sub Button14_Click(sender As Object, e As EventArgs)
         For Each myprocess As Process In Process.GetProcesses
             If InStr(myprocess.ProcessName, "SLDWORKS") Then
                 myprocess.Kill()
@@ -146,7 +148,7 @@ Public Class home
         drawingpanel.Visible = False
     End Sub
 
-    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
+    Private Sub Button17_Click(sender As Object, e As EventArgs)
         Dim matlab As Object
         Dim result As String
         matlab = CreateObject("matlab.application")
@@ -180,6 +182,8 @@ Public Class home
         'wt(2) = 160 / 1000 '长度
         'hs = 78.12 / 1000 '活塞直径
         'hsg = 30 / 1000 ''活塞杆直径(接拉头螺纹直径20-25mm)
+    End Sub
+    Public Function CreateModel()
         wt(0) = wt(0) / 1000
         wt(1) = wt(1) / 1000
         wt(2) = 400 / 1000
@@ -201,8 +205,10 @@ Public Class home
         Createreaear()
         Createothers()
         OPENSLDASM()
-    End Sub
+    End Function
     Public Function Excel()
+        ''计算压强
+
         xlapp = CreateObject("Excel.Application")  ''创建EXCEL对象
         xlBook = xlapp.Workbooks.Open("D:\POST-GRA\研究生大论文\零件库\筒式-间隙-层间用-设计参数阵.xlsx")
         ''打开已经存在的EXCEL工件簿文件
@@ -217,6 +223,7 @@ Public Class home
             Case Else
                 RichTextBox1.Text = "未找到参数"
                 Closeexcel()
+                End
                 Exit Function
         End Select
         ReDim wt(2)
@@ -267,6 +274,7 @@ Public Class home
                             "筒内径：" & wt（1） & vbCrLf &
                             "活塞直径：" & hs & vbCrLf &
                             "活塞杆直径：" & hsg
+                        CreateModel()
                         Closeexcel()
                         GC.Collect()
                         Exit For
@@ -311,8 +319,6 @@ Public Class home
         wt(1) = 80 / 1000
         wt(2) = 400 / 1000
         swapp = CreateObject("Sldworks.Application")
-        'swapp.CloseAllDocuments(True)
-
         ''创建新零件
         part = swapp.NewDocument("C:\ProgramData\SOLIDWORKS\SOLIDWORKS 2018\templates\gb_part.prtdot", 0, 0, 0)
         part = swapp.ActiveDoc
@@ -325,17 +331,18 @@ Public Class home
         part.SketchManager.CreateCircle(0#, 0#, 0#, wt(1) / 2, 0, 0#)
         part.FeatureManager.FeatureExtrusion3(True, True, False, 0, 0,
                                                 wt（2） / 2, 0, False, False, False,
-                                                False, 0, 0, True, True,
-                                                False, False, True, False, False,
-                                                0, 0, 0)
+                                                False, 0, 0, True, True, False, False,
+                                                True, False, False, 0, 0, 0)
         part.ClearSelection2(True)
-        part.Extension.SelectByID2("", "FACE", (wt(0) + wt(1)) / 4, 0, wt(2) / 2, False, 0, Nothing, 0)
+        part.Extension.SelectByID2("", "FACE", (wt(0) + wt(1)) / 4, 0,
+                                   wt(2) / 2, False, 0, Nothing, 0)
         part.SketchManager.InsertSketch(True)
         part.SketchManager.CreateCircle(0, 0, wt（2) / 2, (wt(0) + wt(1)) / 4, 0, wt（2) / 2)
-        part.FeatureManager.FeatureCut4(True, False, False, 0, 0, 0.01, 0.01, False,
-                                        False, False, False, 0, 0,
-                                        False, False, False, False, False, True, True, True, True, False,
-                                         0, 0, False, False)
+        part.FeatureManager.FeatureCut4(True, False, False, 0, 0, 0.01, 0.01,
+                                        False, False, False, False, 0, 0,
+                                        False, False, False, False, False,
+                                        True, True, True, True, False,
+                                        0, 0, False, False)
         part.ShowNamedView2("*前视", 1)
         part.Extension.SelectByID2("", "", (wt(0) + wt(1)) / 4, 0, wt(2) / 2, False, 0, Nothing, 0)
         part.FeatureManager.InsertCosmeticThread2(1, (wt(0) + wt(1)) / 2, 0, "140")
@@ -344,11 +351,10 @@ Public Class home
         part.ShowNamedView2("", 7)
         part.Extension.SelectByID2("右视基准面", "PLANE", 0, 0, 0, False, 0, Nothing, 0)
         part.FeatureManager.InsertRefPlane(8, wt(0) / 2, 0, 0, 0, 0)
-
         swWzdHole = part.FeatureManager.CreateDefinition(SwConst.swFeatureNameID_e.swFmHoleWzd)
         part.Extension.SelectByID2("", "FACE", wt(0) / 2, 0, wt(2) / 4, False, 0, Nothing, 0)
-        part.FeatureManager.HoleWizard5(4, 1, 42, "M10x1.0", 2, 0.009, 0.02, 0.02, 0, 0, 0, 0, 0, 0, 2, 0,
-                                        0, -1, -1, -1, "", False, True, True, True, True, False)
+        part.FeatureManager.HoleWizard5(4, 1, 42, "M10x1.0", 2, 0.009, 0.02, 0.02, 0, 0, 0, 0, 0, 0,
+                                         2, 0, 0, -1, -1, -1, "", False, True, True, True, True, False)
         part.Extension.SelectByID2("凸台-拉伸1", "BODYFEATURE", 0, 0, 0, False, 1, Nothing, 0) ''1是镜像特征
         part.Extension.SelectByID2("M10x1.0 螺纹孔1", "BODYFEATURE", 0, 0, 0, True, 1, Nothing, 0)
         part.Extension.SelectByID2("切除-拉伸1"， "BODYFEATURE", 0, 0, 0, True, 1, Nothing, 0)
@@ -418,6 +424,17 @@ Public Class home
         'part.Parameter("D3@Sketch1").systemvalue = part.Parameter("D3@Sketch1").systemvalue - Parachaval
         part.Parameter("D3@Sketch1").systemvalue = part.Parameter("D27@Sketch1").systemvalue + (wt(1) - hsg) / 8
         TEMP = part.Parameter("D3@Sketch1").systemvalue
+        part.Extension.SelectByID2("Cosmetic Thread4", "CTHREAD", 0, 0, 0, False, 0, Nothing, 0)
+        ''指定数据类型
+
+        ''获取特征
+        feature = part.SelectionManager.GetSelectedObject5(1)
+        ''获取特征定义
+        thread = feature.GetDefinition
+        ''修改特征定义
+        thread.Diameter = part.Parameter("D4@Sketch1").systemvalue
+        ''修改特征
+        feature.ModifyDefinition(thread, part, Nothing)
         part.EditRebuild3()
     End Function
     Public Function Createcylinderhead() ''端盖（完成）
@@ -471,17 +488,18 @@ Public Class home
         part.Parameter("D2@Sketch3").systemvalue = part.Parameter("D2@Sketch3").systemvalue - Parachaval / 2
         part.Extension.SelectByID2("Cosmetic Thread1", "CTHREAD", 0, 0, 0, False, 0, Nothing, 0)
         ''指定数据类型
-        Dim thread As CosmeticThreadFeatureData
+
         ''获取特征
         feature = part.SelectionManager.GetSelectedObject5(1)
         ''获取特征定义
         thread = feature.GetDefinition
         ''修改特征定义
-        thread.Diameter = thread.Diameter - Parachaval
+        thread.Diameter = part.Parameter("D2@Sketch1").systemvalue
         ''修改特征
         feature.ModifyDefinition(thread, part, Nothing)
         part.Parameter("D2@Sketch3").value = (part.Parameter("D1@Sketch1").value +
             part.Parameter("D2@Sketch1").value) / 4
+
         part.EditRebuild3()
     End Function
     Public Function Createexrod()
@@ -639,4 +657,34 @@ Public Class home
         part = swapp.OpenDoc6("D:\POST-GRA\研究生大论文\零件库\500KN液压抗震阻尼器\SA500.SLDASM",
 2, 0, "", 0, 0)
     End Function
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        For Each myprocess As Process In Process.GetProcesses
+            If InStr(myprocess.ProcessName, "SLDWORKS") Then
+                myprocess.Kill()
+            End If
+        Next
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Dim p As Process() = Process.GetProcessesByName("EXCEL")
+        For Each pr As Process In p
+            pr.Kill()
+        Next
+    End Sub
 End Class
+''  Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+'For Each myprocess As Process In Process.GetProcesses
+'If InStr(myprocess.ProcessName, "SLDWORKS") Then
+'myprocess.Kill()
+'End If
+'Next
+'Dim p As Process() = Process.GetProcessesByName("EXCEL")
+'For Each pr As Process In p
+'pr.Kill()
+'Next
+'End Sub
