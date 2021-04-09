@@ -37,7 +37,7 @@ Public Class home
         swapp.CloseDoc(parttitle)
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
         partsub.Text = "外筒生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\装配体外筒.png")
         Me.Hide()
@@ -45,7 +45,7 @@ Public Class home
         partsub.Show()
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs)
         partsub.Text = "活塞杆生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\装配体活塞杆.png")
         Me.Hide()
@@ -62,7 +62,7 @@ Public Class home
         partsub.Button4.Text = "生成活塞杆"
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs)
         partsub.Text = "活塞生成子程序"
         partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\装配体活塞.png")
         Me.Hide()
@@ -80,24 +80,24 @@ Public Class home
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        partpanel.Visible = True
-        assemblepanel.Visible = False
+        assmblepanel.Visible = True
+        partpanel.Visible = False
         morepanel.Visible = False
         setdamper.Visible = False
         drawingpanel.Visible = False
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-        partpanel.Visible = False
-        assemblepanel.Visible = True
+        assmblepanel.Visible = False
+        partpanel.Visible = True
         morepanel.Visible = False
         setdamper.Visible = False
         drawingpanel.Visible = False
     End Sub
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        assemblepanel.Visible = False
         partpanel.Visible = False
+        assmblepanel.Visible = False
         morepanel.Visible = False
         setdamper.Visible = False
         drawingpanel.Visible = True
@@ -105,16 +105,16 @@ Public Class home
 
     Private Sub Button12_Click(sender As Object, e As EventArgs)
         setdamper.Visible = False
-        assemblepanel.Visible = False
         partpanel.Visible = False
+        assmblepanel.Visible = False
         morepanel.Visible = False
         setdamper.Visible = False
         drawingpanel.Visible = False
     End Sub
 
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
-        assemblepanel.Visible = False
         partpanel.Visible = False
+        assmblepanel.Visible = False
         morepanel.Visible = False
         setdamper.Visible = True
         drawingpanel.Visible = False
@@ -133,16 +133,16 @@ Public Class home
     End Sub
 
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+        assmblepanel.Visible = False
         partpanel.Visible = False
-        assemblepanel.Visible = False
         morepanel.Visible = True
         setdamper.Visible = False
         drawingpanel.Visible = False
     End Sub
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
-        partpanel.Visible = True
-        assemblepanel.Visible = False
+        assmblepanel.Visible = True
+        partpanel.Visible = False
         morepanel.Visible = False
         setdamper.Visible = False
         drawingpanel.Visible = False
@@ -658,7 +658,7 @@ Public Class home
 2, 0, "", 0, 0)
     End Function
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -675,6 +675,52 @@ Public Class home
         For Each pr As Process In p
             pr.Kill()
         Next
+    End Sub
+
+    Private Sub assemblepanel_Paint(sender As Object, e As PaintEventArgs) Handles partpanel.Paint
+
+    End Sub
+
+    Private Sub Button14_Click_1(sender As Object, e As EventArgs) Handles Button14.Click
+        partsub.Text = "外筒生成子程序"
+        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\装配体外筒.png")
+        Me.Hide()
+        partsub.parttype = 1
+        partsub.Show()
+    End Sub
+
+    Private Sub Button12_Click_1(sender As Object, e As EventArgs) Handles Button12.Click
+        partsub.Text = "活塞杆生成子程序"
+        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\装配体活塞杆.png")
+        Me.Hide()
+        partsub.parttype = 2
+        partsub.Show()
+        partsub.PictureBox1.Load("D:\POST-GRA\研究生大论文\论文素材\图片\活塞杆工程图.png")
+        partsub.Label7.Text = "活塞杆参数表"
+        partsub.Label1.Text = "hsg(0)"
+        partsub.Label2.Text = "hsg(1)"
+        partsub.Label3.Text = "hsg(2)"
+        partsub.Label4.Text = "hsg(3)"
+        partsub.Label5.Text = "hsg(4)"
+        partsub.Label6.Text = "hsg(5)"
+        partsub.Button4.Text = "生成活塞杆"
+    End Sub
+
+    Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles Button4.Click
+        partsub.Text = "活塞生成子程序"
+        partsub.PictureBox3.Load("D:\POST-GRA\研究生大论文\论文素材\图片\装配体活塞.png")
+        Me.Hide()
+        partsub.parttype = 3
+        partsub.Show()
+        partsub.PictureBox1.Load("D:\POST-GRA\研究生大论文\论文素材\图片\活塞工程图.png")
+        partsub.Label7.Text = "活塞参数表"
+        partsub.Label1.Text = "hs(0)"
+        partsub.Label2.Text = "hs(1)"
+        partsub.Label3.Text = "hs(2)"
+        partsub.Label4.Text = "hs(3)"
+        partsub.Label5.Text = "hs(4)"
+        partsub.Label6.Text = "hs(5)"
+        partsub.Button4.Text = "生成活塞"
     End Sub
 End Class
 ''  Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
